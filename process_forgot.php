@@ -3,6 +3,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -13,36 +14,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // 1. Yeni şifrə təyini (Token vasitəsilə)
     if (isset($_POST['token']) && isset($_POST['password'])) {
-        $token = $conn->real_escape_string($_POST['token']);
+        $token = trim($_POST['token']);
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'] ?? '';
 
         if ($password !== $confirm_password) {
-            header("Location: reset_password?token=$token&status=error");
+            header("Location: reset_password?token=" . urlencode($token) . "&status=error");
             exit();
         }
 
-        $sql = "SELECT email FROM password_resets WHERE token = '$token' LIMIT 1";
-        $result = $conn->query($sql);
+        $stmt = $conn->prepare("SELECT email FROM password_resets WHERE token = ? LIMIT 1");
+        $stmt->bind_param("s", $token);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result && $result->num_rows == 1) {
             $row = $result->fetch_assoc();
             $email = $row['email'];
+            $stmt->close();
 
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-            $update_sql = "UPDATE users SET password = '$hashed_password' WHERE email = '$email'";
+            $update_stmt = $conn->prepare("UPDATE users SET password = ? WHERE email = ?");
+            $update_stmt->bind_param("ss", $hashed_password, $email);
             
-            if ($conn->query($update_sql) === TRUE) {
-                $conn->query("DELETE FROM password_resets WHERE email = '$email'");
+            if ($update_stmt->execute()) {
+                $update_stmt->close();
+                
+                $del_stmt = $conn->prepare("DELETE FROM password_resets WHERE email = ?");
+                $del_stmt->bind_param("s", $email);
+                $del_stmt->execute();
+                $del_stmt->close();
+
                 // Şifrə yenilənəndən sonra birbaşa login səhifəsinə yönləndirir
                 header("Location: login?status=password_reset_success");
                 exit();
             } else {
-                header("Location: reset_password?token=$token&status=error");
+                $update_stmt->close();
+                header("Location: reset_password?token=" . urlencode($token) . "&status=error");
                 exit();
             }
         } else {
+            if ($stmt) $stmt->close();
             header("Location: reset_password?status=invalid_token");
             exit();
         }
@@ -51,25 +64,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 2. Şifrə sıfırlama linkinin göndərilməsi (recovery.php-dən gələn sorğu)
     elseif (isset($_POST['email'])) {
         $email = trim($_POST['email']);
-        $escaped_email = $conn->real_escape_string($email);
 
-        $sql = "SELECT id, fullname, email FROM users WHERE email LIKE '$escaped_email' LIMIT 1";
-        $result = $conn->query($sql);
+        $stmt = $conn->prepare("SELECT id, fullname, email FROM users WHERE email = ? LIMIT 1");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result && $result->num_rows == 1) {
             $user = $result->fetch_assoc();
             $db_email = $user['email'];
+            $stmt->close();
             
             $token = bin2hex(random_bytes(32));
             
-            $conn->query("DELETE FROM password_resets WHERE email = '$db_email'");
+            $del_stmt = $conn->prepare("DELETE FROM password_resets WHERE email = ?");
+            $del_stmt->bind_param("s", $db_email);
+            $del_stmt->execute();
+            $del_stmt->close();
 
-            $insert = "INSERT INTO password_resets (email, token) VALUES ('$db_email', '$token')";
-            if ($conn->query($insert) === TRUE) {
+            $ins_stmt = $conn->prepare("INSERT INTO password_resets (email, token) VALUES (?, ?)");
+            $ins_stmt->bind_param("ss", $db_email, $token);
+            
+            if ($ins_stmt->execute()) {
+                $ins_stmt->close();
+
                 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
                 $host = $_SERVER['HTTP_HOST'];
                 $reset_link = "$protocol://$host/reset_password?token=$token";
-                
                 $logo_url = "$protocol://$host/images/logo.png.png";
 
                 $to = $db_email;
@@ -125,10 +146,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: recovery?status=success");
                 exit();
             } else {
+                if ($ins_stmt) $ins_stmt->close();
                 header("Location: recovery?status=error");
                 exit();
             }
         } else {
+            if ($stmt) $stmt->close();
             header("Location: recovery?status=not_found");
             exit();
         }
@@ -137,4 +160,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: recovery");
     exit();
 }
-?>

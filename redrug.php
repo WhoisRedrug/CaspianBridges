@@ -1,13 +1,9 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
 session_start();
 include 'db.php';
 
-$admin_user = getenv('ADMIN_USER');
-$admin_pass = getenv('ADMIN_PASS');
+$admin_user = $_ENV['ADMIN_USER'] ?? getenv('ADMIN_USER');
+$admin_pass = $_ENV['ADMIN_PASS'] ?? getenv('ADMIN_PASS');
 
 // Status dəyişikliyi üçün AJAX sorğusu
 if (isset($_POST['update_id']) && isset($_SESSION['redrug_logged_in'])) {

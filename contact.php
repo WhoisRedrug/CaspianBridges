@@ -1,13 +1,9 @@
 <?php 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once 'db.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-include 'db.php';
 
 $lang = isset($_POST['lang']) ? $_POST['lang'] : (isset($_GET['lang']) ? $_GET['lang'] : 'en');
 
