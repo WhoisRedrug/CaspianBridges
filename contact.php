@@ -1,6 +1,7 @@
 <?php 
 require_once 'db.php';
 require_once 'csrf.php';
+require_once 'recaptcha.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -49,6 +50,11 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['pending_contact'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] == 'contact') {
 
     if (!csrf_verify($_POST['csrf_token'] ?? '')) {
+        header("Location: contact?status=error&lang=" . $lang);
+        exit();
+    }
+
+    if (!recaptcha_verify($_POST['g-recaptcha-response'] ?? '')) {
         header("Location: contact?status=error&lang=" . $lang);
         exit();
     }
@@ -108,6 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     <meta property="og:description" content="Get in touch with Caspian Bridges for visa, study, investment, and tourism inquiries in Azerbaijan.">
     <meta property="og:image" content="images/svgviewer-png-1.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="component.js"></script>
     <style>
@@ -160,6 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                         <label class="block text-xs font-bold text-slate-300 mb-1">Mesajınız</label>
                         <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500"></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> Mesajı Göndər → </button>
                 </form>
             </div>
@@ -202,6 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                         <label class="block text-xs font-bold text-slate-300 mb-1">Your Message</label>
                         <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500"></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> Send Message → </button>
                 </form>
             </div>
@@ -244,6 +253,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                         <label class="block text-xs font-bold text-slate-300 mb-1">Ваше сообщение</label>
                         <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500"></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> Отправить сообщение → </button>
                 </form>
             </div>
@@ -286,6 +296,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                         <label class="block text-xs font-bold text-slate-300 mb-1">رسالتك</label>
                         <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500"></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> إرسال الرسالة ← </button>
                 </form>
             </div>

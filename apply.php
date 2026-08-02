@@ -19,6 +19,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
     <meta property="og:description" content="Apply for Visa, Education, Investment, and Travel solutions in Azerbaijan.">
     <meta property="og:image" content="images/svgviewer-png-1.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="component.js"></script>
     <style>
@@ -77,6 +78,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                         <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5">Əlavə Məlumat (İstəyə bağlı)</label>
                         <textarea name="message" rows="3" placeholder="Təhsil, viza, investisiya və ya səyahət planlarınız barədə qısaca yazın..." class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition resize-none"></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 mt-4"> Müraciəti İndi Göndər → </button>
                 </form>
             </div>
@@ -129,6 +131,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                         <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5">Additional Information (Optional)</label>
                         <textarea name="message" rows="3" placeholder="Tell us about your visa, educational, investment, or travel requirements..." class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition resize-none"></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 mt-4"> Submit Application Now → </button>
                 </form>
             </div>
@@ -181,6 +184,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                         <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5">Дополнительная информация (Необязательно)</label>
                         <textarea name="message" rows="3" placeholder="Расскажите о ваших целях по визе, учебе, инвестициям или туризму..." class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition resize-none"></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 mt-4"> Отправить заявку → </button>
                 </form>
             </div>
@@ -233,6 +237,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                         <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5">معلومات إضافية (اختياري)</label>
                         <textarea name="message" rows="3" placeholder="أخبرنا عن متطلبات التأشيرة، التعليم، الاستثمار، أو السفر الخاصة بك..." class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition resize-none text-right"></textarea>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 mt-4"> إرسال الطلب الآن ← </button>
                 </form>
             </div>

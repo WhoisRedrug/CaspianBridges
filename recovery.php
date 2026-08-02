@@ -1,6 +1,7 @@
 <?php
 require_once 'db.php';
 require_once 'csrf.php';
+require_once 'recaptcha.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -17,6 +18,10 @@ if (isset($_GET['status'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
     if (!csrf_verify($_POST['csrf_token'] ?? '')) {
+        header("Location: recovery.php?status=error");
+        exit();
+    }
+    if (!recaptcha_verify($_POST['g-recaptcha-response'] ?? '')) {
         header("Location: recovery.php?status=error");
         exit();
     }
@@ -145,6 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
     <title>Reset Password | Caspian Bridges</title>
     <link rel="icon" type="image/png" href="images/logo.png.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -198,6 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
                            data-az="ad@example.com" data-en="name@example.com" data-ru="name@example.com" data-ar="name@example.com"
                            class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                 <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"
                         data-az="Sıfırlama Linki Göndər →" data-en="Send Reset Link →" data-ru="Отправить ссылку →" data-ar="إرسال رابط الإعادة ←">Send Reset Link →</button>
             </form>

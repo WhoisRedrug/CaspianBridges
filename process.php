@@ -9,6 +9,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 include 'db.php';
 require_once 'csrf.php';
+require_once 'recaptcha.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = isset($_POST['action']) ? $_POST['action'] : 'login';
@@ -20,6 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
         header("Location: login.php?error=csrf");
+        exit();
+    }
+
+    // reCAPTCHA yoxlaması - bot/spam qorunması
+    if (!recaptcha_verify($_POST['g-recaptcha-response'] ?? '')) {
+        if ($action === 'apply') {
+            echo "error";
+            exit();
+        }
+        header("Location: login.php?error=recaptcha");
         exit();
     }
 

@@ -11,6 +11,7 @@
     <meta property="og:description" content="Official Study, e-Visas, and Residency Portal in Azerbaijan.">
     <meta property="og:image" content="images/logo.png.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -70,6 +71,7 @@
                         </div>
                         <input type="password" name="password" placeholder="••••••••" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> Daxil Ol → </button>
                 </form>
 
@@ -93,6 +95,7 @@
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">Şifrə</label>
                         <input type="password" name="password" placeholder="Minimum 8 simvol" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> Hesab Yarat → </button>
                 </form>
             </div>
@@ -118,6 +121,7 @@
                         </div>
                         <input type="password" name="password" placeholder="••••••••" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> Sign In → </button>
                 </form>
 
@@ -140,6 +144,7 @@
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">Password</label>
                         <input type="password" name="password" placeholder="Minimum 8 characters" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> Create Account → </button>
                 </form>
             </div>
@@ -165,6 +170,7 @@
                         </div>
                         <input type="password" name="password" placeholder="••••••••" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> Войти → </button>
                 </form>
 
@@ -187,6 +193,7 @@
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">Пароль</label>
                         <input type="password" name="password" placeholder="Минимум 8 символов" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> Создать аккаунт → </button>
                 </form>
             </div>
@@ -212,6 +219,7 @@
                         </div>
                         <input type="password" name="password" placeholder="••••••••" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition text-right">
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> تسجيل الدخول → </button>
                 </form>
 
@@ -234,6 +242,7 @@
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">كلمة المرور</label>
                         <input type="password" name="password" placeholder="8 أحرف على الأقل" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition text-right">
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> إنشاء حساب → </button>
                 </form>
             </div>
@@ -310,6 +319,7 @@
                     db_error: 'Qeydiyyat zamanı xəta baş verdi!',
                     too_many_attempts: 'Çox sayda uğursuz cəhd edildi. Zəhmət olmasa 15 dəqiqə sonra yenidən cəhd edin.',
                     csrf: 'Sessiya vaxtı bitib, zəhmət olmasa yenidən cəhd edin.',
+                    recaptcha: 'Zəhmət olmasa "Mən robot deyiləm" qutusunu işarələyin.',
                     registered: 'Hesab uğurla yaradıldı! İndi daxil ola bilərsiniz.',
                     password_reset_success: 'Şifrəniz uğurla yeniləndi! Yeni şifrənizlə daxil ola bilərsiniz.'
                 },
@@ -320,6 +330,7 @@
                     db_error: 'An error occurred during registration!',
                     too_many_attempts: 'Too many failed attempts. Please try again after 15 minutes.',
                     csrf: 'Your session expired, please try again.',
+                    recaptcha: 'Please check the "I\'m not a robot" box.',
                     registered: 'Account created successfully! You can now log in.',
                     password_reset_success: 'Password has been successfully updated! You can now log in.'
                 },
@@ -330,6 +341,7 @@
                     db_error: 'Ошибка при регистрации!',
                     too_many_attempts: 'Слишком много неудачных попыток. Пожалуйста, попробуйте через 15 минут.',
                     csrf: 'Сессия истекла, пожалуйста, попробуйте снова.',
+                    recaptcha: 'Пожалуйста, отметьте галочку "Я не робот".',
                     registered: 'Аккаунт успешно создан! Теперь вы можете войти.',
                     password_reset_success: 'Пароль успешно обновлен! Теперь вы можете войти.'
                 },
@@ -340,6 +352,7 @@
                     db_error: 'حدث خطأ أثناء التسجيل!',
                     too_many_attempts: 'عدد كبير جداً من المحاولات الفاشلة. يرجى المحاولة مرة أخرى بعد 15 دقيقة.',
                     csrf: 'انتهت صلاحية الجلسة، يرجى المحاولة مرة أخرى.',
+                    recaptcha: 'يرجى تحديد خانة "أنا لست روبوتاً".',
                     registered: 'تم إنشاء الحساب بنجاح! يمكنك تسجيل الدخول الآن.',
                     password_reset_success: 'تم تحديث كلمة المرور بنجاح! يمكنك تسجيل الدخول الآن.'
                 }
