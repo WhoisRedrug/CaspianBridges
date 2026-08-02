@@ -1,9 +1,9 @@
 <?php
-// Verilənlər bazası bağlantı parametrləri
-$host = 'localhost';
-$db   = 'caspsoof_caspian_db';
-$user = 'caspsoof_redrug'; 
-$pass = 'redrugsociety$0';     
+// .env faylından və ya server mühitindən məlumatları oxuyuruq
+$host = getenv('DB_HOST') ?: 'localhost';
+$db   = getenv('DB_NAME') ?: 'caspsoof_caspian_db';
+$user = getenv('DB_USER') ?: 'caspsoof_redrug'; 
+$pass = getenv('DB_PASS') ?: 'redrugsociety$0';    
 
 // Bağlantının yaradılması
 $conn = new mysqli($host, $user, $pass, $db);
