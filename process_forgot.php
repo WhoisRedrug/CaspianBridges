@@ -9,8 +9,18 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 include 'db.php';
+require_once 'csrf.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (!csrf_verify($_POST['csrf_token'] ?? '')) {
+        if (isset($_POST['token'])) {
+            header("Location: reset_password?token=" . urlencode($_POST['token']) . "&status=error");
+        } else {
+            header("Location: recovery?status=error");
+        }
+        exit();
+    }
     
     // 1. Yeni şifrə təyini (Token vasitəsilə)
     if (isset($_POST['token']) && isset($_POST['password'])) {

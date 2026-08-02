@@ -1,5 +1,6 @@
 <?php 
 require_once 'db.php';
+require_once 'csrf.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -15,24 +16,29 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['pending_contact'])) {
         unset($_SESSION['redirect_after_login']);
     }
     
-    $cf_name  = $conn->real_escape_string($p_data['fullname']);
-    $cf_email = $conn->real_escape_string($p_data['email']);
-    $cf_msg   = $conn->real_escape_string($p_data['message']);
-    
-    $sql = "INSERT INTO contacts (fullname, email, message) VALUES ('$cf_name', '$cf_email', '$cf_msg')";
-    
-    if ($conn->query($sql) === TRUE) {
-        $to      = "support@caspianbridges.com"; 
-        $subject = "Caspian Bridges - Saytdan Yeni Mesaj";
-        
-        $body    = "Ad və Soyad: " . $cf_name . "\n";
-        $body   .= "E-poçt: " . $cf_email . "\n\n";
-        $body   .= "Mesaj:\n" . $cf_msg;
+    $cf_name  = $p_data['fullname'];
+    $cf_email = trim($p_data['email']);
+    $cf_msg   = htmlspecialchars(trim($p_data['message']));
 
-        $headers = "From: " . $cf_email . "\r\n" .
-                   "Reply-To: " . $cf_email . "\r\n";
+    $stmt = $conn->prepare("INSERT INTO contacts (fullname, email, message) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $cf_name, $cf_email, $cf_msg);
 
-        @mail($to, $subject, $body, $headers);
+    if ($stmt->execute()) {
+        $stmt->close();
+        if (filter_var($cf_email, FILTER_VALIDATE_EMAIL)) {
+            $to      = "support@caspianbridges.com"; 
+            $subject = "Caspian Bridges - Saytdan Yeni Mesaj";
+            
+            $body    = "Ad və Soyad: " . $cf_name . "\n";
+            $body   .= "E-poçt: " . $cf_email . "\n\n";
+            $body   .= "Mesaj:\n" . $cf_msg;
+
+            $safe_email = str_replace(["\r", "\n", "%0a", "%0d"], '', $cf_email);
+            $headers = "From: " . $safe_email . "\r\n" .
+                       "Reply-To: " . $safe_email . "\r\n";
+
+            @mail($to, $subject, $body, $headers);
+        }
 
         header("Location: contact?status=success&lang=" . $lang);
         exit();
@@ -41,6 +47,12 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['pending_contact'])) {
 
 // Contact form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] == 'contact') {
+
+    if (!csrf_verify($_POST['csrf_token'] ?? '')) {
+        header("Location: contact?status=error&lang=" . $lang);
+        exit();
+    }
+
     // If user is not logged in save data )
     if (!isset($_SESSION['user_id'])) {
         $_SESSION['redirect_after_login'] = 'contact';
@@ -50,13 +62,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
         exit();
     }
 
-    $fullname = $conn->real_escape_string($_POST['fullname']);
-    $email    = $conn->real_escape_string($_POST['email']);
+    $fullname = $_POST['fullname'];
+    $email    = trim($_POST['email']);
     $message  = htmlspecialchars(trim($_POST['message']));
 
-    $sql = "INSERT INTO contacts (fullname, email, message) VALUES ('$fullname', '$email', '$message')";
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        header("Location: contact?status=error&lang=" . $lang);
+        exit();
+    }
 
-    if ($conn->query($sql) === TRUE) {
+    $stmt = $conn->prepare("INSERT INTO contacts (fullname, email, message) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $fullname, $email, $message);
+
+    if ($stmt->execute()) {
+        $stmt->close();
         $to      = "support@caspianbridges.com"; 
         $subject = "Caspian Bridges - Saytdan Yeni Mesaj";
         
@@ -64,8 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
         $body   .= "E-poçt: " . $email . "\n\n";
         $body   .= "Mesaj:\n" . $message;
 
-        $headers = "From: " . $email . "\r\n" .
-                   "Reply-To: " . $email . "\r\n";
+        $safe_email = str_replace(["\r", "\n", "%0a", "%0d"], '', $email);
+        $headers = "From: " . $safe_email . "\r\n" .
+                   "Reply-To: " . $safe_email . "\r\n";
 
         @mail($to, $subject, $body, $headers);
 
@@ -127,6 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                 <form action="contact" method="POST" class="space-y-4 text-left contact-form">
                     <input type="hidden" name="action" value="contact">
                     <input type="hidden" name="lang" value="az">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Ad və Soyad</label>
                         <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
@@ -168,6 +189,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                 <form action="contact" method="POST" class="space-y-4 text-left contact-form">
                     <input type="hidden" name="action" value="contact">
                     <input type="hidden" name="lang" value="en">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Full Name</label>
                         <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
@@ -209,6 +231,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                 <form action="contact" method="POST" class="space-y-4 text-left contact-form">
                     <input type="hidden" name="action" value="contact">
                     <input type="hidden" name="lang" value="ru">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Имя и Фамилия</label>
                         <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
@@ -250,6 +273,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                 <form action="contact" method="POST" class="space-y-4 text-right contact-form">
                     <input type="hidden" name="action" value="contact">
                     <input type="hidden" name="lang" value="ar">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">الاسم الكامل</label>
                         <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">

@@ -1,5 +1,6 @@
 <?php
 require_once 'db.php';
+require_once 'csrf.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -15,6 +16,10 @@ if (isset($_GET['status'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
+    if (!csrf_verify($_POST['csrf_token'] ?? '')) {
+        header("Location: recovery.php?status=error");
+        exit();
+    }
     $email = trim($_POST['email']);
 
     $stmt = $conn->prepare("SELECT id, fullname, email FROM users WHERE email = ? LIMIT 1");
@@ -185,6 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
             </div>
 
             <form action="" method="POST" class="space-y-4">
+                <?php echo csrf_field(); ?>
                 <div>
                     <label class="text-xs font-bold text-slate-300 block mb-1.5" 
                            data-az="E-poçt ünvanı" data-en="Email Address" data-ru="Электронная почта" data-ar="عنوان البريد الإلكتروني">Email Address</label>

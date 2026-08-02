@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); require_once 'csrf.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +58,7 @@
                 <!-- LOGIN FORM -->
                 <form id="form-login-az" action="process" method="POST" class="space-y-4">
                     <input type="hidden" name="action" value="login">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">E-poçt Ünvanı</label>
                         <input type="email" name="email" placeholder="name@example.com" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
@@ -75,6 +76,7 @@
                 <!-- REGISTER FORM -->
                 <form id="form-register-az" action="process" method="POST" class="space-y-4 hidden">
                     <input type="hidden" name="action" value="register">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">Ad və Soyad</label>
                         <input type="text" name="name" placeholder="Elvin Məmmədov" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
@@ -104,6 +106,7 @@
 
                 <form id="form-login-en" action="process" method="POST" class="space-y-4">
                     <input type="hidden" name="action" value="login">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">Email Address</label>
                         <input type="email" name="email" placeholder="name@example.com" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
@@ -120,6 +123,7 @@
 
                 <form id="form-register-en" action="process" method="POST" class="space-y-4 hidden">
                     <input type="hidden" name="action" value="register">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">Full Name</label>
                         <input type="text" name="name" placeholder="John Doe" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
@@ -149,6 +153,7 @@
 
                 <form id="form-login-ru" action="process" method="POST" class="space-y-4">
                     <input type="hidden" name="action" value="login">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">Электронная почта</label>
                         <input type="email" name="email" placeholder="name@example.com" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
@@ -165,6 +170,7 @@
 
                 <form id="form-register-ru" action="process" method="POST" class="space-y-4 hidden">
                     <input type="hidden" name="action" value="register">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">ФИО</label>
                         <input type="text" name="name" placeholder="Иван Иванов" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
@@ -194,6 +200,7 @@
 
                 <form id="form-login-ar" action="process" method="POST" class="space-y-4 text-right">
                     <input type="hidden" name="action" value="login">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">البريد الإلكتروني</label>
                         <input type="email" name="email" placeholder="name@example.com" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition text-right">
@@ -210,6 +217,7 @@
 
                 <form id="form-register-ar" action="process" method="POST" class="space-y-4 hidden text-right">
                     <input type="hidden" name="action" value="register">
+                    <?php echo csrf_field(); ?>
                     <div>
                         <label class="text-xs font-bold text-slate-300 block mb-1.5">الاسم الكامل</label>
                         <input type="text" name="name" placeholder="محمد الأحمد" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition text-right">
@@ -301,6 +309,7 @@
                     email_exists: 'Bu e-poçt və ya nömrə ilə artıq qeydiyyatdan keçilib!',
                     db_error: 'Qeydiyyat zamanı xəta baş verdi!',
                     too_many_attempts: 'Çox sayda uğursuz cəhd edildi. Zəhmət olmasa 15 dəqiqə sonra yenidən cəhd edin.',
+                    csrf: 'Sessiya vaxtı bitib, zəhmət olmasa yenidən cəhd edin.',
                     registered: 'Hesab uğurla yaradıldı! İndi daxil ola bilərsiniz.',
                     password_reset_success: 'Şifrəniz uğurla yeniləndi! Yeni şifrənizlə daxil ola bilərsiniz.'
                 },
@@ -310,6 +319,7 @@
                     email_exists: 'This email or phone is already registered!',
                     db_error: 'An error occurred during registration!',
                     too_many_attempts: 'Too many failed attempts. Please try again after 15 minutes.',
+                    csrf: 'Your session expired, please try again.',
                     registered: 'Account created successfully! You can now log in.',
                     password_reset_success: 'Password has been successfully updated! You can now log in.'
                 },
@@ -319,6 +329,7 @@
                     email_exists: 'Этот email или телефон уже зарегистрирован!',
                     db_error: 'Ошибка при регистрации!',
                     too_many_attempts: 'Слишком много неудачных попыток. Пожалуйста, попробуйте через 15 минут.',
+                    csrf: 'Сессия истекла, пожалуйста, попробуйте снова.',
                     registered: 'Аккаунт успешно создан! Теперь вы можете войти.',
                     password_reset_success: 'Пароль успешно обновлен! Теперь вы можете войти.'
                 },
@@ -328,6 +339,7 @@
                     email_exists: 'هذا البريد الإلكتروني أو الرقم مستخدم بالفعل!',
                     db_error: 'حدث خطأ أثناء التسجيل!',
                     too_many_attempts: 'عدد كبير جداً من المحاولات الفاشلة. يرجى المحاولة مرة أخرى بعد 15 دقيقة.',
+                    csrf: 'انتهت صلاحية الجلسة، يرجى المحاولة مرة أخرى.',
                     registered: 'تم إنشاء الحساب بنجاح! يمكنك تسجيل الدخول الآن.',
                     password_reset_success: 'تم تحديث كلمة المرور بنجاح! يمكنك تسجيل الدخول الآن.'
                 }

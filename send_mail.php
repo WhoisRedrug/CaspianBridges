@@ -1,9 +1,16 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Form məlumatlarını təhlükəsiz şəkildə alırıq (guya)
+    // Form məlumatlarını təhlükəsiz şəkildə alırıq
     $name    = htmlspecialchars(trim($_POST['name']));
-    $email   = htmlspecialchars(trim($_POST['email']));
+    $email   = trim($_POST['email']);
     $message = htmlspecialchars(trim($_POST['message']));
+
+    // E-poçt formatını yoxlayırıq və sətir sonu simvollarını (header injection üçün istifadə oluna bilər) təmizləyirik
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Yanlış e-poçt ünvanı.";
+        exit;
+    }
+    $email = str_replace(["\r", "\n", "%0a", "%0d"], '', $email);
 
     // mailim
     $to      = "support@caspianbridges.com"; 
@@ -25,4 +32,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-// burda niye dil funksiyasi yoxdur bleeeddddddddddddddddd

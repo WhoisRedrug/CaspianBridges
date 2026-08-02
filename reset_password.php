@@ -4,6 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once 'csrf.php';
 include 'db.php';
 
 $token = $_GET['token'] ?? '';
@@ -54,6 +55,7 @@ if (!empty($token)) {
             <?php if ($valid_token): ?>
                 <form action="process_forgot" method="POST" onsubmit="return validatePasswords()" class="space-y-4">
                     <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>">
+                    <?php echo csrf_field(); ?>
                     
                     <!-- New Password Field -->
                     <div>

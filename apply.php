@@ -2,6 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once 'csrf.php';
 $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
 ?>
 <script>
@@ -42,6 +43,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                 </div>
                 <form method="POST" class="space-y-5">
                     <input type="hidden" name="action" value="apply">
+                    <?php echo csrf_field(); ?>
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5">Ad</label>
@@ -93,6 +95,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                 </div>
                 <form method="POST" class="space-y-5">
                     <input type="hidden" name="action" value="apply">
+                    <?php echo csrf_field(); ?>
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5">First Name</label>
@@ -144,6 +147,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                 </div>
                 <form method="POST" class="space-y-5">
                     <input type="hidden" name="action" value="apply">
+                    <?php echo csrf_field(); ?>
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5">Имя</label>
@@ -195,6 +199,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                 </div>
                 <form method="POST" class="space-y-5">
                     <input type="hidden" name="action" value="apply">
+                    <?php echo csrf_field(); ?>
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5">الاسم الأول</label>

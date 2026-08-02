@@ -8,9 +8,20 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 include 'db.php';
+require_once 'csrf.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = isset($_POST['action']) ? $_POST['action'] : 'login';
+
+    // Bütün formalarda CSRF tokeni yoxlanılır. Yanlış/köhnə token = sorğu rədd edilir.
+    if (!csrf_verify($_POST['csrf_token'] ?? '')) {
+        if ($action === 'apply') {
+            echo "error";
+            exit();
+        }
+        header("Location: login.php?error=csrf");
+        exit();
+    }
 
     // MÜRACİƏT (APPLY) MƏNTİQİ
     if ($action === 'apply') {
