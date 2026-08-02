@@ -1,0 +1,14 @@
+# Konfiqurasiya və həssas fayllar
+.env
+
+# Composer paketləri (istifadəçi özü composer install edəcək)
+vendor/
+composer.lock
+
+# Sessiya və loglar
+*.log
+sessions/
+
+# VS Code ayarları
+.vscode/
+.DS_Store

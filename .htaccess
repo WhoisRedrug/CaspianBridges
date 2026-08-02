@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# HTTPS-ə yönləndirmə 
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# URL sonundakı .php uzantısını gizlətmək 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Əgər kimsə birbaşa .php ilə daxil olarsa, onu təmiz URL-ə yönləndir (SEO üçün)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.php\ HTTP/
+RewriteRule ^([^\.]+)\.php$ /$1 [R=301,L]
