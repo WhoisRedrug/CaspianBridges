@@ -35,14 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // QEYDİYYAT (REGISTER) MƏNTİQİ
+    // Registration logic   
     elseif ($action === 'register') {
         $name     = $conn->real_escape_string($_POST['name']);
         $phone    = $conn->real_escape_string($_POST['phone']);
         $email    = trim($conn->real_escape_string($_POST['email']));
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        // 1. Əvvəlcə yoxlayaq görək bu email bazada var ya yox
+        // 1. Check if the email already exists in the database
         $check_sql = "SELECT id FROM users WHERE email = '$email' LIMIT 1";
         $check_result = $conn->query($check_sql);
 
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        // 2. Bazaya yeni istifadəçini əlavə edirik
+        // 2. for new User
         $insert_sql = "INSERT INTO users (fullname, phone, email, password) VALUES ('$name', '$phone', '$email', '$password')";
         
         if ($conn->query($insert_sql) === TRUE) {
@@ -63,13 +63,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     
-    // GİRİŞ (LOGIN) MƏNTİQİ
+    // Login logic
     else {
         $email    = trim($conn->real_escape_string($_POST['email']));
         $password = $_POST['password'];
         $ip       = $_SERVER['REMOTE_ADDR'];
 
-        // 1. Ümumi səhv cəhdlərinin sayını yoxlayaq (son 24 saat ərzində)
+        // 1. check the total number of failed attempts in the last 24 hours
         $check_all = $conn->query("SELECT COUNT(*) as total FROM login_attempts WHERE ip_address = '$ip' AND attempt_time > (NOW() - INTERVAL 24 HOUR)");
         $row_all = $check_all->fetch_assoc();
         $total_fails = $row_all['total'];
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result && $result->num_rows == 1) {
             $user_data = $result->fetch_assoc();
             
-            // Şifrənin yoxlanılması (həm hash, həm də birbaşa müqayisə dəstəyi ilə)
+            //  check if the password matches (hashed or plain text)
             if (password_verify($password, $user_data['password']) || $password === $user_data['password']) {
                 // Uğurlu giriş olduqda həmin IP-nin səhv cəhdlərini təmizləyirik
                 $conn->query("DELETE FROM login_attempts WHERE ip_address = '$ip'");
@@ -117,13 +117,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     exit();
                 }
             } else {
-                // Şifrə səhvdirsə bazaya qeyd edirik
+                // If password is wrong, log the attempt and redirect with an error
                 $conn->query("INSERT INTO login_attempts (ip_address) VALUES ('$ip')");
                 header("Location: login.php?error=wrong_password");
                 exit();
             }
         } else {
-            // E-poçt tapılmadıqda bazaya qeyd edirik
+            // If user not found, log the attempt and redirect with an error
             $conn->query("INSERT INTO login_attempts (ip_address) VALUES ('$ip')");
             header("Location: login.php?error=user_not_found");
             exit();

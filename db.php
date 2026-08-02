@@ -1,11 +1,11 @@
 <?php
-// Məlumatlar yalnız .env faylından və ya server mühitindən oxunur
+// Configuration (.env)
 $host = getenv('DB_HOST');
 $db   = getenv('DB_NAME');
 $user = getenv('DB_USER'); 
 $pass = getenv('DB_PASS');    
 
-// Bağlantının yaradılması
+// CONNECTION
 $conn = new mysqli($host, $user, $pass, $db);
 
 // Bağlantı xətasının yoxlanılması
@@ -13,6 +13,6 @@ if ($conn->connect_error) {
     die("Verilənlər bazasına bağlantı xətası: " . $conn->connect_error);
 }
 
-// Azərbaycan, rus və ərəb hərflərinin bazada düzgün işləməsi üçün utf8mb4 tənzimləməsi
+// Character set configuration
 $conn->set_charset("utf8mb4");
 ?>

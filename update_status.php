@@ -1,12 +1,9 @@
 <?php
 session_start();
 
-// Mərkəzi db.php faylını çağırırıq (artıq təkrar tənzimləmə yazmırıq)
-// Qeyd: Əgər update_status.php ilə db.php eyni qovluqdadırsa aşağıdakı kimi yazılır:
 include 'db.php'; 
 
-// DİQQƏT: Sənin db.php faylın mysqli ilə yazdığı üçün, 
-// yuxarıdakı kodda PDO əvəzinə mysqli sorğularından istifadə etməliyik.
+// Check if the request method is POST
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $application_id = $_POST['id'] ?? null;

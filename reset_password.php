@@ -9,7 +9,6 @@ $valid_token = false;
 
 if (!empty($token)) {
     $token = $conn->real_escape_string($token);
-    // expires_at yoxlaması silindi, çünki bazada həmin sütun yoxdur
     $sql = "SELECT * FROM password_resets WHERE token = '$token' LIMIT 1";
     $result = $conn->query($sql);
     

@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const desktopAuth = document.getElementById('desktop-auth-slot');
         const mobileAuth = document.getElementById('mobile-auth-slot');
         
-        // Sessiya yoxlaması (window.isUserLoggedIn artıq apply.php və digərlərində təyin olunur)
+        // Session check (window.isUserLoggedIn is already defined in apply.php and other files)
         if (typeof window.isUserLoggedIn !== 'undefined' && window.isUserLoggedIn === true) {
             if (desktopAuth) {
                 desktopAuth.innerHTML = `<a href="profile" class="bg-amber-500/10 border border-amber-500/30 text-amber-400 px-4 py-2 rounded-xl text-xs font-bold hover:bg-amber-500/20 transition" data-az="👤 Profilim" data-en="👤 My Profile" data-ru="👤 Мой профиль" data-ar="👤 ملفي الشخصي">👤 Profilim</a>`;

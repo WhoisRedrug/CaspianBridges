@@ -7,7 +7,7 @@ include 'db.php';
 
 $lang = isset($_POST['lang']) ? $_POST['lang'] : (isset($_GET['lang']) ? $_GET['lang'] : 'en');
 
-// Əgər istifadəçi login olubsa və saxlanılmış mesajı varsa, birbaşa burada emal edirik
+// If user logged in and has pending contact data
 if (isset($_SESSION['user_id']) && isset($_SESSION['pending_contact'])) {
     $p_data = $_SESSION['pending_contact'];
     unset($_SESSION['pending_contact']);
@@ -39,9 +39,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['pending_contact'])) {
     }
 }
 
-// Əlaqə formundan gələn POST sorğusunun emalı
+// Contact form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] == 'contact') {
-    // İstifadəçi login olmayıbsa məlumatları yadda saxlayıb login səhifəsinə atırıq
+    // If user is not logged in save data )
     if (!isset($_SESSION['user_id'])) {
         $_SESSION['redirect_after_login'] = 'contact';
         $_SESSION['pending_contact'] = $_POST;

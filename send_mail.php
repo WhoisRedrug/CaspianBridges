@@ -1,11 +1,11 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // İstifadəçinin daxil etdiyi məlumatları təhlükəsiz şəkildə alırıq
+    // Form məlumatlarını təhlükəsiz şəkildə alırıq (guya)
     $name    = htmlspecialchars(trim($_POST['name']));
     $email   = htmlspecialchars(trim($_POST['email']));
     $message = htmlspecialchars(trim($_POST['message']));
 
-    // Mesajın göndəriləcəyi ünvan (Sizin yaratdığınız rəsmi e-poçt)
+    // mailim
     $to      = "support@caspianbridges.com"; 
     $subject = "Caspian Bridges - Saytdan Yeni Mesaj";
     
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers = "From: " . $email . "\r\n" .
                "Reply-To: " . $email . "\r\n";
 
-    // E-poçtun göndərilmə yoxlanışı
+    // check up 
     if (mail($to, $subject, $body, $headers)) {
         // Uğurlu olduqda istifadəçini geri yönləndirə və ya bildiriş göstərə bilərsiniz
         echo "Mesajınız uğurla göndərildi!";
@@ -25,3 +25,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+// burda niye dil funksiyasi yoxdur bleeeddddddddddddddddd

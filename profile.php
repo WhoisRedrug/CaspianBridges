@@ -10,7 +10,7 @@ include 'db.php';
 
 $user_id = $_SESSION['user_id'];
 
-// 1. İstifadəçinin real adını birbaşa USERS cədvəlindən çəkirik
+// 1. pull the user's full name from the users table
 $user_name = 'İstifadəçi';
 $user_sql = "SELECT fullname FROM users WHERE id = $user_id LIMIT 1";
 $user_result = $conn->query($user_sql);
@@ -19,7 +19,7 @@ if ($user_result && $user_result->num_rows > 0) {
     $user_name = $user_row['fullname'] ?? 'İstifadəçi';
 }
 
-// 2. İstifadəçinin müraciətlərini APPLICATIONS cədvəlindən çəkirik
+// 2. pull the user's applications from the applications table
 $sql = "SELECT * FROM applications WHERE user_id = $user_id ORDER BY id DESC";
 $result = $conn->query($sql);
 ?>
