@@ -1,8 +1,13 @@
 <?php
-$host = getenv('DB_HOST') ?: 'localhost';
-$db   = getenv('DB_NAME') ?: 'caspsoof_caspian_db';
-$user = getenv('DB_USER') ?: 'caspsoof_redrug';
-$pass = getenv('DB_PASS') ?: 'redrugsociety$0';
+require_once __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$host = getenv('DB_HOST');
+$db   = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
 
 $conn = new mysqli($host, $user, $pass, $db);
 
