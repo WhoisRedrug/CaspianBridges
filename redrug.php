@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_submit'])) {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    if ($username === $admin_user && $password === $admin_pass) {
+    if (hash_equals((string)$admin_user, $username) && hash_equals((string)$admin_pass, $password)) {
         $_SESSION['redrug_logged_in'] = true;
         header("Location: redrug");
         exit;
@@ -368,7 +368,6 @@ $users = $conn->query("SELECT * FROM users ORDER BY id DESC");
                 <tr>
                     <th>ID</th>
                     <th>İstifadəçi / Email</th>
-                    <th>Şifrə / Hash</th>
                     <th>Rol</th>
                     <th>Qeydiyyat Tarixi</th>
                 </tr>
@@ -378,12 +377,11 @@ $users = $conn->query("SELECT * FROM users ORDER BY id DESC");
                     <tr>
                         <td><?php echo $u['id']; ?></td>
                         <td style="font-weight: 500;"><?php echo htmlspecialchars($u['email'] ?? $u['username'] ?? 'N/A'); ?></td>
-                        <td><code style="background: #111318; padding: 4px 8px; border-radius: 4px; color: #f87171; font-size: 12px;"><?php echo htmlspecialchars($u['password'] ?? $u['pass'] ?? 'N/A'); ?></code></td>
                         <td><?php echo htmlspecialchars($u['role'] ?? $u['status'] ?? 'Standard'); ?></td>
                         <td style="color: var(--text-muted); font-size: 12px;"><?php echo htmlspecialchars($u['created_at'] ?? 'N/A'); ?></td>
                     </tr>
                 <?php endwhile; else: ?>
-                    <tr><td colspan="5" class="empty-row">İstifadəçi tapılmadı.</td></tr>
+                    <tr><td colspan="4" class="empty-row">İstifadəçi tapılmadı.</td></tr>
                 <?php endif; ?>
             </tbody>
         </table>

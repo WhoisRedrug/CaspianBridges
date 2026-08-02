@@ -16,20 +16,29 @@ if (isset($_GET['status'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
     $email = trim($_POST['email']);
-    $escaped_email = $conn->real_escape_string($email);
 
-    $sql = "SELECT id, fullname, email FROM users WHERE email = '$escaped_email' LIMIT 1";
-    $result = $conn->query($sql);
+    $stmt = $conn->prepare("SELECT id, fullname, email FROM users WHERE email = ? LIMIT 1");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result && $result->num_rows == 1) {
         $user = $result->fetch_assoc();
         $db_email = $user['email'];
-        
-        $token = bin2hex(random_bytes(32));
-        $conn->query("DELETE FROM password_resets WHERE email = '$db_email'");
+        $stmt->close();
 
-        $insert = "INSERT INTO password_resets (email, token) VALUES ('$db_email', '$token')";
-        if ($conn->query($insert) === TRUE) {
+        $token = bin2hex(random_bytes(32));
+
+        $del_stmt = $conn->prepare("DELETE FROM password_resets WHERE email = ?");
+        $del_stmt->bind_param("s", $db_email);
+        $del_stmt->execute();
+        $del_stmt->close();
+
+        $ins_stmt = $conn->prepare("INSERT INTO password_resets (email, token) VALUES (?, ?)");
+        $ins_stmt->bind_param("ss", $db_email, $token);
+
+        if ($ins_stmt->execute()) {
+            $ins_stmt->close();
             $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
             $host = $_SERVER['HTTP_HOST'];
             $reset_link = "$protocol://$host/reset_password?token=$token";

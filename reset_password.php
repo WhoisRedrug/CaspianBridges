@@ -10,13 +10,15 @@ $token = $_GET['token'] ?? '';
 $valid_token = false;
 
 if (!empty($token)) {
-    $token = $conn->real_escape_string($token);
-    $sql = "SELECT * FROM password_resets WHERE token = '$token' LIMIT 1";
-    $result = $conn->query($sql);
-    
+    $stmt = $conn->prepare("SELECT * FROM password_resets WHERE token = ? LIMIT 1");
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
     if ($result && $result->num_rows == 1) {
         $valid_token = true;
     }
+    $stmt->close();
 }
 ?>
 <!DOCTYPE html>

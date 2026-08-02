@@ -5,6 +5,15 @@ session_start();
 
 include 'db.php'; 
 
+// Bu endpoint yalnız admin panelinə (redrug.php) daxil olmuş istifadəçilər üçündür.
+// Əvvəlki versiyada bu yoxlama YOX idi - istənilən kəs status dəyişə bilirdi.
+if (!isset($_SESSION['redrug_logged_in']) || $_SESSION['redrug_logged_in'] !== true) {
+    http_response_code(403);
+    header('Content-Type: application/json');
+    echo json_encode(['success' => false, 'message' => 'İcazə yoxdur']);
+    exit;
+}
+
 // Check if the request method is POST
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

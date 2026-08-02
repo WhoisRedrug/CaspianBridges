@@ -103,8 +103,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($result && $result->num_rows == 1) {
             $user_data = $result->fetch_assoc();
             
-            //  check if the password matches (hashed or plain text)
-            if (password_verify($password, $user_data['password']) || $password === $user_data['password']) {
+            //  Yalnız hash-lənmiş şifrə yoxlanılır. Əvvəlki versiyada "$password === $user_data['password']"
+            //  aşkar mətn müqayisəsi də var idi - bu, verilənlər bazasında hash-lənməmiş şifrələrin
+            //  qalmasına şərait yaradırdı və bazanın sızması halında bütün şifrələri açıq edərdi.
+            if (password_verify($password, $user_data['password'])) {
                 // Uğurlu giriş olduqda həmin IP-nin səhv cəhdlərini təmizləyirik
                 $conn->query("DELETE FROM login_attempts WHERE ip_address = '$ip'");
 

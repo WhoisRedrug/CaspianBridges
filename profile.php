@@ -14,18 +14,23 @@ include 'db.php';
 
 $user_id = $_SESSION['user_id'];
 
-// 1. pull the user's full name from the users table
+// 1. pull the user's full name from the users table (prepared statement)
 $user_name = 'İstifadəçi';
-$user_sql = "SELECT fullname FROM users WHERE id = $user_id LIMIT 1";
-$user_result = $conn->query($user_sql);
+$user_stmt = $conn->prepare("SELECT fullname FROM users WHERE id = ? LIMIT 1");
+$user_stmt->bind_param("i", $user_id);
+$user_stmt->execute();
+$user_result = $user_stmt->get_result();
 if ($user_result && $user_result->num_rows > 0) {
     $user_row = $user_result->fetch_assoc();
     $user_name = $user_row['fullname'] ?? 'İstifadəçi';
 }
+$user_stmt->close();
 
-// 2. pull the user's applications from the applications table
-$sql = "SELECT * FROM applications WHERE user_id = $user_id ORDER BY id DESC";
-$result = $conn->query($sql);
+// 2. pull the user's applications from the applications table (prepared statement)
+$stmt = $conn->prepare("SELECT * FROM applications WHERE user_id = ? ORDER BY id DESC");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="en">

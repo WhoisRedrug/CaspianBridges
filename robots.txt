@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: /redrug.php
-Disallow: /process.php
-Disallow: /db.php
+Allow: /
+Disallow: /images/
