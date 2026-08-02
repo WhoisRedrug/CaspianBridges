@@ -93,10 +93,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
             $mail = new PHPMailer(true);
             try {
                 $mail->isSMTP();
-                $mail->Host       = 'caspianbridges.com';                  // Şəkildəki Outgoing Server
+                $mail->Host       = getenv('MAIL_HOST');                  // Şəkildəki Outgoing Server
                 $mail->SMTPAuth   = true;
-                $mail->Username   = 'support@caspianbridges.com';          // Şəkildəki Username
-                $mail->Password   = 'redrugsocietyemail$0';           // E-poçt şifrəniz
+                $mail->Username   = getenv('MAIL_USER');          // Şəkildəki Username
+                $mail->Password   = getenv('MAIL_PASS');           // E-poçt şifrəniz
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         // Port 465 üçün SMTPS
                 $mail->Port       = 465;                                   // Port 465
                 $mail->CharSet    = 'UTF-8';
