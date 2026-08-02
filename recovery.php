@@ -7,7 +7,7 @@ include 'db.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Əgər Composer istifadə edirsinizsə:
+// COMPOSER
 require 'vendor/autoload.php';
 
 $feedback_message = "";
