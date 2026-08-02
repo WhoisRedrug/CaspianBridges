@@ -1,18 +1,12 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+require_once 'db.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include 'db.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-// COMPOSER
-require 'vendor/autoload.php';
 
 $feedback_message = "";
 
@@ -97,12 +91,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
             $mail = new PHPMailer(true);
             try {
                 $mail->isSMTP();
-                $mail->Host       = getenv('MAIL_HOST');                  // Şəkildəki Outgoing Server
+                $mail->Host       = $_ENV['MAIL_HOST'] ?? getenv('MAIL_HOST');
                 $mail->SMTPAuth   = true;
-                $mail->Username   = getenv('MAIL_USER');          // Şəkildəki Username
-                $mail->Password   = getenv('MAIL_PASS');           // E-poçt şifrəniz
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         // Port 465 üçün SMTPS
-                $mail->Port       = 465;                                   // Port 465
+                $mail->Username   = $_ENV['MAIL_USER'] ?? getenv('MAIL_USER');
+                $mail->Password   = $_ENV['MAIL_PASS'] ?? getenv('MAIL_PASS');
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                $mail->Port       = 465;
                 $mail->CharSet    = 'UTF-8';
 
                 $mail->setFrom('support@caspianbridges.com', 'Caspian Bridges');
