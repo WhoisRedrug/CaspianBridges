@@ -1,9 +1,9 @@
 <?php
-// .env faylından və ya server mühitindən məlumatları oxuyuruq
-$host = getenv('DB_HOST') ?: 'localhost';
-$db   = getenv('DB_NAME') ?: 'caspsoof_caspian_db';
-$user = getenv('DB_USER') ?: 'caspsoof_redrug'; 
-$pass = getenv('DB_PASS') ?: 'redrugsociety$0';    
+// Məlumatlar yalnız .env faylından və ya server mühitindən oxunur
+$host = getenv('DB_HOST');
+$db   = getenv('DB_NAME');
+$user = getenv('DB_USER'); 
+$pass = getenv('DB_PASS');    
 
 // Bağlantının yaradılması
 $conn = new mysqli($host, $user, $pass, $db);
