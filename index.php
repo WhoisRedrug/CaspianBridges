@@ -4,11 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caspian Bridges | Study, Tourism & Visa Gateway in Azerbaijan</title>
+    <title>Caspian Bridges | Azərbaycanda Təhsil, Tələbə Vizası və Biznes Səyahət Xidmətləri</title>
+    <meta name="description" content="Azərbaycanda xarici tələbələr üçün universitet qəbulu, tələbə vizası, biznes vizası, investisiya məsləhəti və elit turizm xidmətləri. Bakıda 99% qəbul uğuru, 7/24 dəstək.">
+    <meta name="keywords" content="Azərbaycanda təhsil, Bakıda təhsil vizası, Azərbaycan biznes vizası, Azərbaycana elektron viza, Azərbaycanda daşınmaz əmlak investisiyası, Şahdağ turu, Qəbələ turu, study visa Azerbaijan, university admission Azerbaijan foreign students, Azerbaijan business visa, e-visa Azerbaijan, invest in Azerbaijan real estate, Shahdag tour package">
+    <link rel="canonical" href="https://caspianbridges.com/index.php">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Caspian Bridges — Study, Tourism & Visa Portal">
-    <meta property="og:description" content="Official University Admissions, Student Placement, e-Visas, and Tourism in Azerbaijan.">
+    <meta property="og:title" content="Caspian Bridges | Azərbaycanda Təhsil, Viza və Biznes Səyahət Xidmətləri">
+    <meta property="og:description" content="Universitet qəbulu, tələbə/biznes vizası, investisiya məsləhəti və elit turizm — Azərbaycana etibarlı körpünüz.">
     <meta property="og:image" content="images/svgviewer-png-1.png">
+    <meta property="og:locale" content="az_AZ">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ru_RU">
+    <meta property="og:locale:alternate" content="ar_AR">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="component.js"></script>
@@ -47,7 +54,7 @@
                         Azərbaycanda <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Oxu və Kəşf Et</span>
                     </h1>
                     <p class="text-slate-200 font-semibold text-base sm:text-lg">
-                        Caspian Bridges — Təhsil, Yaşayış və Turizm üzrə Etibarlı Körpünüz
+                        Caspian Bridges — Təhsil, Viza, İnvestisiya və Turizm üzrə Etibarlı Körpünüz
                     </p>
                     <p class="text-slate-400 text-sm leading-relaxed">
                         Beynəlxalq tələbələrə və səyahətçilərə universitet qəbulu, sənəd hazırlığı, təhlükəsiz yerləşdirmə və unudulmaz turizm təcrübələri təqdim edirik.
@@ -72,7 +79,7 @@
                             <div class="grid grid-cols-2 gap-4 flex-grow">
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Universitet Qəbulu</h4><p class="text-[10px] text-slate-400">Bakalavr, Magistr və Doktorantura</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🏠</div><h4 class="font-bold text-white text-sm">Yaşayış</h4><p class="text-[10px] text-slate-400">Yataqxana və Mənzil</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Sənəd Hazırlığı</h4><p class="text-[10px] text-slate-400">Tərcümə və Hüquqi Qeydiyyat</p></div>
+                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Viza və Sənəd Hazırlığı</h4><p class="text-[10px] text-slate-400">Tərcümə, Viza və Hüquqi Qeydiyyat</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Turizm & E-Viza</h4><p class="text-[10px] text-slate-400">Bələdçili Turlar və İcazələr</p></div>
                             </div>
                             <div class="mt-2 flex items-center justify-between gap-4 border-t border-slate-800/80 pt-5">
