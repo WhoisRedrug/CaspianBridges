@@ -113,6 +113,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     <meta property="og:title" content="Caspian Bridges — Contact Us">
     <meta property="og:description" content="Get in touch with Caspian Bridges for visa, study, investment, and tourism inquiries in Azerbaijan.">
     <meta property="og:image" content="images/svgviewer-png-1.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Caspian Bridges — Contact Us">
+    <meta name="twitter:description" content="Get in touch with Caspian Bridges for visa, study, investment, and tourism inquiries in Azerbaijan.">
+    <meta name="twitter:image" content="images/svgviewer-png-1.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">

@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="t7jBm5DJx-flLg4ziS9azPNPCoI-N3b63SgMUOxe4EM" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caspian Bridges | Azərbaycanda Təhsil, Tələbə Vizası və Biznes Səyahət Xidmətləri</title>
-    <meta name="description" content="Azərbaycanda xarici tələbələr üçün universitet qəbulu, tələbə vizası, biznes vizası, investisiya məsləhəti və elit turizm xidmətləri. Bakıda 99% qəbul uğuru, 7/24 dəstək.">
+    <title>Caspian Bridges | Azərbaycanda Təhsil, Tələbə Vizası və İnvestisiya</title>
+    <meta name="description" content="Azərbaycanda xarici tələbələr üçün universitet qəbulu, tələbə vizası, biznes vizası, daşınmaz əmlak investisiyası və elit turizm xidmətləri. Bakıda 99% qəbul uğuru, 7/24 dəstək.">
     <meta name="keywords" content="Azərbaycanda təhsil, Bakıda təhsil vizası, Azərbaycan biznes vizası, Azərbaycana elektron viza, Azərbaycanda daşınmaz əmlak investisiyası, Şahdağ turu, Qəbələ turu, study visa Azerbaijan, university admission Azerbaijan foreign students, Azerbaijan business visa, e-visa Azerbaijan, invest in Azerbaijan real estate, Shahdag tour package">
     <link rel="canonical" href="https://caspianbridges.com/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Caspian Bridges | Azərbaycanda Təhsil, Viza və Biznes Səyahət Xidmətləri">
-    <meta property="og:description" content="Universitet qəbulu, tələbə/biznes vizası, investisiya məsləhəti və elit turizm — Azərbaycana etibarlı körpünüz.">
+    <meta property="og:title" content="Caspian Bridges | Azərbaycanda Təhsil, Viza və İnvestisiya Xidmətləri">
+    <meta property="og:description" content="Universitet qəbulu, tələbə/biznes vizası, daşınmaz əmlak investisiyası və elit turizm — Azərbaycana etibarlı körpünüz.">
     <meta property="og:image" content="images/svgviewer-png-1.png">
     <meta property="og:locale" content="az_AZ">
     <meta property="og:locale:alternate" content="en_US">
@@ -49,16 +49,16 @@
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full text-left">
                 <div class="lg:col-span-6 space-y-6">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
-                        <span>🇦🇿</span> Caspian Bridges • Rəsmi Təhsil və Turizm Portalı 2026
+                        <span>🇦🇿</span> Caspian Bridges • Rəsmi Təhsil, Viza və İnvestisiya Portalı 2026
                     </div>
                     <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-                        Azərbaycanda <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Oxu və Kəşf Et</span>
+                        Azərbaycanda <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Təhsil və İnvestisiya</span>
                     </h1>
                     <p class="text-slate-200 font-semibold text-base sm:text-lg">
                         Caspian Bridges — Təhsil, Viza, İnvestisiya və Turizm üzrə Etibarlı Körpünüz
                     </p>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Beynəlxalq tələbələrə və səyahətçilərə universitet qəbulu, sənəd hazırlığı, təhlükəsiz yerləşdirmə və unudulmaz turizm təcrübələri təqdim edirik.
+                        Beynəlxalq tələbələrə və sərmayəçilərə universitet qəbulu, daşınmaz əmlak investisiyası, təhlükəsiz yerləşdirmə və unudulmaz turizm təcrübələri təqdim edirik.
                     </p>
                     <div class="flex items-center gap-6 pt-2">
                         <div><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">Qəbul Uğuru</div></div>
@@ -75,11 +75,11 @@
                         <div class="relative z-10 flex flex-col h-full gap-6">
                             <div>
                                 <h3 class="text-2xl font-black text-white mb-2">Əsas Xidmətlər Mərkəzi</h3>
-                                <p class="text-slate-400 text-sm">Azərbaycana rahat keçid üçün lazım olan hər şey.</p>
+                                <p class="text-slate-400 text-sm">Azərbaycana rahat keçid və investisiya üçün lazım olan hər şey.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Universitet Qəbulu</h4><p class="text-[10px] text-slate-400">Bakalavr, Magistr və Doktorantura</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🏠</div><h4 class="font-bold text-white text-sm">Yaşayış</h4><p class="text-[10px] text-slate-400">Yataqxana və Mənzil</p></div>
+                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">İnvestisiya & Biznes</h4><p class="text-[10px] text-slate-400">Daşınmaz Əmlak və Viza</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Viza və Sənəd Hazırlığı</h4><p class="text-[10px] text-slate-400">Tərcümə, Viza və Hüquqi Qeydiyyat</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Turizm & E-Viza</h4><p class="text-[10px] text-slate-400">Bələdçili Turlar və İcazələr</p></div>
                             </div>
@@ -97,7 +97,7 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Azərbaycanı Kəşf Et</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Təhsil Mərkəzləri və Turizm İstiqamətləri</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Təhsil Mərkəzləri, İnvestisiya və Turizm</h2>
                 </div>
                 <a href="services" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Bütün Proqramlar və Turlar → </a>
             </div>
@@ -157,16 +157,16 @@
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full text-left">
                 <div class="lg:col-span-6 space-y-6">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
-                        <span>🇦🇿</span> Caspian Bridges • Official Study & Tourism Portal 2026
+                        <span>🇦🇿</span> Caspian Bridges • Official Study, Visa & Investment Portal 2026
                     </div>
                     <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-                        Study & Discover <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Azerbaijan</span>
+                        Study, Invest & Discover <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Azerbaijan</span>
                     </h1>
                     <p class="text-slate-200 font-semibold text-base sm:text-lg">
-                        Caspian Bridges — Your Trusted Bridge to Education, Housing & Tourism
+                        Caspian Bridges — Your Trusted Bridge to Education, Real Estate Investment & Tourism
                     </p>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        We guide international students and travelers through university admissions, document preparation, secure local accommodation, and unforgettable tourism experiences in Azerbaijan.
+                        We guide international students and investors through university admissions, property investment, secure local accommodation, and unforgettable tourism experiences in Azerbaijan.
                     </p>
                     <div class="flex items-center gap-6 pt-2">
                         <div><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">Admission Success</div></div>
@@ -183,11 +183,11 @@
                         <div class="relative z-10 flex flex-col h-full gap-6">
                             <div>
                                 <h3 class="text-2xl font-black text-white mb-2">Core Services Hub</h3>
-                                <p class="text-slate-400 text-sm">Everything you need for a seamless transition to Azerbaijan.</p>
+                                <p class="text-slate-400 text-sm">Everything you need for a seamless transition and investment in Azerbaijan.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">University Admissions</h4><p class="text-[10px] text-slate-400">Bachelor, Master & PhD</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🏠</div><h4 class="font-bold text-white text-sm">Accommodation</h4><p class="text-[10px] text-slate-400">Secure Placement & Housing</p></div>
+                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">Investment & Real Estate</h4><p class="text-[10px] text-slate-400">Business Visas & Assets</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Document Prep</h4><p class="text-[10px] text-slate-400">Translation & Legal Filing</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Tourism & E-Visa</h4><p class="text-[10px] text-slate-400">Guided Tours & Permits</p></div>
                             </div>
@@ -205,7 +205,7 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Discover Azerbaijan</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Study Destinations & Tourism Highlights</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Study Destinations, Investment & Tourism</h2>
                 </div>
                 <a href="services" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> View All Programs & Tours → </a>
             </div>
@@ -268,13 +268,13 @@
                         <span>🇦🇿</span> Caspian Bridges • Официальный портал 2026
                     </div>
                     <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-                        Учеба и туризм в <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Азербайджане</span>
+                        Учеба, инвестиции и туризм в <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Азербайджане</span>
                     </h1>
                     <p class="text-slate-200 font-semibold text-base sm:text-lg">
-                        Caspian Bridges — Ваш надежный мост к образованию, жилью и туризму
+                        Caspian Bridges — Ваш надежный мост к образованию, недвижимости и туризму
                     </p>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        Мы помогаем иностранным студентам и туристам с поступлением в университеты, подготовкой документов, безопасным размещением и незабываемыми турами.
+                        Мы помогаем иностранным студентам и инвесторам с поступлением в университеты, инвестициями в недвижимость, подготовкой документов и незабываемыми турами.
                     </p>
                     <div class="flex items-center gap-6 pt-2">
                         <div><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">Поступлений</div></div>
@@ -291,16 +291,16 @@
                         <div class="relative z-10 flex flex-col h-full gap-6">
                             <div>
                                 <h3 class="text-2xl font-black text-white mb-2">Центр Услуг</h3>
-                                <p class="text-slate-400 text-sm">Все необходимое для плавного переезда в Азербайджан.</p>
+                                <p class="text-slate-400 text-sm">Все необходимое для переезда и инвестиций в Азербайджан.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Поступление в ВУЗы</h4><p class="text-[10px] text-slate-400">Бакалавриат и Магистратура</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🏠</div><h4 class="font-bold text-white text-sm">Проживание</h4><p class="text-[10px] text-slate-400">Общежития и квартиры</p></div>
+                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">Инвестиции и Бизнес</h4><p class="text-[10px] text-slate-400">Недвижимость и визы</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Подготовка документов</h4><p class="text-[10px] text-slate-400">Перевод и легализация</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Туризм и визы</h4><p class="text-[10px] text-slate-400">Экскурсии и E-Visa</p></div>
                             </div>
                             <div class="mt-2 flex items-center justify-between gap-4 border-t border-slate-800/80 pt-5">
-                                <div><h4 class="text-white font-bold text-sm">Говы начать?</h4><p class="text-slate-400 text-xs">Подайте заявку сегодня.</p></div>
+                                <div><h4 class="text-white font-bold text-sm">Готовы начать?</h4><p class="text-slate-400 text-xs">Подайте заявку сегодня.</p></div>
                                 <a href="apply" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> Подать заявку → </a>
                             </div>
                         </div>
@@ -313,7 +313,7 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Откройте Азербайджан</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Учебные центры и туристические направления</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Учеба, инвестиции и туристические направления</h2>
                 </div>
                 <a href="services" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Все программы и туры → </a>
             </div>
@@ -373,16 +373,16 @@
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
                 <div class="lg:col-span-6 space-y-6 text-right">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold ml-auto">
-                        <span>🇦🇿</span> جسور بحر قزوين • البوابة الرسمية للتعليم والسياحة 2026
+                        <span>🇦🇿</span> جسور بحر قزوين • البوابة الرسمية للتعليم والاستثمار والسياحة 2026
                     </div>
                     <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-                        دراسة واكتشاف <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">أذربيجان</span>
+                        الدراسة، الاستثمار واكتشاف <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">أذربيجان</span>
                     </h1>
                     <p class="text-slate-200 font-semibold text-base sm:text-lg ml-auto">
-                        جسور بحر قزوين — بوابتك الموثوقة للتعليم والسكن والسياحة
+                        جسور بحر قزوين — بوابتك الموثوقة للتعليم والاستثمار العقاري والسياحة
                     </p>
                     <p class="text-slate-400 text-sm leading-relaxed ml-auto">
-                        نساعد الطلاب والمسافرين الدوليين في القبول الجامعي، إعداد المستندات، السكن الآمن، والتجارب السياحية التي لا تُنسى في أذربيجان.
+                        نساعد الطلاب والمستثمرين الدوليين في القبول الجامعي، استثمارات العقارات، إعداد المستندات، السكن الآمن، والتجارب السياحية في أذربيجان.
                     </p>
                     <div class="flex items-center gap-6 pt-2 ml-auto justify-end">
                         <div><div class="text-2xl font-black text-emerald-300">5k+</div><div class="text-[11px] text-slate-400 font-semibold">طلاب عالميون</div></div>
@@ -399,11 +399,11 @@
                         <div class="relative z-10 flex flex-col h-full gap-6">
                             <div>
                                 <h3 class="text-2xl font-black text-white mb-2">مركز الخدمات الأساسية</h3>
-                                <p class="text-slate-400 text-sm">كل ما تحتاجه لانتقال سلس إلى أذربيجان.</p>
+                                <p class="text-slate-400 text-sm">كل ما تحتاجه للانتقال والاستثمار السلس في أذربيجان.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">القبول الجامعي</h4><p class="text-[10px] text-slate-400">بكالوريوس، ماجستير ودكتوراه</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🏠</div><h4 class="font-bold text-white text-sm">السكن</h4><p class="text-[10px] text-slate-400">إسكان آمن وشقق</p></div>
+                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">الاستثمار والعقارات</h4><p class="text-[10px] text-slate-400">تأشيرات الأعمال والأصول</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">إعداد المستندات</h4><p class="text-[10px] text-slate-400">الترجمة والتسجيل القانوني</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">السياحة والتأشيرة</h4><p class="text-[10px] text-slate-400">جولات مرشدة وتصاريح</p></div>
                             </div>
@@ -421,7 +421,7 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 flex-row-reverse">
                 <div class="text-right">
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">اكتشف أذربيجان</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">وجهات الدراسة والابرز السياحية</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">وجهات الدراسة، الاستثمار والسياحة</h2>
                 </div>
                 <a href="services" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> عرض جميع البرامج والجولات ← </a>
             </div>
@@ -456,7 +456,7 @@
                     <div class="p-5 text-right">
                         <h3 class="text-lg font-bold text-white mb-1">غابات غابالا</h3>
                         <p class="text-slate-400 text-xs mb-4">بحيرات خلابة وغابات وأماكن للاسترخاء.</p>
-                        <span class="text-xs font-bold text-emerald-400">استكشف الطبيعة ←</span>
+                        <span class="text-xs font-bold text-amber-400">استكشف الطبيعة ←</span>
                     </div>
                 </div>
                 <div data-target="#modal-shusha" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
@@ -485,9 +485,9 @@
                 <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1000&auto=format&fit=crop" alt="Old City">
             </div>
             <div class="p-6">
-                <h2 class="text-2xl font-black text-white mb-2">🇦🇿 Baku Student & Tourist Hub</h2>
-                <p class="text-slate-300 text-sm mb-4">Baku hosts top-tier universities with international accreditation, modern student residences, and a rich cultural environment.</p>
-                <a href="apply" class="inline-block bg-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Apply for Study Program</a>
+                <h2 class="text-2xl font-black text-white mb-2">🇦🇿 Baku Student, Investment & Tourist Hub</h2>
+                <p class="text-slate-300 text-sm mb-4">Baku hosts top-tier universities with international accreditation, modern student residences, real estate investment opportunities, and a rich cultural environment.</p>
+                <a href="apply" class="inline-block bg-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Apply for Study / Investment</a>
             </div>
         </div>
     </div>

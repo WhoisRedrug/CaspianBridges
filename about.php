@@ -9,10 +9,25 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Caspian Bridges - Study & Tourism Gateway</title>
     <link rel="icon" type="image/png" href="images/logo.png.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn more about Caspian Bridges, a premier consulting and placement firm in Baku offering 24/7 support for international student admissions, housing, and tourism in Azerbaijan.">
+    <meta name="keywords" content="about Caspian Bridges, study in Azerbaijan, tourism Azerbaijan, Baku consulting agency, university admission Azerbaijan, student housing Baku">
+    <link rel="canonical" href="https://caspianbridges.com/about">
+
+    <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://caspianbridges.com/about">
     <meta property="og:title" content="Caspian Bridges — About Us">
     <meta property="og:description" content="Learn more about Caspian Bridges, offering 7/24 support for your study and tourism in Azerbaijan.">
     <meta property="og:image" content="images/logo.png.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Caspian Bridges — About Us">
+    <meta name="twitter:description" content="Learn more about Caspian Bridges, offering 7/24 support for your study and tourism in Azerbaijan.">
+    <meta name="twitter:image" content="images/logo.png.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="component.js"></script>
@@ -236,3 +251,4 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
     <div id="footer-container"></div>
 </body>
 </html>
+```[cite: 3]

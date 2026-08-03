@@ -8,10 +8,25 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Caspian Bridges - Study, Invest & Tourism in Azerbaijan</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore professional services by Caspian Bridges in Azerbaijan: Visa processing, university admissions & education, investment consulting, and bespoke tourism packages.">
+    <meta name="keywords" content="Caspian Bridges services, study in Azerbaijan, invest in Azerbaijan, tourism Azerbaijan, visa services Baku, business setup Azerbaijan">
+    <link rel="canonical" href="https://caspianbridges.com/services">
+
+    <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Caspian Bridges — Services">
+    <meta property="og:url" content="https://caspianbridges.com/services">
+    <meta property="og:title" content="Caspian Bridges — Our Comprehensive Services">
     <meta property="og:description" content="Visa Services, University Admissions & Education, Investment, and Travel solutions in Azerbaijan.">
     <meta property="og:image" content="images/svgviewer-png-1.png">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Caspian Bridges — Our Comprehensive Services">
+    <meta name="twitter:description" content="Visa Services, University Admissions & Education, Investment, and Travel solutions in Azerbaijan.">
+    <meta name="twitter:image" content="images/svgviewer-png-1.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="component.js"></script>
@@ -142,8 +157,8 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-amber-400 hover:text-amber-300 gap-1.5"> Поступить на учебу → </a>
                 </div>
                 <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group">
-                    <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mb=6 group-hover:scale=110 transition-transform"> 📈 </div>
-                    <h3 class="text-2xl font-bold text-white mb=3">Инвестиции (Invest)</h3>
+                    <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> 📈 </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Инвестиции (Invest)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Открытие бизнеса в Азербайджане, инвестиции в недвижимость и коммерческие проекты. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300 gap-1.5"> Инвестировать → </a>
                 </div>
@@ -163,7 +178,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
             <div class="max-w-4xl mx-auto relative z-10">
                 <div class="mb-6 flex justify-center">
-                    <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-emerald-400 transition bg-[#0b2420] px-4 py-2 rounded-full border border-slate-800"> ← العودة إلى الرئيسية </a>
+                    <a href="index" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-emerald-400 transition bg-[#0b2420] px-4 py-2 rounded-full border border-slate-800"> ← العودة إلى الرئيسية </a>
                 </div>
                 <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight mb-4"> خدماتنا <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">الشاملة</span> </h1>
                 <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto"> حلول احترافية وموثوقة في مجالات التأشيرات، التعليم، الاستثمار، والسياحة في أذربيجان. </p>
@@ -181,7 +196,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                 <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group text-right">
                     <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform ml-auto"> 🎓 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">التعليم (Education)</h3>
-                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> إرشادات كاملة للقبول في برامج البكالوريوس، الماجستير， والدكتوراه، وتوفير السكن. </p>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> إرشادات كاملة للقبول في برامج البكالوريوس، الماجستير، والدكتوراه، وتوفير السكن. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-amber-400 hover:text-amber-300 gap-1.5"> التقديم للدراسة ← </a>
                 </div>
                 <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group text-right">
@@ -191,7 +206,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300 gap-1.5"> الاستثمار الآن ← </a>
                 </div>
                 <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group text-right">
-                    <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb=6 group-hover:scale=110 transition-transform ml-auto"> ✈️ </div>
+                    <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform ml-auto"> ✈️ </div>
                     <h3 class="text-2xl font-bold text-white mb-3">السياحة (Travel)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> باقات سياحية مخصصة، مرشدون سياحيون خاصون، حجز الفنادق، والاستقبال بالمطار. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-amber-400 hover:text-amber-300 gap-1.5"> حجز رحلة ← </a>
