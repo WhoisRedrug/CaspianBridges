@@ -251,4 +251,3 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
     <div id="footer-container"></div>
 </body>
 </html>
-```[cite: 3]
