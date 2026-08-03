@@ -3,11 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="t7jBm5DJx-flLg4ziS9azPNPCoI-N3b63SgMUOxe4EM" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caspian Bridges | Azərbaycanda Təhsil, Tələbə Vizası və Biznes Səyahət Xidmətləri</title>
     <meta name="description" content="Azərbaycanda xarici tələbələr üçün universitet qəbulu, tələbə vizası, biznes vizası, investisiya məsləhəti və elit turizm xidmətləri. Bakıda 99% qəbul uğuru, 7/24 dəstək.">
     <meta name="keywords" content="Azərbaycanda təhsil, Bakıda təhsil vizası, Azərbaycan biznes vizası, Azərbaycana elektron viza, Azərbaycanda daşınmaz əmlak investisiyası, Şahdağ turu, Qəbələ turu, study visa Azerbaijan, university admission Azerbaijan foreign students, Azerbaijan business visa, e-visa Azerbaijan, invest in Azerbaijan real estate, Shahdag tour package">
-    <link rel="canonical" href="https://caspianbridges.com/index.php">
+    <link rel="canonical" href="https://caspianbridges.com/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Caspian Bridges | Azərbaycanda Təhsil, Viza və Biznes Səyahət Xidmətləri">
     <meta property="og:description" content="Universitet qəbulu, tələbə/biznes vizası, investisiya məsləhəti və elit turizm — Azərbaycana etibarlı körpünüz.">

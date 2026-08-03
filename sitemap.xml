@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
 
   <url>
     <loc>https://caspianbridges.com/</loc>
+    <xhtml:link rel="alternate" hreflang="az" href="https://caspianbridges.com/?lang=az"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caspianbridges.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caspianbridges.com/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://caspianbridges.com/?lang=ar"/>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
+
   <url>
     <loc>https://caspianbridges.com/services</loc>
+    <xhtml:link rel="alternate" hreflang="az" href="https://caspianbridges.com/services?lang=az"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caspianbridges.com/services?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caspianbridges.com/services?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://caspianbridges.com/services?lang=ar"/>
     <lastmod>2026-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -17,20 +28,34 @@
 
   <url>
     <loc>https://caspianbridges.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="az" href="https://caspianbridges.com/about?lang=az"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caspianbridges.com/about?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caspianbridges.com/about?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://caspianbridges.com/about?lang=ar"/>
     <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
+
   <url>
     <loc>https://caspianbridges.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="az" href="https://caspianbridges.com/contact?lang=az"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caspianbridges.com/contact?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caspianbridges.com/contact?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://caspianbridges.com/contact?lang=ar"/>
     <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
+  
   <url>
     <loc>https://caspianbridges.com/apply</loc>
+    <xhtml:link rel="alternate" hreflang="az" href="https://caspianbridges.com/apply?lang=az"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://caspianbridges.com/apply?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://caspianbridges.com/apply?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://caspianbridges.com/apply?lang=ar"/>
     <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
