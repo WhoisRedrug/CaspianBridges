@@ -72,11 +72,12 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div id="header-container"></div>
 
     <?php
-    // Universitet məlumatları və qiymətlərin əvəzinə təhsil səviyyələri
+    // Universitet məlumatları, şəkil yolları və təhsil səviyyələri
     $universities = [
         [
             'name' => 'Bakı Dövlət Universiteti (BSU)',
             'city' => 'Bakı',
+            'image' => 'images/bsu.jpg',
             'level_az' => 'Bakalavr • Magistr • Doktorantura',
             'level_en' => 'Bachelor • Master • PhD',
             'level_ru' => 'Бакалавриат • Магистратура • Докторантура',
@@ -89,6 +90,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         [
             'name' => 'ADA University',
             'city' => 'Bakı',
+            'image' => 'images/ada.jpg',
             'level_az' => 'Bakalavr • Magistr',
             'level_en' => 'Bachelor • Master',
             'level_ru' => 'Бакалавриат • Магистратура',
@@ -101,6 +103,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         [
             'name' => 'Xəzər Universiteti (Khazar University)',
             'city' => 'Bakı',
+            'image' => 'images/khazar.jpg',
             'level_az' => 'Bakalavr • Magistr • Doktorantura',
             'level_en' => 'Bachelor • Master • PhD',
             'level_ru' => 'Бакалавриат • Магистратура • Докторантура',
@@ -113,6 +116,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         [
             'name' => 'Azərbaycan Dövlət Neft və Sənaye Universiteti (ASOIU)',
             'city' => 'Bakı',
+            'image' => 'images/asoiu.jpg',
             'level_az' => 'Bakalavr • Magistr • Doktorantura',
             'level_en' => 'Bachelor • Master • PhD',
             'level_ru' => 'Бакалавриат • Магистратура • Докторантура',
@@ -125,6 +129,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         [
             'name' => 'Azərbaycan Tibb Universiteti (AMU)',
             'city' => 'Bakı',
+            'image' => 'images/amu.jpg',
             'level_az' => 'Bakalavr • Rezidentura • Magistr',
             'level_en' => 'Bachelor • Residency • Master',
             'level_ru' => 'Бакалавриат • Резидентура • Магистратура',
@@ -137,6 +142,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         [
             'name' => 'UNEC (Azərbaycan Dövlət İqtisad Universiteti)',
             'city' => 'Bakı',
+            'image' => 'images/unec.jpg',
             'level_az' => 'Bakalavr • Magistr • Doktorantura',
             'level_en' => 'Bachelor • Master • PhD',
             'level_ru' => 'Бакалавриат • Магистратура • Докторантура',
@@ -149,6 +155,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         [
             'name' => 'Azərbaycan Texniki Universiteti (AzTU)',
             'city' => 'Bakı',
+            'image' => 'images/aztu.jpg',
             'level_az' => 'Bakalavr • Magistr • Doktorantura',
             'level_en' => 'Bachelor • Master • PhD',
             'level_ru' => 'Бакалавриат • Магистратура • Докторантура',
@@ -161,6 +168,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         [
             'name' => 'Bakı Mühəndislik Universiteti (BEU)',
             'city' => 'Xırdalan',
+            'image' => 'images/beu.jpg',
             'level_az' => 'Bakalavr • Magistr',
             'level_en' => 'Bachelor • Master',
             'level_ru' => 'Бакалавриат • Магистратура',
@@ -173,6 +181,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         [
             'name' => 'Qərbi Xəzər Universiteti (Western Caspian University)',
             'city' => 'Bakı',
+            'image' => 'images/wcu.jpg',
             'level_az' => 'Bakalavr • Magistr • Doktorantura',
             'level_en' => 'Bachelor • Master • PhD',
             'level_ru' => 'Бакалавриат • Магистратура • Докторантура',
@@ -185,6 +194,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         [
             'name' => 'Sumqayıt Dövlət Universiteti',
             'city' => 'Sumqayıt',
+            'image' => 'images/sdu.jpg',
             'level_az' => 'Bakalavr • Magistr',
             'level_en' => 'Bachelor • Master',
             'level_ru' => 'Бакалавриат • Магистратура',
@@ -209,17 +219,20 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="px-6 pb-20 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <?php foreach ($universities as $u): ?>
-                <div class="glass-card rounded-3xl p-6 hover:border-amber-500/40 transition flex flex-col justify-between">
+                <div class="glass-card rounded-3xl overflow-hidden hover:border-amber-500/40 transition flex flex-col justify-between">
                     <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <h3 class="text-lg font-bold text-white"><?php echo htmlspecialchars($u['name']); ?></h3>
+                        <div class="h-48 w-full overflow-hidden bg-slate-900/50">
+                            <img src="<?php echo htmlspecialchars($u['image']); ?>" alt="<?php echo htmlspecialchars($u['name']); ?>" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wide">📍 <?php echo htmlspecialchars($u['city']); ?></span>
-                            <span class="text-slate-600">•</span>
-                            <span class="text-[11px] font-medium text-amber-300/90"><?php echo htmlspecialchars($u['level_az']); ?></span>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white mb-2"><?php echo htmlspecialchars($u['name']); ?></h3>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wide">📍 <?php echo htmlspecialchars($u['city']); ?></span>
+                                <span class="text-slate-600">•</span>
+                                <span class="text-[11px] font-medium text-amber-300/90"><?php echo htmlspecialchars($u['level_az']); ?></span>
+                            </div>
+                            <p class="text-slate-400 text-xs leading-relaxed"><?php echo htmlspecialchars($u['az']); ?></p>
                         </div>
-                        <p class="text-slate-400 text-xs leading-relaxed"><?php echo htmlspecialchars($u['az']); ?></p>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -242,17 +255,20 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="px-6 pb-20 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <?php foreach ($universities as $u): ?>
-                <div class="glass-card rounded-3xl p-6 hover:border-amber-500/40 transition flex flex-col justify-between">
+                <div class="glass-card rounded-3xl overflow-hidden hover:border-amber-500/40 transition flex flex-col justify-between">
                     <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <h3 class="text-lg font-bold text-white"><?php echo htmlspecialchars($u['name']); ?></h3>
+                        <div class="h-48 w-full overflow-hidden bg-slate-900/50">
+                            <img src="<?php echo htmlspecialchars($u['image']); ?>" alt="<?php echo htmlspecialchars($u['name']); ?>" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wide">📍 <?php echo htmlspecialchars($u['city']); ?></span>
-                            <span class="text-slate-600">•</span>
-                            <span class="text-[11px] font-medium text-amber-300/90"><?php echo htmlspecialchars($u['level_en']); ?></span>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white mb-2"><?php echo htmlspecialchars($u['name']); ?></h3>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wide">📍 <?php echo htmlspecialchars($u['city']); ?></span>
+                                <span class="text-slate-600">•</span>
+                                <span class="text-[11px] font-medium text-amber-300/90"><?php echo htmlspecialchars($u['level_en']); ?></span>
+                            </div>
+                            <p class="text-slate-400 text-xs leading-relaxed"><?php echo htmlspecialchars($u['en']); ?></p>
                         </div>
-                        <p class="text-slate-400 text-xs leading-relaxed"><?php echo htmlspecialchars($u['en']); ?></p>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -275,17 +291,20 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="px-6 pb-20 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <?php foreach ($universities as $u): ?>
-                <div class="glass-card rounded-3xl p-6 hover:border-amber-500/40 transition flex flex-col justify-between">
+                <div class="glass-card rounded-3xl overflow-hidden hover:border-amber-500/40 transition flex flex-col justify-between">
                     <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <h3 class="text-lg font-bold text-white"><?php echo htmlspecialchars($u['name']); ?></h3>
+                        <div class="h-48 w-full overflow-hidden bg-slate-900/50">
+                            <img src="<?php echo htmlspecialchars($u['image']); ?>" alt="<?php echo htmlspecialchars($u['name']); ?>" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wide">📍 <?php echo htmlspecialchars($u['city']); ?></span>
-                            <span class="text-slate-600">•</span>
-                            <span class="text-[11px] font-medium text-amber-300/90"><?php echo htmlspecialchars($u['level_ru']); ?></span>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white mb-2"><?php echo htmlspecialchars($u['name']); ?></h3>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wide">📍 <?php echo htmlspecialchars($u['city']); ?></span>
+                                <span class="text-slate-600">•</span>
+                                <span class="text-[11px] font-medium text-amber-300/90"><?php echo htmlspecialchars($u['level_ru']); ?></span>
+                            </div>
+                            <p class="text-slate-400 text-xs leading-relaxed"><?php echo htmlspecialchars($u['ru']); ?></p>
                         </div>
-                        <p class="text-slate-400 text-xs leading-relaxed"><?php echo htmlspecialchars($u['ru']); ?></p>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -308,17 +327,20 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="px-6 pb-20 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <?php foreach ($universities as $u): ?>
-                <div class="glass-card rounded-3xl p-6 hover:border-amber-500/40 transition flex flex-col justify-between text-right">
+                <div class="glass-card rounded-3xl overflow-hidden hover:border-amber-500/40 transition flex flex-col justify-between text-right">
                     <div>
-                        <div class="flex items-start justify-between gap-2 mb-2">
-                            <h3 class="text-lg font-bold text-white"><?php echo htmlspecialchars($u['name']); ?></h3>
+                        <div class="h-48 w-full overflow-hidden bg-slate-900/50">
+                            <img src="<?php echo htmlspecialchars($u['image']); ?>" alt="<?php echo htmlspecialchars($u['name']); ?>" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         </div>
-                        <div class="flex items-center justify-end gap-2 mb-3">
-                            <span class="text-[11px] font-medium text-amber-300/90"><?php echo htmlspecialchars($u['level_ar']); ?></span>
-                            <span class="text-slate-600">•</span>
-                            <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wide"><?php echo htmlspecialchars($u['city']); ?> 📍</span>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-white mb-2"><?php echo htmlspecialchars($u['name']); ?></h3>
+                            <div class="flex items-center justify-end gap-2 mb-3">
+                                <span class="text-[11px] font-medium text-amber-300/90"><?php echo htmlspecialchars($u['level_ar']); ?></span>
+                                <span class="text-slate-600">•</span>
+                                <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wide"><?php echo htmlspecialchars($u['city']); ?> 📍</span>
+                            </div>
+                            <p class="text-slate-400 text-xs leading-relaxed"><?php echo htmlspecialchars($u['ar']); ?></p>
                         </div>
-                        <p class="text-slate-400 text-xs leading-relaxed"><?php echo htmlspecialchars($u['ar']); ?></p>
                     </div>
                 </div>
                 <?php endforeach; ?>
