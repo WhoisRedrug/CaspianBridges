@@ -7,7 +7,30 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$lang = isset($_POST['lang']) ? $_POST['lang'] : (isset($_GET['lang']) ? $_GET['lang'] : 'en');
+$lang = isset($_POST['lang']) ? $_POST['lang'] : (isset($_GET['lang']) ? $_GET['lang'] : 'az');
+if (!in_array($lang, ['az', 'en', 'ru', 'ar'], true)) {
+    $lang = 'az';
+}
+
+$seo = [
+    'az' => [
+        'title' => 'Əlaqə | Caspian Bridges',
+        'desc'  => 'Caspian Bridges ilə əlaqə saxlayın — Azərbaycanda təhsil, viza, investisiya və turizm sualları üçün Bakı ofisimiz 7/24 dəstək göstərir.',
+    ],
+    'en' => [
+        'title' => 'Contact Us | Caspian Bridges',
+        'desc'  => 'Get in touch with Caspian Bridges for study, visa, investment, and tourism inquiries in Azerbaijan. Our Baku office offers 24/7 support.',
+    ],
+    'ru' => [
+        'title' => 'Контакты | Caspian Bridges',
+        'desc'  => 'Свяжитесь с Caspian Bridges по вопросам учёбы, визы, инвестиций и туризма в Азербайджане. Наш офис в Баку работает 24/7.',
+    ],
+    'ar' => [
+        'title' => 'اتصل بنا | Caspian Bridges',
+        'desc'  => 'تواصل مع Caspian Bridges لاستفسارات الدراسة والتأشيرة والاستثمار والسياحة في أذربيجان. مكتبنا في باكو يقدم دعمًا على مدار الساعة.',
+    ],
+];
+$html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
 // If user logged in and has pending contact data
 if (isset($_SESSION['user_id']) && isset($_SESSION['pending_contact'])) {
@@ -104,20 +127,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo htmlspecialchars($lang); ?>" dir="<?php echo $html_dir; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Caspian Bridges</title>
+    <title><?php echo htmlspecialchars($seo[$lang]['title']); ?></title>
+    <meta name="description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
+    <meta name="keywords" content="Caspian Bridges əlaqə, Bakı ofis, Azərbaycanda təhsil məsləhəti, viza məsləhəti Bakı, contact Caspian Bridges Baku, اتصل بـ Caspian Bridges">
+    <link rel="canonical" href="https://caspianbridges.com/contact<?php echo $lang !== 'az' ? '?lang=' . htmlspecialchars($lang) : ''; ?>">
+    <link rel="alternate" hreflang="az" href="https://caspianbridges.com/contact">
+    <link rel="alternate" hreflang="en" href="https://caspianbridges.com/contact?lang=en">
+    <link rel="alternate" hreflang="ru" href="https://caspianbridges.com/contact?lang=ru">
+    <link rel="alternate" hreflang="ar" href="https://caspianbridges.com/contact?lang=ar">
+    <link rel="alternate" hreflang="x-default" href="https://caspianbridges.com/contact">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Caspian Bridges — Contact Us">
-    <meta property="og:description" content="Get in touch with Caspian Bridges for visa, study, investment, and tourism inquiries in Azerbaijan.">
+    <meta property="og:title" content="<?php echo htmlspecialchars($seo[$lang]['title']); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
     <meta property="og:image" content="images/svgviewer-png-1.png">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Caspian Bridges — Contact Us">
-    <meta name="twitter:description" content="Get in touch with Caspian Bridges for visa, study, investment, and tourism inquiries in Azerbaijan.">
+    <meta name="twitter:title" content="<?php echo htmlspecialchars($seo[$lang]['title']); ?>">
+    <meta name="twitter:description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
     <meta name="twitter:image" content="images/svgviewer-png-1.png">
 
     <script src="https://cdn.tailwindcss.com"></script>

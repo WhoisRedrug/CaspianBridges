@@ -1,31 +1,62 @@
 <?php
 session_start();
 $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
+
+$lang = $_GET['lang'] ?? 'az';
+if (!in_array($lang, ['az', 'en', 'ru', 'ar'], true)) {
+    $lang = 'az';
+}
+
+$seo = [
+    'az' => [
+        'title' => 'Xidmətlər | Caspian Bridges - Azərbaycan Biznes Vizası, Təhsil, İnvestisiya',
+        'desc'  => 'Caspian Bridges xidmətləri: Azərbaycan biznes vizası, elektron viza, universitet qəbulu, daşınmaz əmlak investisiyası və elit turizm paketləri.',
+    ],
+    'en' => [
+        'title' => 'Services | Caspian Bridges - Azerbaijan Business Visa, Study & Investment',
+        'desc'  => 'Caspian Bridges services: Azerbaijan business visa, e-visa, university admissions, real estate investment, and premium tourism packages.',
+    ],
+    'ru' => [
+        'title' => 'Услуги | Caspian Bridges - Бизнес-виза, учёба и инвестиции в Азербайджане',
+        'desc'  => 'Услуги Caspian Bridges: бизнес-виза в Азербайджан, электронная виза, поступление в вузы, инвестиции в недвижимость и туристические пакеты.',
+    ],
+    'ar' => [
+        'title' => 'الخدمات | Caspian Bridges - تأشيرة الأعمال والدراسة والاستثمار في أذربيجان',
+        'desc'  => 'خدمات Caspian Bridges: تأشيرة الأعمال لأذربيجان، التأشيرة الإلكترونية، القبول الجامعي، الاستثمار العقاري وباقات السياحة الفاخرة.',
+    ],
+];
+$html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo htmlspecialchars($lang); ?>" dir="<?php echo $html_dir; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Caspian Bridges - Study, Invest & Tourism in Azerbaijan</title>
+    <title><?php echo htmlspecialchars($seo[$lang]['title']); ?></title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Explore professional services by Caspian Bridges in Azerbaijan: Visa processing, university admissions & education, investment consulting, and bespoke tourism packages.">
-    <meta name="keywords" content="Caspian Bridges services, study in Azerbaijan, invest in Azerbaijan, tourism Azerbaijan, visa services Baku, business setup Azerbaijan">
-    <link rel="canonical" href="https://caspianbridges.com/services">
+    <meta name="description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
+    <meta name="keywords" content="Azərbaycan biznes vizası, Azərbaycana elektron viza, Azərbaycanda daşınmaz əmlak investisiyası, Bakıda təhsil vizası, Caspian Bridges services, business visa Azerbaijan, e-visa Azerbaijan, invest in Azerbaijan real estate, تأشيرة الأعمال أذربيجان, الاستثمار العقاري في أذربيجان">
+    <link rel="canonical" href="https://caspianbridges.com/services<?php echo $lang !== 'az' ? '?lang=' . htmlspecialchars($lang) : ''; ?>">
+    <link rel="alternate" hreflang="az" href="https://caspianbridges.com/services">
+    <link rel="alternate" hreflang="en" href="https://caspianbridges.com/services?lang=en">
+    <link rel="alternate" hreflang="ru" href="https://caspianbridges.com/services?lang=ru">
+    <link rel="alternate" hreflang="ar" href="https://caspianbridges.com/services?lang=ar">
+    <link rel="alternate" hreflang="x-default" href="https://caspianbridges.com/services">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://caspianbridges.com/services">
-    <meta property="og:title" content="Caspian Bridges — Our Comprehensive Services">
-    <meta property="og:description" content="Visa Services, University Admissions & Education, Investment, and Travel solutions in Azerbaijan.">
+    <meta property="og:title" content="<?php echo htmlspecialchars($seo[$lang]['title']); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
     <meta property="og:image" content="images/svgviewer-png-1.png">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Caspian Bridges — Our Comprehensive Services">
-    <meta name="twitter:description" content="Visa Services, University Admissions & Education, Investment, and Travel solutions in Azerbaijan.">
+    <meta name="twitter:title" content="<?php echo htmlspecialchars($seo[$lang]['title']); ?>">
+    <meta name="twitter:description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
     <meta name="twitter:image" content="images/svgviewer-png-1.png">
+
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">

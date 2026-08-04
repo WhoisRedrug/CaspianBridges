@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
                         <a href="index" class="hover:text-amber-400 transition" data-az="Ana Səhifə" data-en="Home" data-ru="Главная" data-ar="الرئيسية">Home</a>
                         <a href="services" class="hover:text-amber-400 transition" data-az="Xidmətlər" data-en="Services" data-ru="Услуги" data-ar="الخدمات">Services</a>
+                        <a href="universities" class="hover:text-amber-400 transition" data-az="Universitetlər" data-en="Universities" data-ru="Университеты" data-ar="الجامعات">Universities</a>
                         <a href="about" class="hover:text-amber-400 transition" data-az="Haqqımızda" data-en="About Us" data-ru="О нас" data-ar="من نحن">About Us</a>
                         <a href="contact" class="hover:text-amber-400 transition" data-az="Əlaqə" data-en="Contact" data-ru="Контакты" data-ar="اتصل بنا">Contact</a>
                     </div>
@@ -88,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <a href="index" class="block text-slate-300 font-semibold hover:text-amber-400" data-az="Ana Səhifə" data-en="Home" data-ru="Главная" data-ar="الرئيسية">Home</a>
                     <a href="services" class="block text-slate-300 font-semibold hover:text-amber-400" data-az="Xidmətlər" data-en="Services" data-ru="Услуги" data-ar="الخدمات">Services</a>
+                    <a href="universities" class="block text-slate-300 font-semibold hover:text-amber-400" data-az="Universitetlər" data-en="Universities" data-ru="Университеты" data-ar="الجامعات">Universities</a>
                     <a href="about" class="block text-slate-300 font-semibold hover:text-amber-400" data-az="Haqqımızda" data-en="About Us" data-ru="О нас" data-ar="من نحن">About Us</a>
                     <a href="contact" class="block text-slate-300 font-semibold hover:text-amber-400" data-az="Əlaqə" data-en="Contact" data-ru="Контакты" data-ar="اتصل بنا">Contact</a>
                     <div class="pt-2 flex flex-col gap-2">
@@ -142,6 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <ul class="space-y-2 text-xs">
                             <li><a href="index" class="hover:text-amber-400 transition" data-az="Ana Səhifə" data-en="Home Portal" data-ru="Главная" data-ar="الرئيسية">Home Portal</a></li>
                             <li><a href="services" class="hover:text-amber-400 transition" data-az="Xidmətlərimiz" data-en="Our Services" data-ru="Наши услуги" data-ar="خدماتنا">Our Services</a></li>
+                            <li><a href="universities" class="hover:text-amber-400 transition" data-az="Universitetlər" data-en="Universities" data-ru="Университеты" data-ar="الجامعات">Universities</a></li>
                             <li><a href="about" class="hover:text-amber-400 transition" data-az="Şirkət Haqqında" data-en="About Company" data-ru="О компании" data-ar="عن الشركة">About Company</a></li>
                             <li><a href="contact" class="hover:text-amber-400 transition" data-az="Bizimlə Əlaqə" data-en="Contact Us" data-ru="Связаться с нами" data-ar="اتصل بنا">Contact Us</a></li>
                         </ul>
@@ -172,6 +175,11 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     }
 
-    const savedLang = localStorage.getItem('selectedLang') || 'en';
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    const savedLang = urlLang || localStorage.getItem('selectedLang') || 'az';
+    if (urlLang) {
+        localStorage.setItem('selectedLang', urlLang);
+    }
     changeLanguage(savedLang);
 });

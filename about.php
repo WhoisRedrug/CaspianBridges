@@ -1,32 +1,63 @@
 <?php
 session_start();
 $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
+
+$lang = $_GET['lang'] ?? 'az';
+if (!in_array($lang, ['az', 'en', 'ru', 'ar'], true)) {
+    $lang = 'az';
+}
+
+$seo = [
+    'az' => [
+        'title' => 'Haqqımızda | Caspian Bridges - Azərbaycanda Təhsil, Viza və Turizm Tərəfdaşınız',
+        'desc'  => 'Caspian Bridges — Bakıda 7/24 dəstəklə xarici tələbələr üçün universitet qəbulu, viza, yaşayış və turizm xidmətləri göstərən etibarlı agentlik.',
+    ],
+    'en' => [
+        'title' => 'About Us | Caspian Bridges - Study, Visa & Tourism Partner in Azerbaijan',
+        'desc'  => 'Caspian Bridges is a trusted agency in Baku offering 24/7 support for university admissions, visas, accommodation, and tourism for foreigners in Azerbaijan.',
+    ],
+    'ru' => [
+        'title' => 'О нас | Caspian Bridges - Партнёр по учёбе, визе и туризму в Азербайджане',
+        'desc'  => 'Caspian Bridges — надёжное агентство в Баку, предоставляющее поддержку 24/7 по поступлению в вузы, визам, проживанию и туризму для иностранцев в Азербайджане.',
+    ],
+    'ar' => [
+        'title' => 'من نحن | Caspian Bridges - شريككم للدراسة والتأشيرة والسياحة في أذربيجان',
+        'desc'  => 'Caspian Bridges وكالة موثوقة في باكو تقدم دعمًا على مدار الساعة للقبول الجامعي والتأشيرات والسكن والسياحة للأجانب في أذربيجان.',
+    ],
+];
+$html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo htmlspecialchars($lang); ?>" dir="<?php echo $html_dir; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Caspian Bridges - Study & Tourism Gateway</title>
+    <title><?php echo htmlspecialchars($seo[$lang]['title']); ?></title>
     <link rel="icon" type="image/png" href="images/logo.png.png">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn more about Caspian Bridges, a premier consulting and placement firm in Baku offering 24/7 support for international student admissions, housing, and tourism in Azerbaijan.">
-    <meta name="keywords" content="about Caspian Bridges, study in Azerbaijan, tourism Azerbaijan, Baku consulting agency, university admission Azerbaijan, student housing Baku">
-    <link rel="canonical" href="https://caspianbridges.com/about">
+    <meta name="description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
+    <meta name="keywords" content="Caspian Bridges haqqında, Azərbaycanda təhsil agentliyi, Bakıda təhsil vizası, Bakıda tələbə yaşayışı, about Caspian Bridges, study in Azerbaijan, Baku consulting agency, من نحن Caspian Bridges, وكالة دراسة في أذربيجان">
+    <link rel="canonical" href="https://caspianbridges.com/about<?php echo $lang !== 'az' ? '?lang=' . htmlspecialchars($lang) : ''; ?>">
+    <link rel="alternate" hreflang="az" href="https://caspianbridges.com/about">
+    <link rel="alternate" hreflang="en" href="https://caspianbridges.com/about?lang=en">
+    <link rel="alternate" hreflang="ru" href="https://caspianbridges.com/about?lang=ru">
+    <link rel="alternate" hreflang="ar" href="https://caspianbridges.com/about?lang=ar">
+    <link rel="alternate" hreflang="x-default" href="https://caspianbridges.com/about">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://caspianbridges.com/about">
-    <meta property="og:title" content="Caspian Bridges — About Us">
-    <meta property="og:description" content="Learn more about Caspian Bridges, offering 7/24 support for your study and tourism in Azerbaijan.">
+    <meta property="og:title" content="<?php echo htmlspecialchars($seo[$lang]['title']); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
     <meta property="og:image" content="images/logo.png.png">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Caspian Bridges — About Us">
-    <meta name="twitter:description" content="Learn more about Caspian Bridges, offering 7/24 support for your study and tourism in Azerbaijan.">
+    <meta name="twitter:title" content="<?php echo htmlspecialchars($seo[$lang]['title']); ?>">
+    <meta name="twitter:description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
     <meta name="twitter:image" content="images/logo.png.png">
+
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">

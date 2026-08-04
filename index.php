@@ -1,22 +1,58 @@
-<?php session_start(); ?>
+<?php
+session_start();
+
+// Dilə görə fərqli SEO başlığı/izahı — Google axtarış nəticələrində
+// istifadəçinin öz dilində görünsün deyə (xüsusilə ərəb auditoriyası üçün).
+$lang = $_GET['lang'] ?? 'az';
+if (!in_array($lang, ['az', 'en', 'ru', 'ar'], true)) {
+    $lang = 'az';
+}
+
+$seo = [
+    'az' => [
+        'title' => 'Caspian Bridges | Azərbaycanda Təhsil, Tələbə Vizası və İnvestisiya',
+        'desc'  => 'Azərbaycanda xarici tələbələr üçün universitet qəbulu, tələbə vizası, biznes vizası, daşınmaz əmlak investisiyası və elit turizm xidmətləri. Bakıda 99% qəbul uğuru, 7/24 dəstək.',
+    ],
+    'en' => [
+        'title' => 'Caspian Bridges | Study, Business Visa & Investment in Azerbaijan',
+        'desc'  => 'University admission, student visa, business visa, real estate investment and premium tourism services for foreigners in Azerbaijan. 99% success rate, 24/7 support in Baku.',
+    ],
+    'ru' => [
+        'title' => 'Caspian Bridges | Учёба, Виза и Инвестиции в Азербайджане',
+        'desc'  => 'Поступление в вузы, студенческая и бизнес-виза, инвестиции в недвижимость и туристические услуги в Азербайджане. 99% успешных заявок, поддержка 24/7 в Баку.',
+    ],
+    'ar' => [
+        'title' => 'Caspian Bridges | الدراسة، تأشيرة الأعمال والاستثمار في أذربيجان',
+        'desc'  => 'القبول الجامعي، تأشيرة الطلاب، تأشيرة الأعمال، الاستثمار العقاري وخدمات السياحة الفاخرة للأجانب في أذربيجان. نسبة نجاح 99%، دعم على مدار الساعة في باكو.',
+    ],
+];
+
+$html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo htmlspecialchars($lang); ?>" dir="<?php echo $html_dir; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="t7jBm5DJx-flLg4ziS9azPNPCoI-N3b63SgMUOxe4EM" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caspian Bridges | Azərbaycanda Təhsil, Tələbə Vizası və İnvestisiya</title>
-    <meta name="description" content="Azərbaycanda xarici tələbələr üçün universitet qəbulu, tələbə vizası, biznes vizası, daşınmaz əmlak investisiyası və elit turizm xidmətləri. Bakıda 99% qəbul uğuru, 7/24 dəstək.">
-    <meta name="keywords" content="Azərbaycanda təhsil, Bakıda təhsil vizası, Azərbaycan biznes vizası, Azərbaycana elektron viza, Azərbaycanda daşınmaz əmlak investisiyası, Şahdağ turu, Qəbələ turu, study visa Azerbaijan, university admission Azerbaijan foreign students, Azerbaijan business visa, e-visa Azerbaijan, invest in Azerbaijan real estate, Shahdag tour package">
-    <link rel="canonical" href="https://caspianbridges.com/">
+    <title><?php echo htmlspecialchars($seo[$lang]['title']); ?></title>
+    <meta name="description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
+    <meta name="keywords" content="Azərbaycanda təhsil, Bakıda təhsil vizası, Azərbaycan biznes vizası, Azərbaycana elektron viza, Azərbaycanda daşınmaz əmlak investisiyası, Şahdağ turu, Qəbələ turu, study visa Azerbaijan, university admission Azerbaijan foreign students, Azerbaijan business visa, e-visa Azerbaijan, invest in Azerbaijan real estate, Shahdag tour package, الدراسة في أذربيجان, تأشيرة الأعمال أذربيجان, تأشيرة أذربيجان الإلكترونية, الاستثمار العقاري في أذربيجان">
+    <link rel="canonical" href="https://caspianbridges.com/<?php echo $lang !== 'az' ? '?lang=' . htmlspecialchars($lang) : ''; ?>">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Caspian Bridges | Azərbaycanda Təhsil, Viza və İnvestisiya Xidmətləri">
-    <meta property="og:description" content="Universitet qəbulu, tələbə/biznes vizası, daşınmaz əmlak investisiyası və elit turizm — Azərbaycana etibarlı körpünüz.">
+    <meta property="og:title" content="<?php echo htmlspecialchars($seo[$lang]['title']); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($seo[$lang]['desc']); ?>">
     <meta property="og:image" content="images/svgviewer-png-1.png">
-    <meta property="og:locale" content="az_AZ">
+    <meta property="og:locale" content="<?php echo $lang; ?>_<?php echo strtoupper($lang === 'en' ? 'US' : ($lang === 'ar' ? 'AR' : $lang)); ?>">
+    <meta property="og:locale:alternate" content="az_AZ">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:locale:alternate" content="ru_RU">
     <meta property="og:locale:alternate" content="ar_AR">
+    <link rel="alternate" hreflang="az" href="https://caspianbridges.com/">
+    <link rel="alternate" hreflang="en" href="https://caspianbridges.com/?lang=en">
+    <link rel="alternate" hreflang="ru" href="https://caspianbridges.com/?lang=ru">
+    <link rel="alternate" hreflang="ar" href="https://caspianbridges.com/?lang=ar">
+    <link rel="alternate" hreflang="x-default" href="https://caspianbridges.com/">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="component.js"></script>
