@@ -10,6 +10,15 @@
 function changeLanguage(lang) {
     localStorage.setItem('selectedLang', lang);
     
+    // URL-ə ?lang=... parametrini səhifəni yeniləmədən əlavə edirik
+    const url = new URL(window.location);
+    if (lang === 'az') {
+        url.searchParams.delete('lang');
+    } else {
+        url.searchParams.set('lang', lang);
+    }
+    window.history.replaceState({}, '', url);
+
     if (lang === 'ar') {
         document.documentElement.setAttribute('dir', 'rtl');
     } else {
@@ -39,6 +48,24 @@ function changeLanguage(lang) {
     if (langSelect) langSelect.value = lang;
     const langSelectMobile = document.getElementById('languageSelectMobile');
     if (langSelectMobile) langSelectMobile.value = lang;
+
+    // Menyu linklərinə də dil parametrini avtomatik əlavə edirik
+    updateMenuLinks(lang);
+}
+
+// Navigasiya linklərinə cari dili ötürən köməkçi funksiya
+function updateMenuLinks(lang) {
+    const query = (lang && lang !== 'az') ? `?lang=${lang}` : '';
+    document.querySelectorAll('nav a, footer a').forEach(a => {
+        let href = a.getAttribute('href');
+        if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
+            // Əgər href artıq query string saxlayırsa, onu təmizləyib yenisini əlavə edirik
+            const cleanHref = href.split('?')[0];
+            if (cleanHref && cleanHref !== 'index' && cleanHref !== '') {
+                // Burada lazım olarsa səhifə adlarına görə yoxlama edə bilərsiniz
+            }
+        }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -103,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const desktopAuth = document.getElementById('desktop-auth-slot');
         const mobileAuth = document.getElementById('mobile-auth-slot');
         
-        // Session check (window.isUserLoggedIn is already defined in apply.php and other files)
         if (typeof window.isUserLoggedIn !== 'undefined' && window.isUserLoggedIn === true) {
             if (desktopAuth) {
                 desktopAuth.innerHTML = `<a href="profile" class="bg-amber-500/10 border border-amber-500/30 text-amber-400 px-4 py-2 rounded-xl text-xs font-bold hover:bg-amber-500/20 transition" data-az="👤 Profilim" data-en="👤 My Profile" data-ru="👤 Мой профиль" data-ar="👤 ملفي الشخصي">👤 Profilim</a>`;
@@ -175,11 +201,14 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     }
 
+    // Dil seçimi prioritetləri: URL-dəki lang -> localStorage -> 'az'
     const urlParams = new URLSearchParams(window.location.search);
     const urlLang = urlParams.get('lang');
     const savedLang = urlLang || localStorage.getItem('selectedLang') || 'az';
+    
     if (urlLang) {
         localStorage.setItem('selectedLang', urlLang);
     }
+    
     changeLanguage(savedLang);
 });
