@@ -114,7 +114,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 <p class="text-slate-400 text-sm">Azərbaycana rahat keçid və investisiya üçün lazım olan hər şey.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Universitet Qəbulu</h4><p class="text-[10px] text-slate-400">Bakalavr, Magistr və Doktorantura</p></div>
+                                <a href="universities" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Universitet Qəbulu</h4><p class="text-[10px] text-slate-400">Bakalavr, Magistr və Doktorantura</p></a>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">İnvestisiya & Biznes</h4><p class="text-[10px] text-slate-400">Daşınmaz Əmlak və Viza</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Viza və Sənəd Hazırlığı</h4><p class="text-[10px] text-slate-400">Tərcümə, Viza və Hüquqi Qeydiyyat</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Turizm & E-Viza</h4><p class="text-[10px] text-slate-400">Bələdçili Turlar və İcazələr</p></div>
@@ -222,7 +222,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 <p class="text-slate-400 text-sm">Everything you need for a seamless transition and investment in Azerbaijan.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">University Admissions</h4><p class="text-[10px] text-slate-400">Bachelor, Master & PhD</p></div>
+                                <a href="universities?lang=en" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">University Admissions</h4><p class="text-[10px] text-slate-400">Bachelor, Master & PhD</p></a>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">Investment & Real Estate</h4><p class="text-[10px] text-slate-400">Business Visas & Assets</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Document Prep</h4><p class="text-[10px] text-slate-400">Translation & Legal Filing</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Tourism & E-Visa</h4><p class="text-[10px] text-slate-400">Guided Tours & Permits</p></div>
@@ -330,7 +330,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 <p class="text-slate-400 text-sm">Все необходимое для переезда и инвестиций в Азербайджан.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Поступление в ВУЗы</h4><p class="text-[10px] text-slate-400">Бакалавриат и Магистратура</p></div>
+                                <a href="universities?lang=ru" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Поступление в ВУЗы</h4><p class="text-[10px] text-slate-400">Бакалавриат и Магистратура</p></a>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">Инвестиции и Бизнес</h4><p class="text-[10px] text-slate-400">Недвижимость и визы</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Подготовка документов</h4><p class="text-[10px] text-slate-400">Перевод и легализация</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Туризм и визы</h4><p class="text-[10px] text-slate-400">Экскурсии и E-Visa</p></div>
@@ -438,7 +438,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 <p class="text-slate-400 text-sm">كل ما تحتاجه للانتقال والاستثمار السلس في أذربيجان.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">القبول الجامعي</h4><p class="text-[10px] text-slate-400">بكالوريوس، ماجستير ودكتوراه</p></div>
+                                <a href="universities?lang=ar" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">القبول الجامعي</h4><p class="text-[10px] text-slate-400">بكالوريوس، ماجستير ودكتوراه</p></a>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">الاستثمار والعقارات</h4><p class="text-[10px] text-slate-400">تأشيرات الأعمال والأصول</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">إعداد المستندات</h4><p class="text-[10px] text-slate-400">الترجمة والتسجيل القانوني</p></div>
                                 <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">السياحة والتأشيرة</h4><p class="text-[10px] text-slate-400">جولات مرشدة وتصاريح</p></div>
