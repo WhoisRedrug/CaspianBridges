@@ -73,6 +73,52 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             100% { box-shadow: inset 0 0 30px rgba(245, 158, 11, 0.2); }
         }
         .flame-glow { animation: flamePulse 4s infinite ease-in-out; }
+
+        /* ===== Premium Polish Layer (visual/animation only — no content changes) ===== */
+
+        /* Ken Burns slow zoom on the landmark slides for a cinematic feel */
+        .monument-slide img { transform: scale(1); transition: transform 4.5s cubic-bezier(0.25, 0.1, 0.25, 1); will-change: transform; }
+        .monument-slide.active img { transform: scale(1.08); }
+        .monument-slider { height: 500px; }
+        @media (max-width: 640px) { .monument-slider { height: 340px; } }
+
+        /* Rotating gold/emerald aura behind the landmark showcase */
+        .monument-aura { position: absolute; inset: -2px; border-radius: 26px; z-index: -1; opacity: 0.9;
+            background: conic-gradient(from 0deg, #f59e0b, #10b981, #f59e0b, #ef4444, #f59e0b);
+            filter: blur(18px); animation: auraSpin 10s linear infinite; }
+        @keyframes auraSpin { to { transform: rotate(360deg); } }
+
+        /* Scroll-reveal entrance */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1.in-view { transition-delay: .08s; }
+        .reveal-delay-2.in-view { transition-delay: .16s; }
+        .reveal-delay-3.in-view { transition-delay: .24s; }
+
+        /* Card lift on hover for a more premium tactile feel */
+        .glass-card { transition: transform .5s cubic-bezier(0.16,1,0.3,1), box-shadow .5s ease, border-color .5s ease; }
+        .glass-card:hover { transform: translateY(-6px); box-shadow: 0 20px 45px -15px rgba(0,0,0,0.55), 0 0 0 1px rgba(245,158,11,0.15); }
+
+        /* Shimmer sweep across the eyebrow badge */
+        .badge-shimmer { position: relative; overflow: hidden; }
+        .badge-shimmer::after {
+            content: ""; position: absolute; top: 0; left: -150%; width: 60%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
+            animation: shimmerSweep 3.2s ease-in-out infinite;
+        }
+        @keyframes shimmerSweep { 0% { left: -150%; } 60%, 100% { left: 150%; } }
+
+        /* Gentle floating ambience for the background glow orbs */
+        @keyframes floatGlow { 0%, 100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-24px); } }
+        .hero-glow > .absolute.blur-\[160px\] { animation: floatGlow 9s ease-in-out infinite; }
+
+        /* Slider control dots — smoother scale-in */
+        .monument-slider ~ div button { transition: all .4s cubic-bezier(0.34,1.56,0.64,1); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .monument-slide img, .reveal, .glass-card, .badge-shimmer::after, .hero-glow > .absolute.blur-\[160px\] { animation: none !important; transition: none !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body class="bg-[#061412] text-slate-100 antialiased selection:bg-emerald-400 selection:text-slate-950">
@@ -85,11 +131,11 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="az">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
+            <div class="max-w-7xl mx-auto w-full relative z-10 flex flex-col text-left">
                 
                 <!-- Üstdən Aşağı Minimalist Dizayn Struktur -->
-                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto">
+                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16 order-2 reveal">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto badge-shimmer">
                         <span>🇦🇿</span> Caspian Bridges • Rəsmi Təhsil, Viza və İnvestisiya Portalı 2026
                     </div>
                     <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
@@ -113,8 +159,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 </div>
 
                 <!-- Mərkəzləşdirilmiş Alov Qüllələri və Qız Qalası Dinamik Animasiyalı Vitrin -->
-                <div class="max-w-4xl mx-auto relative">
-                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden">
+                <div class="max-w-4xl mx-auto relative order-1 reveal">
+                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden"><div class="monument-aura"></div>
                         <div class="monument-slider" id="az-slider">
                             
                             <!-- Slayd 1: Alov Qüllələri -->
@@ -154,7 +200,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         </section>
 
         <section class="py-20 px-6 max-w-7xl mx-auto text-left">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Azərbaycanı Kəşf Et</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Təhsil, Biznes və Səyahət</h2>
@@ -162,7 +208,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Bütün Proqramlar və Turlar → </a>
             </div>
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-                <a href="universities.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
+                <a href="universities.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block reveal reveal-delay-1">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/baku.jpg" alt="Tehsil" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Təhsil</span>
@@ -173,7 +219,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">Universitetlərə bax →</span>
                     </div>
                 </a>
-                <a href="business.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
+                <a href="business.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Biznes</span>
@@ -184,7 +230,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-emerald-400">Ətraflı öyrən →</span>
                     </div>
                 </a>
-                <a href="travel.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
+                <a href="travel.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-3">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Səyahət</span>
@@ -203,9 +249,9 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="en" class="hidden">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
-                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto">
+            <div class="max-w-7xl mx-auto w-full relative z-10 flex flex-col text-left">
+                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16 order-2 reveal">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto badge-shimmer">
                         <span>🇦🇿</span> Caspian Bridges • Official Study, Business & Investment Portal 2026
                     </div>
                     <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
@@ -226,8 +272,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     </div>
                     <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "Connecting your future to opportunities in Baku." </p>
                 </div>
-                <div class="max-w-4xl mx-auto relative">
-                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden">
+                <div class="max-w-4xl mx-auto relative order-1 reveal">
+                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden"><div class="monument-aura"></div>
                         <div class="monument-slider">
                             <div class="monument-slide active">
                                 <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="Flame Towers Baku">
@@ -259,7 +305,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         </section>
 
         <section class="py-20 px-6 max-w-7xl mx-auto text-left">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Discover Azerbaijan</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Education, Business & Travel</h2>
@@ -267,7 +313,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> View All Programs & Tours → </a>
             </div>
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-                <a href="universities.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
+                <a href="universities.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block reveal reveal-delay-1">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Education</span>
@@ -278,7 +324,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">View Universities →</span>
                     </div>
                 </a>
-                <a href="business.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
+                <a href="business.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Business</span>
@@ -289,7 +335,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-emerald-400">Learn More →</span>
                     </div>
                 </a>
-                <a href="travel.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
+                <a href="travel.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-3">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Travel</span>
@@ -308,9 +354,9 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="ru" class="hidden">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
-                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto">
+            <div class="max-w-7xl mx-auto w-full relative z-10 flex flex-col text-left">
+                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16 order-2 reveal">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto badge-shimmer">
                         <span>🇦🇿</span> Caspian Bridges • Официальный портал 2026
                     </div>
                     <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
@@ -331,8 +377,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     </div>
                     <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "Связываем ваше будущее с возможностями в Баку." </p>
                 </div>
-                <div class="max-w-4xl mx-auto relative">
-                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden">
+                <div class="max-w-4xl mx-auto relative order-1 reveal">
+                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden"><div class="monument-aura"></div>
                         <div class="monument-slider">
                             <div class="monument-slide active">
                                 <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="Огненные башни Баку">
@@ -364,7 +410,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         </section>
 
         <section class="py-20 px-6 max-w-7xl mx-auto text-left">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Откройте Азербайджан</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Учеба, Бизнес и Путешествия</h2>
@@ -372,7 +418,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Все программы и туры → </a>
             </div>
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-                <a href="universities.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
+                <a href="universities.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block reveal reveal-delay-1">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Учеба</span>
@@ -383,7 +429,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">Смотреть вузы →</span>
                     </div>
                 </a>
-                <a href="business.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
+                <a href="business.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Бизнес</span>
@@ -394,7 +440,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-emerald-400">Узнать больше →</span>
                     </div>
                 </a>
-                <a href="travel.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
+                <a href="travel.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-3">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Путешествия</span>
@@ -413,9 +459,9 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="ar" class="hidden text-right">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto w-full relative z-10 text-right">
-                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto">
+            <div class="max-w-7xl mx-auto w-full relative z-10 flex flex-col text-right">
+                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16 order-2 reveal">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto badge-shimmer">
                         <span>🇦🇿</span> جسور بحر قزوين • البوابة الرسمية للتعليم والأعمال والسياحة 2026
                     </div>
                     <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
@@ -436,8 +482,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     </div>
                     <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "نربط مستقبلك بالفرص في باكو." </p>
                 </div>
-                <div class="max-w-4xl mx-auto relative">
-                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden text-right">
+                <div class="max-w-4xl mx-auto relative order-1 reveal">
+                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden text-right"><div class="monument-aura"></div>
                         <div class="monument-slider">
                             <div class="monument-slide active">
                                 <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="أبراج اللهب باكو">
@@ -469,7 +515,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         </section>
 
         <section class="py-20 px-6 max-w-7xl mx-auto text-right">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 flex-row-reverse">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal flex-row-reverse">
                 <div class="text-right">
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">اكتشف أذربيجان</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">التعليم، الأعمال والسفر</h2>
@@ -477,7 +523,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> عرض جميع البرامج والجولات ← </a>
             </div>
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-                <a href="universities.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
+                <a href="universities.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block reveal reveal-delay-1">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">التعليم</span>
@@ -488,7 +534,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">عرض الجامعات ←</span>
                     </div>
                 </a>
-                <a href="business.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
+                <a href="business.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-2">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">الأعمال</span>
@@ -499,7 +545,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-emerald-400">اعرف المزيد ←</span>
                     </div>
                 </a>
-                <a href="travel.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
+                <a href="travel.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-3">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
                         <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">السفر</span>
@@ -513,6 +559,28 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             </div>
         </section>
     </div>
+
+    <!-- Scroll-Reveal Animasiya üçün JavaScript (yalnız vizual, kontentə toxunulmayıb) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealEls = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+            revealEls.forEach(el => revealObserver.observe(el));
+
+            // Dil dəyişdikdə (data-lang blokları göstərildikdə) həmin bloku da işə sal
+            const langBlocks = document.querySelectorAll('[data-lang]');
+            const langObserver = new MutationObserver(() => {
+                document.querySelectorAll('.reveal:not(.in-view)').forEach(el => revealObserver.observe(el));
+            });
+            langBlocks.forEach(block => langObserver.observe(block, { attributes: true, attributeFilter: ['class'] }));
+        });
+    </script>
 
     <!-- Avtomatik Slayder və Animasiya üçün JavaScript -->
     <script>
