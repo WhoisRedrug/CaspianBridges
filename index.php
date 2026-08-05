@@ -74,6 +74,10 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         }
         .flame-glow { animation: flamePulse 4s infinite ease-in-out; }
 
+        /* Landmark showcase: a natural, full-bleed banner (not a boxed "screen") */
+        .landmark-banner { border: none; box-shadow: 0 25px 50px -20px rgba(0,0,0,0.6); animation: none; }
+        .landmark-banner .monument-slider { border-radius: 20px; }
+
         /* ===== Premium Polish Layer (visual/animation only — no content changes) ===== */
 
         /* Ken Burns slow zoom on the landmark slides for a cinematic feel */
@@ -134,13 +138,13 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
                 
                 <!-- Üstdən Aşağı Minimalist Dizayn Struktur -->
-                <div class="max-w-4xl mx-auto relative reveal">
-                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden"><div class="monument-aura"></div>
+                <div class="max-w-6xl mx-auto relative reveal">
+                    <div class="landmark-banner rounded-3xl relative overflow-hidden">
                         <div class="monument-slider" id="az-slider">
                             
                             <!-- Slayd 1: Alov Qüllələri -->
                             <div class="monument-slide active">
-                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="Alov Qüllələri Bakı">
+                                <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1200&auto=format&fit=crop" alt="Alov Qüllələri Bakı">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
                                     <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Bakının Simvolu</span>
                                     <h3 class="text-2xl font-black text-white">Alov Qüllələri (Flame Towers)</h3>
@@ -150,11 +154,21 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
                             <!-- Slayd 2: Qız Qalası -->
                             <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1609137144813-7d996181d23a?q=80&w=1000&auto=format&fit=crop" alt="Qız Qalası Bakı">
+                                <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1200&auto=format&fit=crop" alt="Qız Qalası Bakı">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
                                     <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">Qədim İrs</span>
                                     <h3 class="text-2xl font-black text-white">Qız Qalası (Maiden Tower)</h3>
                                     <p class="text-slate-300 text-xs mt-1">Əsrlərin sirrini qoruyan UNESCO abidəsi.</p>
+                                </div>
+                            </div>
+
+                            <!-- Slayd 3: Heydər Əliyev Mərkəzi -->
+                            <div class="monument-slide">
+                                <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1200&auto=format&fit=crop" alt="Heydər Əliyev Mərkəzi Bakı">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Müasir Memarlıq</span>
+                                    <h3 class="text-2xl font-black text-white">Heydər Əliyev Mərkəzi</h3>
+                                    <p class="text-slate-300 text-xs mt-1">Zaha Hadidin dizaynı — gələcəyin formalarını əks etdirən ikon.</p>
                                 </div>
                             </div>
 
@@ -163,8 +177,9 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <!-- Slayder İdarəetmə Nöqtələri -->
                         <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2">
                             <div class="flex items-center gap-2" id="az-dots">
-                                <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300" onclick="currentSlide(0)"></button>
-                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300" onclick="currentSlide(1)"></button>
+                                <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
                             </div>
                             <a href="tours.php?lang=az" class="text-xs font-bold text-amber-400 hover:underline"> Bakını kəşf et → </a>
                         </div>
@@ -250,11 +265,11 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
             <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
-                <div class="max-w-4xl mx-auto relative reveal">
-                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden"><div class="monument-aura"></div>
+                <div class="max-w-6xl mx-auto relative reveal">
+                    <div class="landmark-banner rounded-3xl relative overflow-hidden">
                         <div class="monument-slider">
                             <div class="monument-slide active">
-                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="Flame Towers Baku">
+                                <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1200&auto=format&fit=crop" alt="Flame Towers Baku">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
                                     <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Symbol of Baku</span>
                                     <h3 class="text-2xl font-black text-white">Flame Towers</h3>
@@ -262,17 +277,26 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 </div>
                             </div>
                             <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1609137144813-7d996181d23a?q=80&w=1000&auto=format&fit=crop" alt="Maiden Tower Baku">
+                                <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1200&auto=format&fit=crop" alt="Maiden Tower Baku">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
                                     <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">Ancient Heritage</span>
                                     <h3 class="text-2xl font-black text-white">Maiden Tower</h3>
                                     <p class="text-slate-300 text-xs mt-1">UNESCO World Heritage monument guarding centuries of secrets.</p>
                                 </div>
                             </div>
+                            <div class="monument-slide">
+                                <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1200&auto=format&fit=crop" alt="Heydar Aliyev Center Baku">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Modern Architecture</span>
+                                    <h3 class="text-2xl font-black text-white">Heydar Aliyev Center</h3>
+                                    <p class="text-slate-300 text-xs mt-1">A Zaha Hadid masterpiece shaping the future of design.</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2">
                             <div class="flex items-center gap-2">
                                 <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
                                 <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
                             </div>
                             <a href="tours.php?lang=en" class="text-xs font-bold text-amber-400 hover:underline"> Discover Baku → </a>
@@ -355,11 +379,11 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
             <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
-                <div class="max-w-4xl mx-auto relative reveal">
-                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden"><div class="monument-aura"></div>
+                <div class="max-w-6xl mx-auto relative reveal">
+                    <div class="landmark-banner rounded-3xl relative overflow-hidden">
                         <div class="monument-slider">
                             <div class="monument-slide active">
-                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="Огненные башни Баку">
+                                <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1200&auto=format&fit=crop" alt="Огненные башни Баку">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
                                     <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Символ Баку</span>
                                     <h3 class="text-2xl font-black text-white">Огненные Башни (Flame Towers)</h3>
@@ -367,17 +391,26 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 </div>
                             </div>
                             <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1609137144813-7d996181d23a?q=80&w=1000&auto=format&fit=crop" alt="Девичья башня Баку">
+                                <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1200&auto=format&fit=crop" alt="Девичья башня Баку">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
                                     <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">Древнее Наследие</span>
                                     <h3 class="text-2xl font-black text-white">Девичья Башня (Maiden Tower)</h3>
                                     <p class="text-slate-300 text-xs mt-1">Памятник ЮНЕСКО, хранящий секреты веков.</p>
                                 </div>
                             </div>
+                            <div class="monument-slide">
+                                <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1200&auto=format&fit=crop" alt="Центр Гейдара Алиева Баку">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Современная Архитектура</span>
+                                    <h3 class="text-2xl font-black text-white">Центр Гейдара Алиева</h3>
+                                    <p class="text-slate-300 text-xs mt-1">Шедевр Захи Хадид, формирующий будущее дизайна.</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2">
                             <div class="flex items-center gap-2">
                                 <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
                                 <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
                             </div>
                             <a href="tours.php?lang=ru" class="text-xs font-bold text-amber-400 hover:underline"> Открыть Баку → </a>
@@ -460,11 +493,11 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
             <div class="max-w-7xl mx-auto w-full relative z-10 text-right">
-                <div class="max-w-4xl mx-auto relative reveal">
-                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden text-right"><div class="monument-aura"></div>
+                <div class="max-w-6xl mx-auto relative reveal">
+                    <div class="landmark-banner rounded-3xl relative overflow-hidden text-right">
                         <div class="monument-slider">
                             <div class="monument-slide active">
-                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="أبراج اللهب باكو">
+                                <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1200&auto=format&fit=crop" alt="أبراج اللهب باكو">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
                                     <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">رمز باكو</span>
                                     <h3 class="text-2xl font-black text-white">أبراج اللهب (Flame Towers)</h3>
@@ -472,17 +505,26 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 </div>
                             </div>
                             <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1609137144813-7d996181d23a?q=80&w=1000&auto=format&fit=crop" alt="قلعة العذراء باكو">
+                                <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1200&auto=format&fit=crop" alt="قلعة العذراء باكو">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
                                     <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">التراث العريق</span>
                                     <h3 class="text-2xl font-black text-white">قلعة العذراء (Maiden Tower)</h3>
                                     <p class="text-slate-300 text-xs mt-1">معلم مدرج في اليونسكو يحرس أسرار القرون.</p>
                                 </div>
                             </div>
+                            <div class="monument-slide">
+                                <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1200&auto=format&fit=crop" alt="مركز حيدر علييف باكو">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">العمارة الحديثة</span>
+                                    <h3 class="text-2xl font-black text-white">مركز حيدر علييف</h3>
+                                    <p class="text-slate-300 text-xs mt-1">تحفة معمارية من تصميم زها حديد تجسد مستقبل التصميم.</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2 flex-row-reverse">
                             <div class="flex items-center gap-2">
                                 <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
                                 <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
                             </div>
                             <a href="tours.php?lang=ar" class="text-xs font-bold text-amber-400 hover:underline"> اكتشف باكو ← </a>
@@ -589,7 +631,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             
             sliders.forEach(slider => {
                 const slides = slider.querySelectorAll('.monument-slide');
-                const container = slider.closest('.glass-card');
+                const container = slider.closest('.landmark-banner');
                 const dots = container.querySelectorAll('.flex.items-center.gap-2 button');
                 let currentIndex = 0;
                 let interval;
