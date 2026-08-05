@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-// Dilə görə fərqli SEO başlığı/izahı — Google axtarış nəticələrində
-// istifadəçinin öz dilində görünsün deyə (xüsusilə ərəb auditoriyası üçün).
 $lang = $_GET['lang'] ?? 'az';
 if (!in_array($lang, ['az', 'en', 'ru', 'ar'], true)) {
     $lang = 'az';
@@ -62,14 +60,19 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         .glass-card { background: rgba(12, 35, 31, 0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .hero-glow { background: radial-gradient(circle at 50% 20%, #0f3831 0%, #061412 60%, #020a09 100%); }
         .gold-border { box-shadow: 0 0 30px rgba(245, 158, 11, 0.15); }
-        .modal-overlay { position: fixed; inset: 0; background: rgba(2, 10, 9, 0.92); backdrop-filter: blur(10px); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; padding: 20px; }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-box { background: rgba(6, 20, 18, 0.98); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; transform: scale(0.95) translateY(20px); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9); position: relative; }
-        .modal-overlay.active .modal-box { transform: scale(1) translateY(0); }
-        .image-slider { position: relative; width: 100%; height: 300px; border-radius: 24px 24px 0 0; overflow: hidden; }
-        .image-slider img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out; }
-        .image-slider img.active { opacity: 1; }
-        .close-modal { position: absolute; top: 15px; right: 20px; z-index: 10; color: white; font-size: 28px; cursor: pointer; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.1); }
+        
+        /* Monument Animasiya Slayder Stili */
+        .monument-slider { position: relative; width: 100%; height: 440px; border-radius: 24px; overflow: hidden; }
+        .monument-slide { position: absolute; inset: 0; opacity: 0; transform: scale(1.05); transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; }
+        .monument-slide.active { opacity: 1; transform: scale(1); pointer-events: auto; }
+        .monument-slide img { width: 100%; height: 100%; object-fit: cover; }
+        
+        @keyframes flamePulse {
+            0% { box-shadow: inset 0 0 30px rgba(245, 158, 11, 0.2); }
+            50% { box-shadow: inset 0 0 60px rgba(239, 68, 68, 0.4); }
+            100% { box-shadow: inset 0 0 30px rgba(245, 158, 11, 0.2); }
+        }
+        .flame-glow { animation: flamePulse 4s infinite ease-in-out; }
     </style>
 </head>
 <body class="bg-[#061412] text-slate-100 antialiased selection:bg-emerald-400 selection:text-slate-950">
@@ -83,6 +86,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
             <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full text-left">
+                
+                <!-- Sol Tərəf: Mətnlər -->
                 <div class="lg:col-span-6 space-y-6">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
                         <span>🇦🇿</span> Caspian Bridges • Rəsmi Təhsil, Viza və İnvestisiya Portalı 2026
@@ -105,27 +110,45 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     </div>
                     <p class="text-lg font-medium text-slate-300 italic pt-1"> "Gələcəyinizi Bakıdakı imkanlarla birləşdiririk." </p>
                 </div>
+
+                <!-- Sağ Tərəf: Alov Qüllələri və Qız Qalası Dinamik Animasiyalı Vitrin -->
                 <div class="lg:col-span-6 relative">
-                    <div class="glass-card p-8 rounded-3xl border border-amber-500/20 gold-border relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 via-transparent to-amber-500/10 pointer-events-none"></div>
-                        <div class="relative z-10 flex flex-col h-full gap-6">
-                            <div>
-                                <h3 class="text-2xl font-black text-white mb-2">Əsas Xidmətlər Mərkəzi</h3>
-                                <p class="text-slate-400 text-sm">Azərbaycana rahat keçid və investisiya üçün lazım olan hər şey.</p>
+                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden">
+                        <div class="monument-slider" id="az-slider">
+                            
+                            <!-- Slayd 1: Alov Qüllələri -->
+                            <div class="monument-slide active">
+                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="Alov Qüllələri Bakı">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Bakının Simvolu</span>
+                                    <h3 class="text-2xl font-black text-white">Alov Qüllələri (Flame Towers)</h3>
+                                    <p class="text-slate-300 text-xs mt-1">Müasir memarlığın və dinamik iqtisadiyyatın zirvəsi.</p>
+                                </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <a href="universities.php?lang=az" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Universitet Qəbulu</h4><p class="text-[10px] text-slate-400">Bakalavr, Magistr və Doktorantura</p></a>
-                                <a href="investments.php?lang=az" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">İnvestisiya & Biznes</h4><p class="text-[10px] text-slate-400">Daşınmaz Əmlak və Xidmətlər</p></a>
-                                <a href="visas.php?lang=az" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Viza və Sənəd Hazırlığı</h4><p class="text-[10px] text-slate-400">Tərcümə, Viza və Hüquqi Qeydiyyat</p></a>
-                                <a href="tours.php?lang=az" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Turizm & E-Viza</h4><p class="text-[10px] text-slate-400">Bələdçili Turlar və İcazələr</p></a>
+
+                            <!-- Slayd 2: Qız Qalası -->
+                            <div class="monument-slide">
+                                <img src="https://images.unsplash.com/photo-1609137144813-7d996181d23a?q=80&w=1000&auto=format&fit=crop" alt="Qız Qalası Bakı">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">Qədim İrs</span>
+                                    <h3 class="text-2xl font-black text-white">Qız Qalası (Maiden Tower)</h3>
+                                    <p class="text-slate-300 text-xs mt-1">Əsrlərin sirrini qoruyan UNESCO abidəsi.</p>
+                                </div>
                             </div>
-                            <div class="mt-2 flex items-center justify-between gap-4 border-t border-slate-800/80 pt-5">
-                                <div><h4 class="text-white font-bold text-sm">Başlamağa Hazırsınız?</h4><p class="text-slate-400 text-xs">Bu gün müraciət edin.</p></div>
-                                <a href="apply.php" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> Müraciət Et → </a>
+
+                        </div>
+
+                        <!-- Slayder İdarəetmə Nöqtələri -->
+                        <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2">
+                            <div class="flex items-center gap-2" id="az-dots">
+                                <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300" onclick="currentSlide(0)"></button>
+                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300" onclick="currentSlide(1)"></button>
                             </div>
+                            <a href="tours.php?lang=az" class="text-xs font-bold text-amber-400 hover:underline"> Bakını kəşf et → </a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -138,7 +161,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Bütün Proqramlar və Turlar → </a>
             </div>
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Tehsil -->
                 <a href="universities.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/baku.jpg" alt="Tehsil" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
@@ -150,7 +172,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">Universitetlərə bax →</span>
                     </div>
                 </a>
-                <!-- Business -->
                 <a href="business.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
@@ -162,7 +183,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-emerald-400">Ətraflı öyrən →</span>
                     </div>
                 </a>
-                <!-- Travel -->
                 <a href="travel.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
@@ -206,23 +226,31 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <p class="text-lg font-medium text-slate-300 italic pt-1"> "Connecting your future to opportunities in Baku." </p>
                 </div>
                 <div class="lg:col-span-6 relative">
-                    <div class="glass-card p-8 rounded-3xl border border-amber-500/20 gold-border relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 via-transparent to-amber-500/10 pointer-events-none"></div>
-                        <div class="relative z-10 flex flex-col h-full gap-6">
-                            <div>
-                                <h3 class="text-2xl font-black text-white mb-2">Core Services Hub</h3>
-                                <p class="text-slate-400 text-sm">Everything you need for a seamless transition and investment in Azerbaijan.</p>
+                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden">
+                        <div class="monument-slider">
+                            <div class="monument-slide active">
+                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="Flame Towers Baku">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Symbol of Baku</span>
+                                    <h3 class="text-2xl font-black text-white">Flame Towers</h3>
+                                    <p class="text-slate-300 text-xs mt-1">The pinnacle of modern architecture and dynamic economy.</p>
+                                </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <a href="universities.php?lang=en" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">University Admissions</h4><p class="text-[10px] text-slate-400">Bachelor, Master & PhD</p></a>
-                                <a href="investments.php?lang=en" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">Investment & Business</h4><p class="text-[10px] text-slate-400">Business Setup & Assets</p></a>
-                                <a href="visas.php?lang=en" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Document Prep</h4><p class="text-[10px] text-slate-400">Translation & Legal Filing</p></a>
-                                <a href="tours.php?lang=en" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Tourism & E-Visa</h4><p class="text-[10px] text-slate-400">Guided Tours & Permits</p></a>
+                            <div class="monument-slide">
+                                <img src="https://images.unsplash.com/photo-1609137144813-7d996181d23a?q=80&w=1000&auto=format&fit=crop" alt="Maiden Tower Baku">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">Ancient Heritage</span>
+                                    <h3 class="text-2xl font-black text-white">Maiden Tower</h3>
+                                    <p class="text-slate-300 text-xs mt-1">UNESCO World Heritage monument guarding centuries of secrets.</p>
+                                </div>
                             </div>
-                            <div class="mt-2 flex items-center justify-between gap-4 border-t border-slate-800/80 pt-5">
-                                <div><h4 class="text-white font-bold text-sm">Ready to Begin?</h4><p class="text-slate-400 text-xs">Start your application today.</p></div>
-                                <a href="apply.php" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> Apply Now → </a>
+                        </div>
+                        <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2">
+                            <div class="flex items-center gap-2">
+                                <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
                             </div>
+                            <a href="tours.php?lang=en" class="text-xs font-bold text-amber-400 hover:underline"> Discover Baku → </a>
                         </div>
                     </div>
                 </div>
@@ -238,7 +266,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> View All Programs & Tours → </a>
             </div>
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Education -->
                 <a href="universities.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
@@ -250,7 +277,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">View Universities →</span>
                     </div>
                 </a>
-                <!-- Business -->
                 <a href="business.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
@@ -262,7 +288,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-emerald-400">Learn More →</span>
                     </div>
                 </a>
-                <!-- Travel -->
                 <a href="travel.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
@@ -271,7 +296,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <div class="p-5">
                         <h3 class="text-lg font-bold text-white mb-1">Travel</h3>
                         <p class="text-slate-400 text-xs mb-4">Explore Azerbaijan's nature, mountain resorts, and unforgettable travel packages.</p>
-                        <span class="text-xs font-bold text-emerald-400">Explore Travel →</span>
+                        <span class="text-xs font-bold text-amber-400">Explore Travel →</span>
                     </div>
                 </a>
             </div>
@@ -306,23 +331,31 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <p class="text-lg font-medium text-slate-300 italic pt-1"> "Связываем ваше будущее с возможностями в Баку." </p>
                 </div>
                 <div class="lg:col-span-6 relative">
-                    <div class="glass-card p-8 rounded-3xl border border-amber-500/20 gold-border relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 via-transparent to-amber-500/10 pointer-events-none"></div>
-                        <div class="relative z-10 flex flex-col h-full gap-6">
-                            <div>
-                                <h3 class="text-2xl font-black text-white mb-2">Центр Услуг</h3>
-                                <p class="text-slate-400 text-sm">Все необходимое для переезда и инвестиций в Азербайджан.</p>
+                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden">
+                        <div class="monument-slider">
+                            <div class="monument-slide active">
+                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="Огненные башни Баку">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Символ Баку</span>
+                                    <h3 class="text-2xl font-black text-white">Огненные Башни (Flame Towers)</h3>
+                                    <p class="text-slate-300 text-xs mt-1">Вершина современной архитектуры и динамичной экономики.</p>
+                                </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <a href="universities.php?lang=ru" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Поступление в ВУЗы</h4><p class="text-[10px] text-slate-400">Бакалавриат и Магистратура</p></a>
-                                <a href="investments.php?lang=ru" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">Инвестиции и Бизнес</h4><p class="text-[10px] text-slate-400">Регистрация и визы</p></a>
-                                <a href="visas.php?lang=ru" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Подготовка документов</h4><p class="text-[10px] text-slate-400">Перевод и легализация</p></a>
-                                <a href="tours.php?lang=ru" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Туризм и визы</h4><p class="text-[10px] text-slate-400">Экскурсии и E-Visa</p></a>
+                            <div class="monument-slide">
+                                <img src="https://images.unsplash.com/photo-1609137144813-7d996181d23a?q=80&w=1000&auto=format&fit=crop" alt="Девичья башня Баку">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">Древнее Наследие</span>
+                                    <h3 class="text-2xl font-black text-white">Девичья Башня (Maiden Tower)</h3>
+                                    <p class="text-slate-300 text-xs mt-1">Памятник ЮНЕСКО, хранящий секреты веков.</p>
+                                </div>
                             </div>
-                            <div class="mt-2 flex items-center justify-between gap-4 border-t border-slate-800/80 pt-5">
-                                <div><h4 class="text-white font-bold text-sm">Готовы начать?</h4><p class="text-slate-400 text-xs">Подайте заявку сегодня.</p></div>
-                                <a href="apply.php" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> Подать заявку → </a>
+                        </div>
+                        <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2">
+                            <div class="flex items-center gap-2">
+                                <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
                             </div>
+                            <a href="tours.php?lang=ru" class="text-xs font-bold text-amber-400 hover:underline"> Открыть Баку → </a>
                         </div>
                     </div>
                 </div>
@@ -338,7 +371,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Все программы и туры → </a>
             </div>
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Education -->
                 <a href="universities.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
@@ -350,7 +382,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">Смотреть вузы →</span>
                     </div>
                 </a>
-                <!-- Business -->
                 <a href="business.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
@@ -362,7 +393,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-emerald-400">Узнать больше →</span>
                     </div>
                 </a>
-                <!-- Travel -->
                 <a href="travel.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
@@ -371,7 +401,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <div class="p-5">
                         <h3 class="text-lg font-bold text-white mb-1">Путешествия</h3>
                         <p class="text-slate-400 text-xs mb-4">Природа Азербайджана, горные курорты, незабываемые туры и пакеты услуг.</p>
-                        <span class="text-xs font-bold text-emerald-400">Исследовать туры →</span>
+                        <span class="text-xs font-bold text-amber-400">Исследовать туры →</span>
                     </div>
                 </a>
             </div>
@@ -406,23 +436,31 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <p class="text-lg font-medium text-slate-300 italic pt-1"> "نربط مستقبلك بالفرص في باكو." </p>
                 </div>
                 <div class="lg:col-span-6 relative">
-                    <div class="glass-card p-8 rounded-3xl border border-amber-500/20 gold-border relative overflow-hidden text-right">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 via-transparent to-amber-500/10 pointer-events-none"></div>
-                        <div class="relative z-10 flex flex-col h-full gap-6">
-                            <div>
-                                <h3 class="text-2xl font-black text-white mb-2">مركز الخدمات الأساسية</h3>
-                                <p class="text-slate-400 text-sm">كل ما تحتاجه للانتقال والاستثمار السلس في أذربيجان.</p>
+                    <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden text-right">
+                        <div class="monument-slider">
+                            <div class="monument-slide active">
+                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=1000&auto=format&fit=crop" alt="أبراج اللهب باكو">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">رمز باكو</span>
+                                    <h3 class="text-2xl font-black text-white">أبراج اللهب (Flame Towers)</h3>
+                                    <p class="text-slate-300 text-xs mt-1">قمة الهندسة المعمارية الحديثة والاقتصاد الديناميكي.</p>
+                                </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <a href="universities.php?lang=ar" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">القبول الجامعي</h4><p class="text-[10px] text-slate-400">بكالوريوس، ماجستير ودكتوراه</p></a>
-                                <a href="investments.php?lang=ar" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">الاستثمار والأعمال</h4><p class="text-[10px] text-slate-400">تأسيس الشركات والتأشيرات</p></a>
-                                <a href="visas.php?lang=ar" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">إعداد المستندات</h4><p class="text-[10px] text-slate-400">الترجمة والتسجيل القانوني</p></a>
-                                <a href="tours.php?lang=ar" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">السياحة والتأشيرة</h4><p class="text-[10px] text-slate-400">جولات مرشدة وتصاريح</p></a>
+                            <div class="monument-slide">
+                                <img src="https://images.unsplash.com/photo-1609137144813-7d996181d23a?q=80&w=1000&auto=format&fit=crop" alt="قلعة العذراء باكو">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
+                                    <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">التراث العريق</span>
+                                    <h3 class="text-2xl font-black text-white">قلعة العذراء (Maiden Tower)</h3>
+                                    <p class="text-slate-300 text-xs mt-1">معلم مدرج في اليونسكو يحرس أسرار القرون.</p>
+                                </div>
                             </div>
-                            <div class="mt-2 flex items-center justify-between gap-4 border-t border-slate-800/80 pt-5 flex-row-reverse">
-                                <div><h4 class="text-white font-bold text-sm">هل أنت مستعد للبدء؟</h4><p class="text-slate-400 text-xs">ابدأ طلبك اليوم.</p></div>
-                                <a href="apply.php" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> قدم الآن → </a>
+                        </div>
+                        <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2 flex-row-reverse">
+                            <div class="flex items-center gap-2">
+                                <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
                             </div>
+                            <a href="tours.php?lang=ar" class="text-xs font-bold text-amber-400 hover:underline"> اكتشف باكو ← </a>
                         </div>
                     </div>
                 </div>
@@ -438,7 +476,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> عرض جميع البرامج والجولات ← </a>
             </div>
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Education -->
                 <a href="universities.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
@@ -450,7 +487,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">عرض الجامعات ←</span>
                     </div>
                 </a>
-                <!-- Business -->
                 <a href="business.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
@@ -462,7 +498,6 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-emerald-400">اعرف المزيد ←</span>
                     </div>
                 </a>
-                <!-- Travel -->
                 <a href="travel.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
                         <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
@@ -477,6 +512,54 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             </div>
         </section>
     </div>
+
+    <!-- Avtomatik Slayder və Animasiya üçün JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sliders = document.querySelectorAll('.monument-slider');
+            
+            sliders.forEach(slider => {
+                const slides = slider.querySelectorAll('.monument-slide');
+                const container = slider.closest('.glass-card');
+                const dots = container.querySelectorAll('.flex.items-center.gap-2 button');
+                let currentIndex = 0;
+                let interval;
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.classList.toggle('active', i === index);
+                    });
+                    dots.forEach((dot, i) => {
+                        if (i === index) {
+                            dot.classList.remove('w-3', 'bg-slate-700');
+                            dot.classList.add('w-8', 'bg-amber-400');
+                        } else {
+                            dot.classList.remove('w-8', 'bg-amber-400');
+                            dot.classList.add('w-3', 'bg-slate-700');
+                        }
+                    });
+                }
+
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                }
+
+                // Hər 4 saniyədən bir avtomatik dəyişir (Alov qüllələrindən Qız qalasına və əksinə)
+                interval = setInterval(nextSlide, 4000);
+
+                // İstifadəçi düymələrə əl ilə kliklədikdə
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        clearInterval(interval);
+                        currentIndex = index;
+                        showSlide(currentIndex);
+                        interval = setInterval(nextSlide, 4000);
+                    });
+                });
+            });
+        });
+    </script>
 
     <div id="footer-container"></div>
 </body>
