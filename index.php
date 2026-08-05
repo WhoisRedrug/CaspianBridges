@@ -14,16 +14,16 @@ $seo = [
         'desc'  => 'Azərbaycanda xarici tələbələr üçün universitet qəbulu, tələbə vizası, biznes vizası, daşınmaz əmlak investisiyası və elit turizm xidmətləri. Bakıda 99% qəbul uğuru, 7/24 dəstək.',
     ],
     'en' => [
-        'title' => 'Caspian Bridges | Study, Business Visa & Investment in Azerbaijan',
-        'desc'  => 'University admission, student visa, business visa, real estate investment and premium tourism services for foreigners in Azerbaijan. 99% success rate, 24/7 support in Baku.',
+        'title' => 'Caspian Bridges | Study, Business & Investment in Azerbaijan',
+        'desc'  => 'University admission, student visa, business services, real estate investment and premium tourism services for foreigners in Azerbaijan. 99% success rate, 24/7 support in Baku.',
     ],
     'ru' => [
-        'title' => 'Caspian Bridges | Учёба, Виза и Инвестиции в Азербайджане',
+        'title' => 'Caspian Bridges | Учёба, Бизнес и Инвестиции в Азербайджане',
         'desc'  => 'Поступление в вузы, студенческая и бизнес-виза, инвестиции в недвижимость и туристические услуги в Азербайджане. 99% успешных заявок, поддержка 24/7 в Баку.',
     ],
     'ar' => [
-        'title' => 'Caspian Bridges | الدراسة، تأشيرة الأعمال والاستثمار في أذربيجان',
-        'desc'  => 'القبول الجامعي، تأشيرة الطلاب، تأشيرة الأعمال، الاستثمار العقاري وخدمات السياحة الفاخرة للأجانب في أذربيجان. نسبة نجاح 99%، دعم على مدار الساعة في باكو.',
+        'title' => 'Caspian Bridges | الدراسة، الأعمال والاستثمار في أذربيجان',
+        'desc'  => 'القبول الجامعي، تأشيرة الطلاب، خدمات الأعمال، الاستثمار العقاري وخدمات السياحة الفاخرة للأجانب في أذربيجان. نسبة نجاح 99%، دعم على مدار الساعة في باكو.',
     ],
 ];
 
@@ -133,7 +133,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Azərbaycanı Kəşf Et</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Təhsil, Biznes Viza və Səyahət</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Təhsil, Biznes və Səyahət</h2>
                 </div>
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Bütün Proqramlar və Turlar → </a>
             </div>
@@ -150,14 +150,14 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">Universitetlərə bax →</span>
                     </div>
                 </a>
-                <!-- Business Visa -->
+                <!-- Business -->
                 <a href="business-visa.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/investments.jpg" alt="Business Visa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Biznes Viza</span>
+                        <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Biznes</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Biznes Viza Xidmətləri</h3>
+                        <h3 class="text-lg font-bold text-white mb-1">Biznes</h3>
                         <p class="text-slate-400 text-xs mb-4">Sahibkarlar və investorlar üçün sürətli biznes vizası və dəstək.</p>
                         <span class="text-xs font-bold text-emerald-400">Ətraflı öyrən →</span>
                     </div>
@@ -169,7 +169,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Səyahət</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Səyahət və Turizm</h3>
+                        <h3 class="text-lg font-bold text-white mb-1">Səyahət</h3>
                         <p class="text-slate-400 text-xs mb-4">Azərbaycanın təbiəti, kurortlar, unudulmaz turlar və səyahət paketləri.</p>
                         <span class="text-xs font-bold text-emerald-400">Turları kəşf et →</span>
                     </div>
@@ -233,7 +233,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Discover Azerbaijan</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Education, Business Visa & Travel</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Education, Business & Travel</h2>
                 </div>
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> View All Programs & Tours → </a>
             </div>
@@ -250,14 +250,14 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">View Universities →</span>
                     </div>
                 </a>
-                <!-- Business Visa -->
+                <!-- Business -->
                 <a href="business-visa.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/investments.jpg" alt="Business Visa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Business Visa</span>
+                        <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Business</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Business Visa Services</h3>
+                        <h3 class="text-lg font-bold text-white mb-1">Business</h3>
                         <p class="text-slate-400 text-xs mb-4">Fast-track business visas and corporate support for entrepreneurs and investors.</p>
                         <span class="text-xs font-bold text-emerald-400">Learn More →</span>
                     </div>
@@ -269,7 +269,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Travel</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Travel & Tourism</h3>
+                        <h3 class="text-lg font-bold text-white mb-1">Travel</h3>
                         <p class="text-slate-400 text-xs mb-4">Explore Azerbaijan's nature, mountain resorts, and unforgettable travel packages.</p>
                         <span class="text-xs font-bold text-emerald-400">Explore Travel →</span>
                     </div>
@@ -333,7 +333,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Откройте Азербайджан</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Учеба, Бизнес-виза и Путешествия</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Учеба, Бизнес и Путешествия</h2>
                 </div>
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Все программы и туры → </a>
             </div>
@@ -350,14 +350,14 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">Смотреть вузы →</span>
                     </div>
                 </a>
-                <!-- Business Visa -->
+                <!-- Business -->
                 <a href="business-visa.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/investments.jpg" alt="Business Visa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Бизнес-виза</span>
+                        <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Бизнес</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Услуги бизнес-визы</h3>
+                        <h3 class="text-lg font-bold text-white mb-1">Бизнес</h3>
                         <p class="text-slate-400 text-xs mb-4">Ускоренное оформление бизнес-виз и поддержка для предпринимателей и инвесторов.</p>
                         <span class="text-xs font-bold text-emerald-400">Узнать больше →</span>
                     </div>
@@ -369,7 +369,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Путешествия</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Путешествия и Туризм</h3>
+                        <h3 class="text-lg font-bold text-white mb-1">Путешествия</h3>
                         <p class="text-slate-400 text-xs mb-4">Природа Азербайджана, горные курорты, незабываемые туры и пакеты услуг.</p>
                         <span class="text-xs font-bold text-emerald-400">Исследовать туры →</span>
                     </div>
@@ -433,7 +433,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 flex-row-reverse">
                 <div class="text-right">
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">اكتشف أذربيجان</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">التعليم، تأشيرة الأعمال والسفر</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">التعليم، الأعمال والسفر</h2>
                 </div>
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> عرض جميع البرامج والجولات ← </a>
             </div>
@@ -450,14 +450,14 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="text-xs font-bold text-amber-400">عرض الجامعات ←</span>
                     </div>
                 </a>
-                <!-- Business Visa -->
+                <!-- Business -->
                 <a href="business-visa.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/investments.jpg" alt="Business Visa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">تأشيرة الأعمال</span>
+                        <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">الأعمال</span>
                     </div>
                     <div class="p-5 text-right">
-                        <h3 class="text-lg font-bold text-white mb-1">خدمات تأشيرة الأعمال</h3>
+                        <h3 class="text-lg font-bold text-white mb-1">الأعمال</h3>
                         <p class="text-slate-400 text-xs mb-4">تأشيرات أعمال سريعة والدعم المؤسسي لرواد الأعمال والمستثمرين.</p>
                         <span class="text-xs font-bold text-emerald-400">اعرف المزيد ←</span>
                     </div>
@@ -469,7 +469,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">السفر</span>
                     </div>
                     <div class="p-5 text-right">
-                        <h3 class="text-lg font-bold text-white mb-1">السفر والسياحة</h3>
+                        <h3 class="text-lg font-bold text-white mb-1">السفر</h3>
                         <p class="text-slate-400 text-xs mb-4">استكشف طبيعة أذربيجان، منتجعات الجبال، والباقات السياحية التي لا تُنسى.</p>
                         <span class="text-xs font-bold text-amber-400">استكشف السفر ←</span>
                     </div>
