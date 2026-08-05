@@ -114,14 +114,14 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 <p class="text-slate-400 text-sm">Azərbaycana rahat keçid və investisiya üçün lazım olan hər şey.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <a href="universities" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Universitet Qəbulu</h4><p class="text-[10px] text-slate-400">Bakalavr, Magistr və Doktorantura</p></a>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">İnvestisiya & Biznes</h4><p class="text-[10px] text-slate-400">Daşınmaz Əmlak və Viza</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Viza və Sənəd Hazırlığı</h4><p class="text-[10px] text-slate-400">Tərcümə, Viza və Hüquqi Qeydiyyat</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Turizm & E-Viza</h4><p class="text-[10px] text-slate-400">Bələdçili Turlar və İcazələr</p></div>
+                                <a href="universities.php?lang=az" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Universitet Qəbulu</h4><p class="text-[10px] text-slate-400">Bakalavr, Magistr və Doktorantura</p></a>
+                                <a href="investments.php?lang=az" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">İnvestisiya & Biznes</h4><p class="text-[10px] text-slate-400">Daşınmaz Əmlak və Viza</p></a>
+                                <a href="visas.php?lang=az" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Viza və Sənəd Hazırlığı</h4><p class="text-[10px] text-slate-400">Tərcümə, Viza və Hüquqi Qeydiyyat</p></a>
+                                <a href="tours.php?lang=az" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Turizm & E-Viza</h4><p class="text-[10px] text-slate-400">Bələdçili Turlar və İcazələr</p></a>
                             </div>
                             <div class="mt-2 flex items-center justify-between gap-4 border-t border-slate-800/80 pt-5">
                                 <div><h4 class="text-white font-bold text-sm">Başlamağa Hazırsınız?</h4><p class="text-slate-400 text-xs">Bu gün müraciət edin.</p></div>
-                                <a href="apply" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> Müraciət Et → </a>
+                                <a href="apply.php" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> Müraciət Et → </a>
                             </div>
                         </div>
                     </div>
@@ -135,7 +135,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Azərbaycanı Kəşf Et</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Təhsil Mərkəzləri, İnvestisiya və Turizm</h2>
                 </div>
-                <a href="services" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Bütün Proqramlar və Turlar → </a>
+                <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Bütün Proqramlar və Turlar → </a>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div data-target="#modal-baku" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
@@ -222,14 +222,14 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 <p class="text-slate-400 text-sm">Everything you need for a seamless transition and investment in Azerbaijan.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <a href="universities?lang=en" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">University Admissions</h4><p class="text-[10px] text-slate-400">Bachelor, Master & PhD</p></a>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">Investment & Real Estate</h4><p class="text-[10px] text-slate-400">Business Visas & Assets</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Document Prep</h4><p class="text-[10px] text-slate-400">Translation & Legal Filing</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Tourism & E-Visa</h4><p class="text-[10px] text-slate-400">Guided Tours & Permits</p></div>
+                                <a href="universities.php?lang=en" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">University Admissions</h4><p class="text-[10px] text-slate-400">Bachelor, Master & PhD</p></a>
+                                <a href="investments.php?lang=en" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">Investment & Real Estate</h4><p class="text-[10px] text-slate-400">Business Visas & Assets</p></a>
+                                <a href="visas.php?lang=en" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Document Prep</h4><p class="text-[10px] text-slate-400">Translation & Legal Filing</p></a>
+                                <a href="tours.php?lang=en" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Tourism & E-Visa</h4><p class="text-[10px] text-slate-400">Guided Tours & Permits</p></a>
                             </div>
                             <div class="mt-2 flex items-center justify-between gap-4 border-t border-slate-800/80 pt-5">
                                 <div><h4 class="text-white font-bold text-sm">Ready to Begin?</h4><p class="text-slate-400 text-xs">Start your application today.</p></div>
-                                <a href="apply" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> Apply Now → </a>
+                                <a href="apply.php" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> Apply Now → </a>
                             </div>
                         </div>
                     </div>
@@ -243,7 +243,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Discover Azerbaijan</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Study Destinations, Investment & Tourism</h2>
                 </div>
-                <a href="services" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> View All Programs & Tours → </a>
+                <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> View All Programs & Tours → </a>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div data-target="#modal-baku" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
@@ -330,14 +330,14 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 <p class="text-slate-400 text-sm">Все необходимое для переезда и инвестиций в Азербайджан.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <a href="universities?lang=ru" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Поступление в ВУЗы</h4><p class="text-[10px] text-slate-400">Бакалавриат и Магистратура</p></a>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">Инвестиции и Бизнес</h4><p class="text-[10px] text-slate-400">Недвижимость и визы</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Подготовка документов</h4><p class="text-[10px] text-slate-400">Перевод и легализация</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Туризм и визы</h4><p class="text-[10px] text-slate-400">Экскурсии и E-Visa</p></div>
+                                <a href="universities.php?lang=ru" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">Поступление в ВУЗы</h4><p class="text-[10px] text-slate-400">Бакалавриат и Магистратура</p></a>
+                                <a href="investments.php?lang=ru" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">Инвестиции и Бизнес</h4><p class="text-[10px] text-slate-400">Недвижимость и визы</p></a>
+                                <a href="visas.php?lang=ru" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">Подготовка документов</h4><p class="text-[10px] text-slate-400">Перевод и легализация</p></a>
+                                <a href="tours.php?lang=ru" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">Туризм и визы</h4><p class="text-[10px] text-slate-400">Экскурсии и E-Visa</p></a>
                             </div>
                             <div class="mt-2 flex items-center justify-between gap-4 border-t border-slate-800/80 pt-5">
                                 <div><h4 class="text-white font-bold text-sm">Готовы начать?</h4><p class="text-slate-400 text-xs">Подайте заявку сегодня.</p></div>
-                                <a href="apply" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> Подать заявку → </a>
+                                <a href="apply.php" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> Подать заявку → </a>
                             </div>
                         </div>
                     </div>
@@ -351,7 +351,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Откройте Азербайджан</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Учеба, инвестиции и туристические направления</h2>
                 </div>
-                <a href="services" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Все программы и туры → </a>
+                <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Все программы и туры → </a>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div data-target="#modal-baku" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
@@ -373,7 +373,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <div class="p-5">
                         <h3 class="text-lg font-bold text-white mb-1">Горы Шахдаг</h3>
                         <p class="text-slate-400 text-xs mb-4">Горные приключения и лыжный курорт.</p>
-                        <span class="text-xs font-bold text-emerald-400">Исследовать курорт →</span>
+                        <span class="text-xs font-bold text-amber-400">Исследовать курорт →</span>
                     </div>
                 </div>
                 <div data-target="#modal-gabala" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition cursor-pointer">
@@ -384,7 +384,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <div class="p-5">
                         <h3 class="text-lg font-bold text-white mb-1">Леса Габалы</h3>
                         <p class="text-slate-400 text-xs mb-4">Живописные озера, леса и места для отдыха.</p>
-                        <span class="text-xs font-bold text-emerald-400">Исследовать природу →</span>
+                        <span class="text-xs font-bold text-amber-400">Исследовать природу →</span>
                     </div>
                 </div>
                 <div data-target="#modal-shusha" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
@@ -438,14 +438,14 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                                 <p class="text-slate-400 text-sm">كل ما تحتاجه للانتقال والاستثمار السلس في أذربيجان.</p>
                             </div>
                             <div class="grid grid-cols-2 gap-4 flex-grow">
-                                <a href="universities?lang=ar" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">القبول الجامعي</h4><p class="text-[10px] text-slate-400">بكالوريوس، ماجستير ودكتوراه</p></a>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">الاستثمار والعقارات</h4><p class="text-[10px] text-slate-400">تأشيرات الأعمال والأصول</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">إعداد المستندات</h4><p class="text-[10px] text-slate-400">الترجمة والتسجيل القانوني</p></div>
-                                <div class="bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">السياحة والتأشيرة</h4><p class="text-[10px] text-slate-400">جولات مرشدة وتصاريح</p></div>
+                                <a href="universities.php?lang=ar" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">🎓</div><h4 class="font-bold text-white text-sm">القبول الجامعي</h4><p class="text-[10px] text-slate-400">بكالوريوس، ماجستير ودكتوراه</p></a>
+                                <a href="investments.php?lang=ar" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">💼</div><h4 class="font-bold text-white text-sm">الاستثمار والعقارات</h4><p class="text-[10px] text-slate-400">تأشيرات الأعمال والأصول</p></a>
+                                <a href="visas.php?lang=ar" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">📄</div><h4 class="font-bold text-white text-sm">إعداد المستندات</h4><p class="text-[10px] text-slate-400">الترجمة والتسجيل القانوني</p></a>
+                                <a href="tours.php?lang=ar" class="block bg-[#0b2420] p-4 rounded-2xl border border-slate-800/80 hover:border-amber-500/50 transition"><div class="text-2xl mb-1">✈️</div><h4 class="font-bold text-white text-sm">السياحة والتأشيرة</h4><p class="text-[10px] text-slate-400">جولات مرشدة وتصاريح</p></a>
                             </div>
                             <div class="mt-2 flex items-center justify-between gap-4 border-t border-slate-800/80 pt-5 flex-row-reverse">
                                 <div><h4 class="text-white font-bold text-sm">هل أنت مستعد للبدء؟</h4><p class="text-slate-400 text-xs">ابدأ طلبك اليوم.</p></div>
-                                <a href="apply" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> قدم الآن → </a>
+                                <a href="apply.php" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs shadow-lg transition hover:scale-105"> قدم الآن → </a>
                             </div>
                         </div>
                     </div>
@@ -459,7 +459,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">اكتشف أذربيجان</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">وجهات الدراسة، الاستثمار والسياحة</h2>
                 </div>
-                <a href="services" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> عرض جميع البرامج والجولات ← </a>
+                <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> عرض جميع البرامج والجولات ← </a>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div data-target="#modal-baku" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
@@ -523,7 +523,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="p-6">
                 <h2 class="text-2xl font-black text-white mb-2">🇦🇿 Baku Student, Investment & Tourist Hub</h2>
                 <p class="text-slate-300 text-sm mb-4">Baku hosts top-tier universities with international accreditation, modern student residences, real estate investment opportunities, and a rich cultural environment.</p>
-                <a href="apply" class="inline-block bg-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Apply for Study / Investment</a>
+                <a href="apply.php" class="inline-block bg-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Apply for Study / Investment</a>
             </div>
         </div>
     </div>
@@ -536,7 +536,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="p-6">
                 <h2 class="text-2xl font-black text-white mb-2">⛷️ Shahdag Mountain Resort</h2>
                 <p class="text-slate-300 text-sm mb-4">Premier alpine resort offering winter skiing and summer mountain getaways for our students and travelers.</p>
-                <a href="apply" class="inline-block bg-emerald-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Book Tour Package</a>
+                <a href="apply.php" class="inline-block bg-emerald-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Book Tour Package</a>
             </div>
         </div>
     </div>
@@ -549,7 +549,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="p-6">
                 <h2 class="text-2xl font-black text-white mb-2">🌲 Gabala Nature Tours</h2>
                 <p class="text-slate-300 text-sm mb-4">Explore forests, waterfalls, and Nohur Lake during orientation trips organized by Caspian Bridges.</p>
-                <a href="apply" class="inline-block bg-emerald-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Book Gabala Trip</a>
+                <a href="apply.php" class="inline-block bg-emerald-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Book Gabala Trip</a>
             </div>
         </div>
     </div>
@@ -562,7 +562,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="p-6">
                 <h2 class="text-2xl font-black text-white mb-2">🏛️ Shusha Heritage</h2>
                 <p class="text-slate-300 text-sm mb-4">Cultural capital of Azerbaijan showcasing historic monuments and breathtaking landscapes.</p>
-                <a href="apply" class="inline-block bg-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Learn More</a>
+                <a href="apply.php" class="inline-block bg-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Learn More</a>
             </div>
         </div>
     </div>
