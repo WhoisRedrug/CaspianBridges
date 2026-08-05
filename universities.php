@@ -86,7 +86,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             'en' => 'Founded in 1919, the oldest and most prestigious public university in the country, offering a wide range of faculties.',
             'ru' => 'Основан в 1919 году, старейший и самый престижный государственный университет страны с широким выбором факультетов.',
             'ar' => 'تأسست عام 1919، وهي أقدم وأعرق جامعة حكومية في البلاد، وتقدم مجموعة واسعة من التخصصات.',
-            'detail_az' => 'Bakı Dövlət Universiteti (BDU) Azərbaycan Xalq Cümhuriyyətinin Parlamentinin 1 верасьня 1919-cu il tarixli qərarı ilə təsis edilmişdir. Ölkənin elm, təhsil və mədəniyyət mərkəzlərindən biri olan BDU-nun məzunları arasında tanınmış dövlət xadimləri, elm adamları və Nobel mükafatı laureatı Lev Landau da olmuşdur. Universitetdə 16 fakültə, elmi-tədqiqat institutları, zəngin elmi kitabxana və astronavtika mərkəzi fəaliyyət göstərir. Xarici tələbələr üçün fundamental elmlər, humanitar sahələr, hüquq və beynəlxalq münasibətlər istiqamətində müasir tələblərə cavab verən proqramlar təqdim olunur.',
+            'detail_az' => 'Bakı Dövlət Universiteti (BDU) Azərbaycan Xalq Cümhuriyyətinin Parlamentinin 1 sentyabr 1919-cu il tarixli qərarı ilə təsis edilmişdir. Ölkənin elm, təhsil və mədəniyyət mərkəzlərindən biri olan BDU-nun məzunları arasında tanınmış dövlət xadimləri, elm adamları və Nobel mükafatı laureatı Lev Landau da olmuşdur. Universitetdə 16 fakültə, elmi-tədqiqat institutları, zəngin elmi kitabxana və astronavtika mərkəzi fəaliyyət göstərir. Xarici tələbələr üçün fundamental elmlər, humanitar sahələr, hüquq və beynəlxalq münasibətlər istiqamətində müasir tələblərə cavab verən proqramlar təqdim olunur.',
             'detail_en' => 'Baku State University (BSU) was established on September 1, 1919, by the decision of the Parliament of the Azerbaijan Democratic Republic. As one of the country’s prime centers of science, education, and culture, BSU’s alumni include prominent statesmen, scientists, and Nobel laureate Lev Landau. The university comprises 16 faculties, research institutes, an extensive scientific library, and an astronomical observatory. It offers international students robust academic programs in fundamental sciences, humanities, law, and international relations.',
             'detail_ru' => 'Бакинский государственный университет (БГУ) был основан 1 сентября 1919 года по решению Парламента Азербайджанской Демократической Республики. Будучи одним из главных центров науки и образования страны, БГУ выпустил множество выдающихся ученых, государственных деятелей и лауреата Нобелевской премии Льва Ландау. В структуре университета 16 факультетов, научно-исследовательские институты и богатейшая научная библиотека.',
             'detail_ar' => 'تأسست جامعة باكو الحكومية (BSU) في 1 سبتمبر 1919 بموجب قرار برلمان جمهورية أذربيجان الديمقراطية. تُعد واحدة من أبرز مراكز العلوم والتعليم والثقافة في البلاد، وقد تخرج فيها العديد من الشخصيات البارزة والعلماء. تضم الجامعة 16 كلية ومراكز بحثية متقدمة ومكتبة علمية ضخمة.',
@@ -123,7 +123,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             'detail_az' => 'Xəzər Universiteti 1991-ci ildə professor Hamlet İsaxanlı tərəfindən təsis edilmişdir və Cənubi Qafqazda ilk özəl ali təhsil müəssisəsidir. Universitetdə tədris prosesi Qərb modelinə əsaslanır və kredit sistemindən (ECTS) istifadə olunur. Mühəndislik və Tətbiqi Elmlər, İqtisadiyyat və Menecment, Humanitar, Təhsil və Sosial Elmlər fakültələri daxilində çoxsaylı ixtisaslar fəaliyyət göstərir. Xarici tələbələr üçün geniş qrant və təqaüd imkanları təqdim edilir.',
             'detail_en' => 'Khazar University was founded in 1991 by Professor Hamlet Isakhanli and is the first private higher education institution in the South Caucasus. The academic process is based on Western models utilizing the ECTS credit system. It encompasses Engineering and Applied Sciences, Economics and Management, Humanities, Education, and Social Sciences faculties, offering competitive scholarship opportunities for international students.',
             'ru' => 'Университет Хазар был основан в 1991 году профессором Гамлетом Исаханлы и является первым независимым частным вузом на Южном Кавказе. Образовательный процесс строится по западным стандартам с использованием кредитной системы ECTS. Включает факультеты инженерии, экономики, гуманитарных и социальных наук.',
-            'ar' => 'تأسست جامعة خزر في عام 1991 على يد البروفيسور هاملت إساخانلي، وهي أول مؤسسة تعليم عالي خاصة مستقلة في جنوب القوقاز. تعتمد العملية الأקדيمية على نظام الساعات الأوروبي (ECTS)، وتضم كليات الهندسة، والاقتصاد، والعلوم الإنسانية.',
+            'ar' => 'تأسست جامعة خزر في عام 1991 على يد البروفيسور هاملت إساخانلي، وهي أول مؤسسة تعليم عالي خاصة مستقلة في جنوب القوقاز. تعتمد العملية الأكاديمية على نظام الساعات الأوروبي (ECTS)، وتضم كليات الهندسة، والاقتصاد، والعلوم الإنسانية.',
         ],
         [
             'name' => 'Azərbaycan Dövlət Neft və Sənaye Universiteti (ASOIU)',
@@ -534,6 +534,20 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             if (e.target === this) {
                 closeUniversityModal();
             }
+        });
+
+        // URL-dəki 'lang' parametrini oxuyaraq səhifə açılan kimi uyğun dil blokunu göstərən funksionallıq
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentLang = urlParams.get('lang') || 'az';
+            
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                if (el.getAttribute("data-lang") === currentLang) {
+                    el.classList.remove("hidden");
+                } else {
+                    el.classList.add("hidden");
+                }
+            });
         });
     </script>
 
