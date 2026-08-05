@@ -85,34 +85,35 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="az">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full text-left">
+            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
                 
-                <!-- Sol Tərəf: Mətnlər -->
-                <div class="lg:col-span-6 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+                <!-- Üstdən Aşağı Minimalist Dizayn Struktur -->
+                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto">
                         <span>🇦🇿</span> Caspian Bridges • Rəsmi Təhsil, Viza və İnvestisiya Portalı 2026
                     </div>
-                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
                         Azərbaycanda <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Təhsil və İnvestisiya</span>
                     </h1>
-                    <p class="text-slate-200 font-semibold text-base sm:text-lg">
+                    <p class="text-slate-200 font-semibold text-base sm:text-xl max-w-2xl mx-auto">
                         Caspian Bridges — Təhsil, Biznes, İnvestisiya və Turizm üzrə Etibarlı Körpünüz
                     </p>
-                    <p class="text-slate-400 text-sm leading-relaxed">
+                    <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
                         Beynəlxalq tələbələrə və sərmayəçilərə universitet qəbulu, daşınmaz əmlak investisiyası, təhlükəsiz yerləşdirmə və unudulmaz turizm təcrübələri təqdim edirik.
                     </p>
-                    <div class="flex items-center gap-6 pt-2">
-                        <div><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">Qəbul Uğuru</div></div>
-                        <div class="h-8 w-[1px] bg-slate-800"></div>
-                        <div><div class="text-2xl font-black text-amber-400">24/7</div><div class="text-[11px] text-slate-400 font-semibold">Tələbə Dəstəyi</div></div>
-                        <div class="h-8 w-[1px] bg-slate-800"></div>
-                        <div><div class="text-2xl font-black text-emerald-300">5k+</div><div class="text-[11px] text-slate-400 font-semibold">Qlobal Müştəri</div></div>
+                    
+                    <div class="flex flex-wrap items-center justify-center gap-8 pt-4">
+                        <div class="text-center"><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">Qəbul Uğuru</div></div>
+                        <div class="h-8 w-[1px] bg-slate-800 hidden sm:block"></div>
+                        <div class="text-center"><div class="text-2xl font-black text-amber-400">24/7</div><div class="text-[11px] text-slate-400 font-semibold">Tələbə Dəstəyi</div></div>
+                        <div class="h-8 w-[1px] bg-slate-800 hidden sm:block"></div>
+                        <div class="text-center"><div class="text-2xl font-black text-emerald-300">5k+</div><div class="text-[11px] text-slate-400 font-semibold">Qlobal Müştəri</div></div>
                     </div>
-                    <p class="text-lg font-medium text-slate-300 italic pt-1"> "Gələcəyinizi Bakıdakı imkanlarla birləşdiririk." </p>
+                    <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "Gələcəyinizi Bakıdakı imkanlarla birləşdiririk." </p>
                 </div>
 
-                <!-- Sağ Tərəf: Alov Qüllələri və Qız Qalası Dinamik Animasiyalı Vitrin -->
-                <div class="lg:col-span-6 relative">
+                <!-- Mərkəzləşdirilmiş Alov Qüllələri və Qız Qalası Dinamik Animasiyalı Vitrin -->
+                <div class="max-w-4xl mx-auto relative">
                     <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden">
                         <div class="monument-slider" id="az-slider">
                             
@@ -202,30 +203,30 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="en" class="hidden">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full text-left">
-                <div class="lg:col-span-6 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
+                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto">
                         <span>🇦🇿</span> Caspian Bridges • Official Study, Business & Investment Portal 2026
                     </div>
-                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
                         Study, Invest & Discover <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Azerbaijan</span>
                     </h1>
-                    <p class="text-slate-200 font-semibold text-base sm:text-lg">
+                    <p class="text-slate-200 font-semibold text-base sm:text-xl max-w-2xl mx-auto">
                         Caspian Bridges — Your Trusted Bridge to Education, Business & Tourism
                     </p>
-                    <p class="text-slate-400 text-sm leading-relaxed">
+                    <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
                         We guide international students and investors through university admissions, business setup, secure accommodation, and unforgettable tourism experiences.
                     </p>
-                    <div class="flex items-center gap-6 pt-2">
-                        <div><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">Admission Success</div></div>
-                        <div class="h-8 w-[1px] bg-slate-800"></div>
-                        <div><div class="text-2xl font-black text-amber-400">24/7</div><div class="text-[11px] text-slate-400 font-semibold">Student Support</div></div>
-                        <div class="h-8 w-[1px] bg-slate-800"></div>
-                        <div><div class="text-2xl font-black text-emerald-300">5k+</div><div class="text-[11px] text-slate-400 font-semibold">Global Clients</div></div>
+                    <div class="flex flex-wrap items-center justify-center gap-8 pt-4">
+                        <div class="text-center"><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">Admission Success</div></div>
+                        <div class="h-8 w-[1px] bg-slate-800 hidden sm:block"></div>
+                        <div class="text-center"><div class="text-2xl font-black text-amber-400">24/7</div><div class="text-[11px] text-slate-400 font-semibold">Student Support</div></div>
+                        <div class="h-8 w-[1px] bg-slate-800 hidden sm:block"></div>
+                        <div class="text-center"><div class="text-2xl font-black text-emerald-300">5k+</div><div class="text-[11px] text-slate-400 font-semibold">Global Clients</div></div>
                     </div>
-                    <p class="text-lg font-medium text-slate-300 italic pt-1"> "Connecting your future to opportunities in Baku." </p>
+                    <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "Connecting your future to opportunities in Baku." </p>
                 </div>
-                <div class="lg:col-span-6 relative">
+                <div class="max-w-4xl mx-auto relative">
                     <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden">
                         <div class="monument-slider">
                             <div class="monument-slide active">
@@ -307,30 +308,30 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="ru" class="hidden">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full text-left">
-                <div class="lg:col-span-6 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
+                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto">
                         <span>🇦🇿</span> Caspian Bridges • Официальный портал 2026
                     </div>
-                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
                         Учеба, бизнес и туризм в <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Азербайджане</span>
                     </h1>
-                    <p class="text-slate-200 font-semibold text-base sm:text-lg">
+                    <p class="text-slate-200 font-semibold text-base sm:text-xl max-w-2xl mx-auto">
                         Caspian Bridges — Ваш надежный мост к образованию, бизнесу и туризму
                     </p>
-                    <p class="text-slate-400 text-sm leading-relaxed">
+                    <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
                         Мы помогаем иностранцам с поступлением в университеты, открытием бизнеса, подготовкой документов и незабываемыми турами.
                     </p>
-                    <div class="flex items-center gap-6 pt-2">
-                        <div><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">Поступлений</div></div>
-                        <div class="h-8 w-[1px] bg-slate-800"></div>
-                        <div><div class="text-2xl font-black text-amber-400">24/7</div><div class="text-[11px] text-slate-400 font-semibold">Поддержка клиентов</div></div>
-                        <div class="h-8 w-[1px] bg-slate-800"></div>
-                        <div><div class="text-2xl font-black text-emerald-300">5k+</div><div class="text-[11px] text-slate-400 font-semibold">Клиентов со всего мира</div></div>
+                    <div class="flex flex-wrap items-center justify-center gap-8 pt-4">
+                        <div class="text-center"><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">Поступлений</div></div>
+                        <div class="h-8 w-[1px] bg-slate-800 hidden sm:block"></div>
+                        <div class="text-center"><div class="text-2xl font-black text-amber-400">24/7</div><div class="text-[11px] text-slate-400 font-semibold">Поддержка клиентов</div></div>
+                        <div class="h-8 w-[1px] bg-slate-800 hidden sm:block"></div>
+                        <div class="text-center"><div class="text-2xl font-black text-emerald-300">5k+</div><div class="text-[11px] text-slate-400 font-semibold">Клиентов со всего мира</div></div>
                     </div>
-                    <p class="text-lg font-medium text-slate-300 italic pt-1"> "Связываем ваше будущее с возможностями в Баку." </p>
+                    <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "Связываем ваше будущее с возможностями в Баку." </p>
                 </div>
-                <div class="lg:col-span-6 relative">
+                <div class="max-w-4xl mx-auto relative">
                     <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden">
                         <div class="monument-slider">
                             <div class="monument-slide active">
@@ -412,30 +413,30 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="ar" class="hidden text-right">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
-                <div class="lg:col-span-6 space-y-6 text-right">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold ml-auto">
+            <div class="max-w-7xl mx-auto w-full relative z-10 text-right">
+                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto">
                         <span>🇦🇿</span> جسور بحر قزوين • البوابة الرسمية للتعليم والأعمال والسياحة 2026
                     </div>
-                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
                         الدراسة، الأعمال واكتشاف <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">أذربيجان</span>
                     </h1>
-                    <p class="text-slate-200 font-semibold text-base sm:text-lg ml-auto">
+                    <p class="text-slate-200 font-semibold text-base sm:text-xl max-w-2xl mx-auto">
                         جسور بحر قزوين — بوابتك الموثوقة للتعليم وتأسيس الأعمال والسياحة
                     </p>
-                    <p class="text-slate-400 text-sm leading-relaxed ml-auto">
+                    <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
                         نساعد الأجانب في القبول الجامعي، تأسيس الشركات، إعداد المستندات، والتجارب السياحية في أذربيجان.
                     </p>
-                    <div class="flex items-center gap-6 pt-2 ml-auto justify-end">
-                        <div><div class="text-2xl font-black text-emerald-300">5k+</div><div class="text-[11px] text-slate-400 font-semibold">عملاء عالميون</div></div>
-                        <div class="h-8 w-[1px] bg-slate-800"></div>
-                        <div><div class="text-2xl font-black text-amber-400">24/7</div><div class="text-[11px] text-slate-400 font-semibold">دعم العملاء</div></div>
-                        <div class="h-8 w-[1px] bg-slate-800"></div>
-                        <div><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">نجاح القبول</div></div>
+                    <div class="flex flex-wrap items-center justify-center gap-8 pt-4">
+                        <div class="text-center"><div class="text-2xl font-black text-emerald-300">5k+</div><div class="text-[11px] text-slate-400 font-semibold">عملاء عالميون</div></div>
+                        <div class="h-8 w-[1px] bg-slate-800 hidden sm:block"></div>
+                        <div class="text-center"><div class="text-2xl font-black text-amber-400">24/7</div><div class="text-[11px] text-slate-400 font-semibold">دعم العملاء</div></div>
+                        <div class="h-8 w-[1px] bg-slate-800 hidden sm:block"></div>
+                        <div class="text-center"><div class="text-2xl font-black text-emerald-400">99%</div><div class="text-[11px] text-slate-400 font-semibold">نجاح القبول</div></div>
                     </div>
-                    <p class="text-lg font-medium text-slate-300 italic pt-1"> "نربط مستقبلك بالفرص في باكو." </p>
+                    <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "نربط مستقبلك بالفرص في باكو." </p>
                 </div>
-                <div class="lg:col-span-6 relative">
+                <div class="max-w-4xl mx-auto relative">
                     <div class="glass-card p-3 rounded-3xl border border-amber-500/30 flame-glow relative overflow-hidden text-right">
                         <div class="monument-slider">
                             <div class="monument-slide active">
