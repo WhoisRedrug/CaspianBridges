@@ -133,55 +133,47 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Azərbaycanı Kəşf Et</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Təhsil Mərkəzləri, İnvestisiya və Turizm</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Təhsil, Biznes Viza və Səyahət</h2>
                 </div>
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Bütün Proqramlar və Turlar → </a>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div data-target="#modal-baku" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Tehsil -->
+                <a href="universities.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/baku.jpg" alt="Baku" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Paytaxt və Universitetlər</span>
+                        <img src="images/baku.jpg" alt="Tehsil" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Təhsil</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Bakı Tələbə Mərkəzi</h3>
-                        <p class="text-slate-400 text-xs mb-4">Aparıcı universitetlər, modern kampus həyatı və zəngin mədəniyyət.</p>
-                        <span class="text-xs font-bold text-amber-400">Bakını kəşf et →</span>
+                        <h3 class="text-lg font-bold text-white mb-1">Universitetlər və Təhsil</h3>
+                        <p class="text-slate-400 text-xs mb-4">Azərbaycanın aparıcı universitetləri, ixtisaslar və qəbul şərtləri.</p>
+                        <span class="text-xs font-bold text-amber-400">Universitetlərə bax →</span>
                     </div>
-                </div>
-                <div data-target="#modal-shahdag" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition cursor-pointer">
+                </a>
+                <!-- Business Visa -->
+                <a href="business-visa.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/shahdag.jpg" alt="Shahdag" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Kurort və İstirahət</span>
+                        <img src="images/investments.jpg" alt="Business Visa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Biznes Viza</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Şahdağ Dağları</h3>
-                        <p class="text-slate-400 text-xs mb-4">Dağ macəraları, qış kurortu və unudulmaz istirahət zonaları.</p>
-                        <span class="text-xs font-bold text-emerald-400">Kurortu kəşf et →</span>
+                        <h3 class="text-lg font-bold text-white mb-1">Biznes Viza Xidmətləri</h3>
+                        <p class="text-slate-400 text-xs mb-4">Sahibkarlar və investorlar üçün sürətli biznes vizası və dəstək.</p>
+                        <span class="text-xs font-bold text-emerald-400">Ətraflı öyrən →</span>
                     </div>
-                </div>
-                <div data-target="#modal-gabala" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition cursor-pointer">
+                </a>
+                <!-- Travel -->
+                <a href="travel.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1000&auto=format&fit=crop" alt="Gabala" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Təbiət</span>
+                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Səyahət</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Qəbələ Meşələri</h3>
-                        <p class="text-slate-400 text-xs mb-4">Mənzərəli göllər, sıx meşələr və dincəlmək üçün ideal məkanlar.</p>
-                        <span class="text-xs font-bold text-emerald-400">Təbiəti kəşf et →</span>
+                        <h3 class="text-lg font-bold text-white mb-1">Səyahət və Turizm</h3>
+                        <p class="text-slate-400 text-xs mb-4">Azərbaycanın təbiəti, kurortlar, unudulmaz turlar və səyahət paketləri.</p>
+                        <span class="text-xs font-bold text-emerald-400">Turları kəşf et →</span>
                     </div>
-                </div>
-                <div data-target="#modal-shusha" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="images/susha.jpg" alt="Shusha" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Mədəniyyət</span>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Şuşa və Qarabağ</h3>
-                        <p class="text-slate-400 text-xs mb-4">Tarixi irsimiz, abidələr və mədəniyyət turları.</p>
-                        <span class="text-xs font-bold text-amber-400">Mərkəzi ziyarət et →</span>
-                    </div>
-                </div>
+                </a>
             </div>
         </section>
     </div>
@@ -241,55 +233,47 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Discover Azerbaijan</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Study Destinations, Investment & Tourism</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Education, Business Visa & Travel</h2>
                 </div>
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> View All Programs & Tours → </a>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div data-target="#modal-baku" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Education -->
+                <a href="universities.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/baku.jpg" alt="Baku" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Capital & Universities</span>
+                        <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Education</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Baku Student Hub</h3>
-                        <p class="text-slate-400 text-xs mb-4">Top universities, modern campus life, and vibrant culture.</p>
-                        <span class="text-xs font-bold text-amber-400">Explore Baku →</span>
+                        <h3 class="text-lg font-bold text-white mb-1">Universities & Education</h3>
+                        <p class="text-slate-400 text-xs mb-4">Top universities in Azerbaijan, degree programs, and admission requirements.</p>
+                        <span class="text-xs font-bold text-amber-400">View Universities →</span>
                     </div>
-                </div>
-                <div data-target="#modal-shahdag" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition cursor-pointer">
+                </a>
+                <!-- Business Visa -->
+                <a href="business-visa.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/shahdag.jpg" alt="Shahdag" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Resort & Leisure</span>
+                        <img src="images/investments.jpg" alt="Business Visa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Business Visa</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Shahdag Mountains</h3>
-                        <p class="text-slate-400 text-xs mb-4">Mountain adventures and ski resort excursions.</p>
-                        <span class="text-xs font-bold text-emerald-400">Explore Resort →</span>
+                        <h3 class="text-lg font-bold text-white mb-1">Business Visa Services</h3>
+                        <p class="text-slate-400 text-xs mb-4">Fast-track business visas and corporate support for entrepreneurs and investors.</p>
+                        <span class="text-xs font-bold text-emerald-400">Learn More →</span>
                     </div>
-                </div>
-                <div data-target="#modal-gabala" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition cursor-pointer">
+                </a>
+                <!-- Travel -->
+                <a href="travel.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1000&auto=format&fit=crop" alt="Gabala" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Nature</span>
+                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Travel</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Gabala Forests</h3>
-                        <p class="text-slate-400 text-xs mb-4">Scenic lakes, forests, and relaxation spots.</p>
-                        <span class="text-xs font-bold text-emerald-400">Explore Nature →</span>
+                        <h3 class="text-lg font-bold text-white mb-1">Travel & Tourism</h3>
+                        <p class="text-slate-400 text-xs mb-4">Explore Azerbaijan's nature, mountain resorts, and unforgettable travel packages.</p>
+                        <span class="text-xs font-bold text-emerald-400">Explore Travel →</span>
                     </div>
-                </div>
-                <div data-target="#modal-shusha" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="images/susha.jpg" alt="Shusha" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Culture</span>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Shusha & Karabakh</h3>
-                        <p class="text-slate-400 text-xs mb-4">Historical heritage and cultural tours.</p>
-                        <span class="text-xs font-bold text-amber-400">Visit Hub →</span>
-                    </div>
-                </div>
+                </a>
             </div>
         </section>
     </div>
@@ -349,55 +333,47 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Откройте Азербайджан</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Учеба, инвестиции и туристические направления</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">Учеба, Бизнес-виза и Путешествия</h2>
                 </div>
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> Все программы и туры → </a>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div data-target="#modal-baku" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Education -->
+                <a href="universities.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/baku.jpg" alt="Baku" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Столица и ВУЗы</span>
+                        <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Учеба</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Студенческий хаб в Баку</h3>
-                        <p class="text-slate-400 text-xs mb-4">Ведущие университеты, современный кампус и культура.</p>
-                        <span class="text-xs font-bold text-amber-400">Исследовать Баку →</span>
+                        <h3 class="text-lg font-bold text-white mb-1">Университеты и Обучение</h3>
+                        <p class="text-slate-400 text-xs mb-4">Ведущие вузы Азербайджана, специальности и требования для поступления.</p>
+                        <span class="text-xs font-bold text-amber-400">Смотреть вузы →</span>
                     </div>
-                </div>
-                <div data-target="#modal-shahdag" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition cursor-pointer">
+                </a>
+                <!-- Business Visa -->
+                <a href="business-visa.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/shahdag.jpg" alt="Shahdag" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Курорты</span>
+                        <img src="images/investments.jpg" alt="Business Visa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Бизнес-виза</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Горы Шахдаг</h3>
-                        <p class="text-slate-400 text-xs mb-4">Горные приключения и лыжный курорт.</p>
-                        <span class="text-xs font-bold text-amber-400">Исследовать курорт →</span>
+                        <h3 class="text-lg font-bold text-white mb-1">Услуги бизнес-визы</h3>
+                        <p class="text-slate-400 text-xs mb-4">Ускоренное оформление бизнес-виз и поддержка для предпринимателей и инвесторов.</p>
+                        <span class="text-xs font-bold text-emerald-400">Узнать больше →</span>
                     </div>
-                </div>
-                <div data-target="#modal-gabala" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition cursor-pointer">
+                </a>
+                <!-- Travel -->
+                <a href="travel.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1000&auto=format&fit=crop" alt="Gabala" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Природа</span>
+                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Путешествия</span>
                     </div>
                     <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Леса Габалы</h3>
-                        <p class="text-slate-400 text-xs mb-4">Живописные озера, леса и места для отдыха.</p>
-                        <span class="text-xs font-bold text-amber-400">Исследовать природу →</span>
+                        <h3 class="text-lg font-bold text-white mb-1">Путешествия и Туризм</h3>
+                        <p class="text-slate-400 text-xs mb-4">Природа Азербайджана, горные курорты, незабываемые туры и пакеты услуг.</p>
+                        <span class="text-xs font-bold text-emerald-400">Исследовать туры →</span>
                     </div>
-                </div>
-                <div data-target="#modal-shusha" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="images/susha.jpg" alt="Shusha" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Культура</span>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="text-lg font-bold text-white mb-1">Шуша и Карабах</h3>
-                        <p class="text-slate-400 text-xs mb-4">Историческое наследие и культурные туры.</p>
-                        <span class="text-xs font-bold text-amber-400">Посетить хаб →</span>
-                    </div>
-                </div>
+                </a>
             </div>
         </section>
     </div>
@@ -457,131 +433,51 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 flex-row-reverse">
                 <div class="text-right">
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">اكتشف أذربيجان</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">وجهات الدراسة، الاستثمار والسياحة</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">التعليم، تأشيرة الأعمال والسفر</h2>
                 </div>
                 <a href="services.php" class="text-xs font-bold text-emerald-400 hover:underline mt-4 md:mt-0"> عرض جميع البرامج والجولات ← </a>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div data-target="#modal-baku" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Education -->
+                <a href="universities.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/baku.jpg" alt="Baku" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">العاصمة والجامعات</span>
+                        <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">التعليم</span>
                     </div>
                     <div class="p-5 text-right">
-                        <h3 class="text-lg font-bold text-white mb-1">مركز باكو للطلاب</h3>
-                        <p class="text-slate-400 text-xs mb-4">أفضل الجامعات، حياة الحرم الجامعي الحديثة، والثقافة النابضة بالحياة.</p>
-                        <span class="text-xs font-bold text-amber-400">استكشف باكو ←</span>
+                        <h3 class="text-lg font-bold text-white mb-1">الجامعات والتعليم</h3>
+                        <p class="text-slate-400 text-xs mb-4">أفضل الجامعات في أذربيجان، البرامج الدراسية وشروط القبول.</p>
+                        <span class="text-xs font-bold text-amber-400">عرض الجامعات ←</span>
                     </div>
-                </div>
-                <div data-target="#modal-shahdag" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition cursor-pointer">
+                </a>
+                <!-- Business Visa -->
+                <a href="business-visa.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/shahdag.jpg" alt="Shahdag" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">منتجع وترفيه</span>
+                        <img src="images/investments.jpg" alt="Business Visa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">تأشيرة الأعمال</span>
                     </div>
                     <div class="p-5 text-right">
-                        <h3 class="text-lg font-bold text-white mb-1">جبال شاهداغ</h3>
-                        <p class="text-slate-400 text-xs mb-4">مغامرات جبلية ورحلات منتجعات التزلج.</p>
-                        <span class="text-xs font-bold text-emerald-400">استكشف المنتجع ←</span>
+                        <h3 class="text-lg font-bold text-white mb-1">خدمات تأشيرة الأعمال</h3>
+                        <p class="text-slate-400 text-xs mb-4">تأشيرات أعمال سريعة والدعم المؤسسي لرواد الأعمال والمستثمرين.</p>
+                        <span class="text-xs font-bold text-emerald-400">اعرف المزيد ←</span>
                     </div>
-                </div>
-                <div data-target="#modal-gabala" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition cursor-pointer">
+                </a>
+                <!-- Travel -->
+                <a href="travel.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1000&auto=format&fit=crop" alt="Gabala" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">طبيعة</span>
+                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
+                        <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">السفر</span>
                     </div>
                     <div class="p-5 text-right">
-                        <h3 class="text-lg font-bold text-white mb-1">غابات غابالا</h3>
-                        <p class="text-slate-400 text-xs mb-4">بحيرات خلابة وغابات وأماكن للاسترخاء.</p>
-                        <span class="text-xs font-bold text-amber-400">استكشف الطبيعة ←</span>
+                        <h3 class="text-lg font-bold text-white mb-1">السفر والسياحة</h3>
+                        <p class="text-slate-400 text-xs mb-4">استكشف طبيعة أذربيجان، منتجعات الجبال، والباقات السياحية التي لا تُنسى.</p>
+                        <span class="text-xs font-bold text-amber-400">استكشف السفر ←</span>
                     </div>
-                </div>
-                <div data-target="#modal-shusha" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition cursor-pointer">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="images/susha.jpg" alt="Shusha" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop'">
-                        <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">ثقافة</span>
-                    </div>
-                    <div class="p-5 text-right">
-                        <h3 class="text-lg font-bold text-white mb-1">شوشا وقره باغ</h3>
-                        <p class="text-slate-400 text-xs mb-4">التراث التاريخي والجولات الثقافية.</p>
-                        <span class="text-xs font-bold text-amber-400">زيارة المركز ←</span>
-                    </div>
-                </div>
+                </a>
             </div>
         </section>
     </div>
 
     <div id="footer-container"></div>
-
-    <!-- Modals -->
-    <div id="modal-baku" class="modal-overlay">
-        <div class="modal-box text-left">
-            <span class="close-modal">&times;</span>
-            <div class="image-slider">
-                <img src="https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop" class="active" alt="Baku">
-                <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=1000&auto=format&fit=crop" alt="Old City">
-            </div>
-            <div class="p-6">
-                <h2 class="text-2xl font-black text-white mb-2">🇦🇿 Baku Student, Investment & Tourist Hub</h2>
-                <p class="text-slate-300 text-sm mb-4">Baku hosts top-tier universities with international accreditation, modern student residences, real estate investment opportunities, and a rich cultural environment.</p>
-                <a href="apply.php" class="inline-block bg-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Apply for Study / Investment</a>
-            </div>
-        </div>
-    </div>
-    <div id="modal-shahdag" class="modal-overlay">
-        <div class="modal-box text-left">
-            <span class="close-modal">&times;</span>
-            <div class="image-slider">
-                <img src="https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop" class="active" alt="Shahdag">
-            </div>
-            <div class="p-6">
-                <h2 class="text-2xl font-black text-white mb-2">⛷️ Shahdag Mountain Resort</h2>
-                <p class="text-slate-300 text-sm mb-4">Premier alpine resort offering winter skiing and summer mountain getaways for our students and travelers.</p>
-                <a href="apply.php" class="inline-block bg-emerald-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Book Tour Package</a>
-            </div>
-        </div>
-    </div>
-    <div id="modal-gabala" class="modal-overlay">
-        <div class="modal-box text-left">
-            <span class="close-modal">&times;</span>
-            <div class="image-slider">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1000&auto=format&fit=crop" class="active" alt="Gabala">
-            </div>
-            <div class="p-6">
-                <h2 class="text-2xl font-black text-white mb-2">🌲 Gabala Nature Tours</h2>
-                <p class="text-slate-300 text-sm mb-4">Explore forests, waterfalls, and Nohur Lake during orientation trips organized by Caspian Bridges.</p>
-                <a href="apply.php" class="inline-block bg-emerald-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Book Gabala Trip</a>
-            </div>
-        </div>
-    </div>
-    <div id="modal-shusha" class="modal-overlay">
-        <div class="modal-box text-left">
-            <span class="close-modal">&times;</span>
-            <div class="image-slider">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" class="active" alt="Shusha">
-            </div>
-            <div class="p-6">
-                <h2 class="text-2xl font-black text-white mb-2">🏛️ Shusha Heritage</h2>
-                <p class="text-slate-300 text-sm mb-4">Cultural capital of Azerbaijan showcasing historic monuments and breathtaking landscapes.</p>
-                <a href="apply.php" class="inline-block bg-amber-500 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs">Learn More</a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('[data-target]').forEach(card => {
-                card.addEventListener('click', () => {
-                    const modal = document.querySelector(card.getAttribute('data-target'));
-                    if (modal) modal.classList.add('active');
-                });
-            });
-            document.querySelectorAll('.modal-overlay').forEach(modal => {
-                modal.querySelector('.close-modal')?.addEventListener('click', () => modal.classList.remove('active'));
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) modal.classList.remove('active');
-                });
-            });
-        });
-    </script>
 </body>
 </html>
