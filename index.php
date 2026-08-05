@@ -134,60 +134,26 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <!-- ================= AZERBAIJANI (AZ) ================= -->
     <div data-lang="az">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
-            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
-                
-                <!-- Üstdən Aşağı Minimalist Dizayn Struktur -->
-                <div class="max-w-6xl mx-auto relative reveal">
-                    <div class="landmark-banner rounded-3xl relative overflow-hidden">
-                        <div class="monument-slider" id="az-slider">
-                            
-                            <!-- Slayd 1: Alov Qüllələri -->
-                            <div class="monument-slide active">
-                                <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1200&auto=format&fit=crop" alt="Alov Qüllələri Bakı">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Bakının Simvolu</span>
-                                    <h3 class="text-2xl font-black text-white">Alov Qüllələri (Flame Towers)</h3>
-                                    <p class="text-slate-300 text-xs mt-1">Müasir memarlığın və dinamik iqtisadiyyatın zirvəsi.</p>
-                                </div>
-                            </div>
-
-                            <!-- Slayd 2: Qız Qalası -->
-                            <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1200&auto=format&fit=crop" alt="Qız Qalası Bakı">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">Qədim İrs</span>
-                                    <h3 class="text-2xl font-black text-white">Qız Qalası (Maiden Tower)</h3>
-                                    <p class="text-slate-300 text-xs mt-1">Əsrlərin sirrini qoruyan UNESCO abidəsi.</p>
-                                </div>
-                            </div>
-
-                            <!-- Slayd 3: Heydər Əliyev Mərkəzi -->
-                            <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1200&auto=format&fit=crop" alt="Heydər Əliyev Mərkəzi Bakı">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Müasir Memarlıq</span>
-                                    <h3 class="text-2xl font-black text-white">Heydər Əliyev Mərkəzi</h3>
-                                    <p class="text-slate-300 text-xs mt-1">Zaha Hadidin dizaynı — gələcəyin formalarını əks etdirən ikon.</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Slayder İdarəetmə Nöqtələri -->
-                        <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2">
-                            <div class="flex items-center gap-2" id="az-dots">
-                                <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
-                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                            </div>
-                            <a href="tours.php?lang=az" class="text-xs font-bold text-amber-400 hover:underline"> Bakını kəşf et → </a>
-                        </div>
-                    </div>
+            <!-- Arxa plan: tanınmış yerlərin animasiyalı slayd-şousu (çərçivəsiz, tam en) -->
+            <div class="monument-slider monument-slider--bg absolute inset-0 z-0" id="az-slider">
+                <div class="monument-slide active">
+                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" alt="Alov Qüllələri Bakı">
                 </div>
+                <div class="monument-slide">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" alt="Qız Qalası Bakı">
+                </div>
+                <div class="monument-slide">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" alt="Heydər Əliyev Mərkəzi Bakı">
+                </div>
+            </div>
+            <!-- Mətnin oxunaqlı olması üçün tündləşdirici overlay -->
+            <div class="hero-scrim absolute inset-0 z-[1] pointer-events-none"></div>
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none z-[2]"></div>
 
-                <!-- Mərkəzləşdirilmiş Alov Qüllələri və Qız Qalası Dinamik Animasiyalı Vitrin -->
-                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16 reveal">
+            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
+
+                <!-- Mərkəzləşdirilmiş Hero Mətni (ön planda) -->
+                <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto badge-shimmer">
                         <span>🇦🇿</span> Caspian Bridges • Rəsmi Təhsil, Viza və İnvestisiya Portalı 2026
                     </div>
@@ -209,6 +175,16 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         <div class="text-center"><div class="text-2xl font-black text-emerald-300">5k+</div><div class="text-[11px] text-slate-400 font-semibold">Qlobal Müştəri</div></div>
                     </div>
                     <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "Gələcəyinizi Bakıdakı imkanlarla birləşdiririk." </p>
+                </div>
+
+                <!-- Slayder İdarəetmə Nöqtələri (ön planda, arxa fon şəkli üzərində) -->
+                <div class="absolute bottom-0 inset-x-0 flex items-center justify-end gap-4 pb-2 reveal">
+                    <div class="flex items-center gap-2" id="az-dots">
+                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                    </div>
+                    <a href="login.php?lang=az" class="text-xs font-bold text-amber-400 hover:underline"> Bakını kəşf et → </a>
                 </div>
 
             </div>
