@@ -51,13 +51,13 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                     <div>
                         <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5" data-az="Ad" data-en="First Name" data-ru="Имя" data-ar="الاسم الأول">First Name</label>
                         <input type="text" name="firstname" required
-                               data-az="Elvin" data-en="John" data-ru="Иван" data-ar="محمد"
+                               data-ph-az="Elvin" data-ph-en="John" data-ph-ru="Иван" data-ph-ar="محمد"
                                class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition">
                     </div>
                     <div>
                         <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5" data-az="Soyad" data-en="Last Name" data-ru="Фамилия" data-ar="اسم العائلة">Last Name</label>
                         <input type="text" name="lastname" required
-                               data-az="Məmmədov" data-en="Doe" data-ru="Иванов" data-ar="الأحمد"
+                               data-ph-az="Məmmədov" data-ph-en="Doe" data-ph-ru="Иванов" data-ph-ar="الأحمد"
                                class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition">
                     </div>
                 </div>
@@ -66,13 +66,13 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                     <div>
                         <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5" data-az="E-poçt" data-en="Email Address" data-ru="Электронная почта" data-ar="البريد الإلكتروني">Email Address</label>
                         <input type="email" name="email" required
-                               data-az="elvin@example.com" data-en="john@example.com" data-ru="ivan@example.com" data-ar="mohammed@example.com"
+                               data-ph-az="elvin@example.com" data-ph-en="john@example.com" data-ph-ru="ivan@example.com" data-ph-ar="mohammed@example.com"
                                class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition">
                     </div>
                     <div>
                         <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5" data-az="Telefon" data-en="Phone Number" data-ru="Телефон" data-ar="الهاتف">Phone Number</label>
                         <input type="tel" name="phone" required
-                               data-az="+994 50 000 00 00" data-en="+1 (555) 000-0000" data-ru="+7 (999) 000-00-00" data-ar="+966 50 000 0000"
+                               data-ph-az="+994 50 000 00 00" data-ph-en="+1 (555) 000-0000" data-ph-ru="+7 (999) 000-00-00" data-ph-ar="+966 50 000 0000"
                                class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition">
                     </div>
                 </div>
@@ -90,7 +90,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                 <div>
                     <label class="text-xs font-bold text-slate-300 uppercase block mb-1.5" data-az="Əlavə Məlumat" data-en="Additional Information" data-ru="Дополнительная информация" data-ar="معلومات إضافية">Additional Information</label>
                     <textarea name="message" rows="3"
-                              data-az="Təhsil, viza, investisiya və ya səyahət planlarınız barədə qısaca yazın..." data-en="Tell us about your requirements..." data-ru="Информация..." data-ar="معلومات..."
+                              data-ph-az="Təhsil, viza, investisiya və ya səyahət planlarınız barədə qısaca yazın..." data-ph-en="Tell us about your requirements..." data-ph-ru="Информация..." data-ph-ar="معلومات..."
                               class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition resize-none"></textarea>
                 </div>
 
@@ -118,14 +118,18 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
         const scope = document.getElementById('apply-outer');
         if (!scope) return;
 
+        // Mətn məzmunu (label, düymə, seçim mətnləri) — component.js-in özü də bunları emal edəcək,
+        // amma nəticə eynidir, ona görə problem yaratmır.
         scope.querySelectorAll('[data-az][data-en][data-ru][data-ar]').forEach(el => {
             const text = el.getAttribute(`data-${lang}`);
-            if (text === null) return;
-            if ((el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') && (el.hasAttribute('placeholder') || el.tagName === 'TEXTAREA' || el.type === 'text' || el.type === 'email' || el.type === 'tel')) {
-                el.setAttribute('placeholder', text);
-            } else {
-                el.textContent = text;
-            }
+            if (text !== null) el.textContent = text;
+        });
+
+        // Placeholder-lar — YALNIZ bizim data-ph-* atributlarımızdan oxunur,
+        // component.js-in qlobal handler-i bunlara heç toxunmur (ad fərqli olduğu üçün).
+        scope.querySelectorAll('[data-ph-az][data-ph-en][data-ph-ru][data-ph-ar]').forEach(el => {
+            const text = el.getAttribute(`data-ph-${lang}`);
+            if (text !== null) el.setAttribute('placeholder', text);
         });
 
         scope.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
@@ -176,8 +180,14 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
             })
             .then(response => response.text())
             .then(data => {
-                const formContainer = document.getElementById('apply-outer');
-                const result = data.trim();
+                try {
+                    const formContainer = document.getElementById('apply-outer');
+                    if (!formContainer) {
+                        console.error('apply-outer not found in DOM');
+                        return;
+                    }
+                    const result = data.trim();
+                    console.log('process cavabı:', JSON.stringify(result));
 
                 if (result === 'success') {
                     const successTexts = {
@@ -240,6 +250,9 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
                             <a href="apply" class="inline-block bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-3 rounded-xl text-sm transition">${err.btn}</a>
                         </div>
                     `;
+                }
+                } catch (innerErr) {
+                    console.error('Cavab emalı zamanı xəta:', innerErr, 'Xam cavab:', data);
                 }
             })
             .catch(error => {

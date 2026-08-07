@@ -42,12 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $user_id   = $_SESSION['user_id'];
-        $firstname = $conn->real_escape_string($_POST['firstname']);
-        $lastname  = $conn->real_escape_string($_POST['lastname']);
-        $email     = $conn->real_escape_string($_POST['email']);
-        $phone     = $conn->real_escape_string($_POST['phone']);
-        $service   = $conn->real_escape_string($_POST['service']);
-        $message   = $conn->real_escape_string($_POST['message']);
+        $firstname = $conn->real_escape_string($_POST['firstname'] ?? '');
+        $lastname  = $conn->real_escape_string($_POST['lastname'] ?? '');
+        $email     = $conn->real_escape_string($_POST['email'] ?? '');
+        $phone     = $conn->real_escape_string($_POST['phone'] ?? '');
+        $service   = $conn->real_escape_string($_POST['service'] ?? '');
+        $message   = $conn->real_escape_string($_POST['message'] ?? '');
 
         $insert_sql = "INSERT INTO applications (user_id, firstname, lastname, email, phone, service, message, status) 
                        VALUES ('$user_id', '$firstname', '$lastname', '$email', '$phone', '$service', '$message', 'pending')";
