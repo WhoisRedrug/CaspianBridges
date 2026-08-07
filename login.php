@@ -22,7 +22,7 @@
     window.isUserLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
     </script>
 </head>
-<body class="bg-glow text-slate-100 min-h-screen flex items-center justify-center p-4 relative overflow-hidden antialiased selection:bg-emerald-400 selection:text-slate-950">
+<body class="bg-glow text-slate-100 min-h-screen flex items-center justify-center p-4 relative overflow-x-hidden overflow-y-auto antialiased selection:bg-emerald-400 selection:text-slate-950">
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
     
     <div class="w-full max-w-md z-10 my-8">
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <div class="glass-card p-8 rounded-3xl shadow-2xl relative border border-amber-500/20">
+        <div class="glass-card p-8 rounded-3xl shadow-2xl relative border border-amber-500/20 max-h-[calc(100vh-3rem)] overflow-y-auto">
             <div class="text-center mb-6">
                 <a href="index" class="inline-block mb-2">
                     <img src="images/logo.png.png" alt="Caspian Bridges Logo" class="w-14 h-14 object-contain mx-auto rounded-2xl shadow-md">
