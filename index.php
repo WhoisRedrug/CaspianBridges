@@ -78,6 +78,15 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         .landmark-banner { border: none; box-shadow: 0 25px 50px -20px rgba(0,0,0,0.6); animation: none; }
         .landmark-banner .monument-slider { border-radius: 20px; }
 
+        /* Hero arxa fonu kimi istifadə olunan slayder - bütün hero bölməsini doldurmalıdır (dil dəyişəndə pozulmasın deyə hər 4 dil eyni struktura sahibdir) */
+        .monument-slider--bg { height: 100% !important; border-radius: 0; }
+        .monument-slider--bg .monument-slide { border-radius: 0; }
+
+        /* Hero mətninin oxunaqlı olması üçün arxa fon şəklini tündləşdirən overlay */
+        .hero-scrim {
+            background: linear-gradient(180deg, rgba(6,20,18,0.55) 0%, rgba(6,20,18,0.72) 45%, rgba(6,20,18,0.94) 100%);
+        }
+
         /* ===== Premium Polish Layer (visual/animation only — no content changes) ===== */
 
         /* Ken Burns slow zoom on the landmark slides for a cinematic feel */
@@ -239,47 +248,23 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <!-- ================= ENGLISH (EN) ================= -->
     <div data-lang="en" class="hidden">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
-            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
-                <div class="max-w-6xl mx-auto relative reveal">
-                    <div class="landmark-banner rounded-3xl relative overflow-hidden">
-                        <div class="monument-slider">
-                            <div class="monument-slide active">
-                                <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1200&auto=format&fit=crop" alt="Flame Towers Baku">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Symbol of Baku</span>
-                                    <h3 class="text-2xl font-black text-white">Flame Towers</h3>
-                                    <p class="text-slate-300 text-xs mt-1">The pinnacle of modern architecture and dynamic economy.</p>
-                                </div>
-                            </div>
-                            <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1200&auto=format&fit=crop" alt="Maiden Tower Baku">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">Ancient Heritage</span>
-                                    <h3 class="text-2xl font-black text-white">Maiden Tower</h3>
-                                    <p class="text-slate-300 text-xs mt-1">UNESCO World Heritage monument guarding centuries of secrets.</p>
-                                </div>
-                            </div>
-                            <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1200&auto=format&fit=crop" alt="Heydar Aliyev Center Baku">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Modern Architecture</span>
-                                    <h3 class="text-2xl font-black text-white">Heydar Aliyev Center</h3>
-                                    <p class="text-slate-300 text-xs mt-1">A Zaha Hadid masterpiece shaping the future of design.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2">
-                            <div class="flex items-center gap-2">
-                                <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
-                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                            </div>
-                            <a href="tours.php?lang=en" class="text-xs font-bold text-amber-400 hover:underline"> Discover Baku → </a>
-                        </div>
-                    </div>
+            <div class="monument-slider monument-slider--bg absolute inset-0 z-0" id="en-slider">
+                <div class="monument-slide active">
+                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" alt="Flame Towers Baku">
                 </div>
-                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16 reveal">
+                <div class="monument-slide">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" alt="Maiden Tower Baku">
+                </div>
+                <div class="monument-slide">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" alt="Heydar Aliyev Center Baku">
+                </div>
+            </div>
+            <div class="hero-scrim absolute inset-0 z-[1] pointer-events-none"></div>
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none z-[2]"></div>
+
+            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
+
+                <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto badge-shimmer">
                         <span>🇦🇿</span> Caspian Bridges • Official Study, Business & Investment Portal 2026
                     </div>
@@ -301,10 +286,19 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     </div>
                     <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "Connecting your future to opportunities in Baku." </p>
                 </div>
+
+                <div class="absolute bottom-0 inset-x-0 flex items-center justify-end gap-4 pb-2 reveal">
+                    <div class="flex items-center gap-2" id="en-dots">
+                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                    </div>
+                    <a href="login.php?lang=en" class="text-xs font-bold text-amber-400 hover:underline"> Discover Baku → </a>
+                </div>
+
             </div>
         </section>
-
-        <section class="py-20 px-6 max-w-7xl mx-auto text-left">
+<section class="py-20 px-6 max-w-7xl mx-auto text-left">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Discover Azerbaijan</span>
@@ -353,47 +347,23 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <!-- ================= RUSSIAN (RU) ================= -->
     <div data-lang="ru" class="hidden">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
-            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
-                <div class="max-w-6xl mx-auto relative reveal">
-                    <div class="landmark-banner rounded-3xl relative overflow-hidden">
-                        <div class="monument-slider">
-                            <div class="monument-slide active">
-                                <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1200&auto=format&fit=crop" alt="Огненные башни Баку">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Символ Баку</span>
-                                    <h3 class="text-2xl font-black text-white">Огненные Башни (Flame Towers)</h3>
-                                    <p class="text-slate-300 text-xs mt-1">Вершина современной архитектуры и динамичной экономики.</p>
-                                </div>
-                            </div>
-                            <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1200&auto=format&fit=crop" alt="Девичья башня Баку">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">Древнее Наследие</span>
-                                    <h3 class="text-2xl font-black text-white">Девичья Башня (Maiden Tower)</h3>
-                                    <p class="text-slate-300 text-xs mt-1">Памятник ЮНЕСКО, хранящий секреты веков.</p>
-                                </div>
-                            </div>
-                            <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1200&auto=format&fit=crop" alt="Центр Гейдара Алиева Баку">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">Современная Архитектура</span>
-                                    <h3 class="text-2xl font-black text-white">Центр Гейдара Алиева</h3>
-                                    <p class="text-slate-300 text-xs mt-1">Шедевр Захи Хадид, формирующий будущее дизайна.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2">
-                            <div class="flex items-center gap-2">
-                                <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
-                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                            </div>
-                            <a href="tours.php?lang=ru" class="text-xs font-bold text-amber-400 hover:underline"> Открыть Баку → </a>
-                        </div>
-                    </div>
+            <div class="monument-slider monument-slider--bg absolute inset-0 z-0" id="ru-slider">
+                <div class="monument-slide active">
+                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" alt="Огненные башни Баку">
                 </div>
-                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16 reveal">
+                <div class="monument-slide">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" alt="Девичья башня Баку">
+                </div>
+                <div class="monument-slide">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" alt="Центр Гейдара Алиева Баку">
+                </div>
+            </div>
+            <div class="hero-scrim absolute inset-0 z-[1] pointer-events-none"></div>
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none z-[2]"></div>
+
+            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
+
+                <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto badge-shimmer">
                         <span>🇦🇿</span> Caspian Bridges • Официальный портал 2026
                     </div>
@@ -415,10 +385,19 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     </div>
                     <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "Связываем ваше будущее с возможностями в Баку." </p>
                 </div>
+
+                <div class="absolute bottom-0 inset-x-0 flex items-center justify-end gap-4 pb-2 reveal">
+                    <div class="flex items-center gap-2" id="ru-dots">
+                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                    </div>
+                    <a href="login.php?lang=ru" class="text-xs font-bold text-amber-400 hover:underline"> Открыть Баку → </a>
+                </div>
+
             </div>
         </section>
-
-        <section class="py-20 px-6 max-w-7xl mx-auto text-left">
+<section class="py-20 px-6 max-w-7xl mx-auto text-left">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
                 <div>
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Откройте Азербайджан</span>
@@ -467,47 +446,23 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <!-- ================= ARABIC (AR) ================= -->
     <div data-lang="ar" class="hidden text-right">
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
-            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none"></div>
-            <div class="max-w-7xl mx-auto w-full relative z-10 text-right">
-                <div class="max-w-6xl mx-auto relative reveal">
-                    <div class="landmark-banner rounded-3xl relative overflow-hidden text-right">
-                        <div class="monument-slider">
-                            <div class="monument-slide active">
-                                <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1200&auto=format&fit=crop" alt="أبراج اللهب باكو">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">رمز باكو</span>
-                                    <h3 class="text-2xl font-black text-white">أبراج اللهب (Flame Towers)</h3>
-                                    <p class="text-slate-300 text-xs mt-1">قمة الهندسة المعمارية الحديثة والاقتصاد الديناميكي.</p>
-                                </div>
-                            </div>
-                            <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1200&auto=format&fit=crop" alt="قلعة العذراء باكو">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-emerald-400 text-xs font-extrabold uppercase tracking-widest mb-1">التراث العريق</span>
-                                    <h3 class="text-2xl font-black text-white">قلعة العذراء (Maiden Tower)</h3>
-                                    <p class="text-slate-300 text-xs mt-1">معلم مدرج في اليونسكو يحرس أسرار القرون.</p>
-                                </div>
-                            </div>
-                            <div class="monument-slide">
-                                <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1200&auto=format&fit=crop" alt="مركز حيدر علييف باكو">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#061412] via-transparent to-transparent flex flex-col justify-end p-6">
-                                    <span class="text-amber-400 text-xs font-extrabold uppercase tracking-widest mb-1">العمارة الحديثة</span>
-                                    <h3 class="text-2xl font-black text-white">مركز حيدر علييف</h3>
-                                    <p class="text-slate-300 text-xs mt-1">تحفة معمارية من تصميم زها حديد تجسد مستقبل التصميم.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between px-4 py-3 border-t border-slate-800/80 mt-2 flex-row-reverse">
-                            <div class="flex items-center gap-2">
-                                <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
-                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                                <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                            </div>
-                            <a href="tours.php?lang=ar" class="text-xs font-bold text-amber-400 hover:underline"> اكتشف باكو ← </a>
-                        </div>
-                    </div>
+            <div class="monument-slider monument-slider--bg absolute inset-0 z-0" id="ar-slider">
+                <div class="monument-slide active">
+                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" alt="أبراج اللهب باكو">
                 </div>
-                <div class="max-w-4xl mx-auto text-center space-y-8 mb-16 reveal">
+                <div class="monument-slide">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" alt="قلعة العذراء باكو">
+                </div>
+                <div class="monument-slide">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" alt="مركز حيدر علييف باكو">
+                </div>
+            </div>
+            <div class="hero-scrim absolute inset-0 z-[1] pointer-events-none"></div>
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none z-[2]"></div>
+
+            <div class="max-w-7xl mx-auto w-full relative z-10 text-left">
+
+                <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mx-auto badge-shimmer">
                         <span>🇦🇿</span> جسور بحر قزوين • البوابة الرسمية للتعليم والأعمال والسياحة 2026
                     </div>
@@ -529,10 +484,19 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     </div>
                     <p class="text-base sm:text-lg font-medium text-slate-300 italic"> "نربط مستقبلك بالفرص في باكو." </p>
                 </div>
+
+                <div class="absolute bottom-0 inset-x-0 flex items-center justify-start flex-row-reverse gap-4 pb-2 reveal">
+                    <div class="flex items-center gap-2" id="ar-dots">
+                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                    </div>
+                    <a href="login.php?lang=ar" class="text-xs font-bold text-amber-400 hover:underline"> اكتشف باكو ← </a>
+                </div>
+
             </div>
         </section>
-
-        <section class="py-20 px-6 max-w-7xl mx-auto text-right">
+<section class="py-20 px-6 max-w-7xl mx-auto text-right">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal flex-row-reverse">
                 <div class="text-right">
                     <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">اكتشف أذربيجان</span>
@@ -607,8 +571,10 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             
             sliders.forEach(slider => {
                 const slides = slider.querySelectorAll('.monument-slide');
-                const container = slider.closest('.landmark-banner');
-                const dots = container.querySelectorAll('.flex.items-center.gap-2 button');
+                // Hər slider öz id-sinə uyğun nöqtə qutusunu tapır (məs. "az-slider" -> "#az-dots")
+                const dotsContainer = document.getElementById(slider.id.replace('-slider', '-dots'));
+                if (!dotsContainer) return;
+                const dots = dotsContainer.querySelectorAll('button');
                 let currentIndex = 0;
                 let interval;
 
