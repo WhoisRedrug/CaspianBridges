@@ -56,9 +56,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com" defer></script>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="component.js" defer></script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -155,10 +153,10 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop 1600w" sizes="100vw" fetchpriority="high" decoding="async" alt="Alov Qüllələri Bakı">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=1600&auto=format&fit=crop 1600w" sizes="100vw" loading="lazy" decoding="async" alt="Qız Qalası Bakı">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Qız Qalası Bakı">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=1600&auto=format&fit=crop 1600w" sizes="100vw" loading="lazy" decoding="async" alt="Heydər Əliyev Mərkəzi Bakı">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Heydər Əliyev Mərkəzi Bakı">
                 </div>
             </div>
             <!-- Mətnin oxunaqlı olması üçün tündləşdirici overlay -->
@@ -259,10 +257,10 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop 1600w" sizes="100vw" fetchpriority="high" decoding="async" alt="Flame Towers Baku">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=1600&auto=format&fit=crop 1600w" sizes="100vw" loading="lazy" decoding="async" alt="Maiden Tower Baku">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Maiden Tower Baku">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=1600&auto=format&fit=crop 1600w" sizes="100vw" loading="lazy" decoding="async" alt="Heydar Aliyev Center Baku">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Heydar Aliyev Center Baku">
                 </div>
             </div>
             <div class="hero-scrim absolute inset-0 z-[1] pointer-events-none"></div>
@@ -358,10 +356,10 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop 1600w" sizes="100vw" fetchpriority="high" decoding="async" alt="Огненные башни Баку">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=1600&auto=format&fit=crop 1600w" sizes="100vw" loading="lazy" decoding="async" alt="Девичья башня Баку">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Девичья башня Баку">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=1600&auto=format&fit=crop 1600w" sizes="100vw" loading="lazy" decoding="async" alt="Центр Гейдара Алиева Баку">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Центр Гейдара Алиева Баку">
                 </div>
             </div>
             <div class="hero-scrim absolute inset-0 z-[1] pointer-events-none"></div>
@@ -457,10 +455,10 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                     <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop 1600w" sizes="100vw" fetchpriority="high" decoding="async" alt="أبراج اللهب باكو">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=75&w=1600&auto=format&fit=crop 1600w" sizes="100vw" loading="lazy" decoding="async" alt="قلعة العذراء باكو">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="قلعة العذراء باكو">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1595980542930-9eea66620834?q=75&w=1600&auto=format&fit=crop 1600w" sizes="100vw" loading="lazy" decoding="async" alt="مركز حيدر علييف باكو">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="مركز حيدر علييف باكو">
                 </div>
             </div>
             <div class="hero-scrim absolute inset-0 z-[1] pointer-events-none"></div>
