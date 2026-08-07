@@ -296,7 +296,18 @@ $universities = [
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-card { background: rgba(12, 35, 31, 0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .hero-glow { background: radial-gradient(circle at 50% 20%, #0f3831 0%, #061412 60%, #020a09 100%); }
+        .hero-glow { background: radial-gradient(circle at 50% 20%, #16233f 0%, #0a1420 60%, #020a09 100%); }
+
+        /* Scroll-reveal açılış animasiyası (Ana səhifə ilə eyni sistem) */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1.in-view { transition-delay: .05s; }
+        .reveal-delay-2.in-view { transition-delay: .10s; }
+        .reveal-delay-3.in-view { transition-delay: .15s; }
+        .reveal-delay-4.in-view { transition-delay: .20s; }
+        .reveal-delay-5.in-view { transition-delay: .25s; }
+        .reveal-delay-6.in-view { transition-delay: .30s; }
+        @media (prefers-reduced-motion: reduce) { .reveal { transition: none !important; opacity: 1; transform: none; } }
     </style>
 </head>
 <body class="bg-[#061412] text-slate-100 antialiased selection:bg-emerald-400 selection:text-slate-950">
@@ -307,8 +318,9 @@ $universities = [
 
     <!-- ================= AZERBAIJANI (AZ) ================= -->
     <div data-lang="az">
-        <section class="hero-glow pt-36 pb-16 px-6 text-left">
-            <div class="max-w-7xl mx-auto">
+        <section class="hero-glow pt-36 pb-16 px-6 text-left relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto relative z-10 reveal">
                 <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Təhsil Bələdçisi</span>
                 <h1 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">Azərbaycanda Universitetlər</h1>
                 <p class="text-slate-400 text-sm sm:text-base max-w-3xl">Xarici tələbələr üçün Azərbaycanın aparıcı dövlət və özəl universitetlərinin siyahısı. Ətraflı məlumat və şəkillər üçün istənilən universitet kartına klikləyin.</p>
@@ -317,7 +329,7 @@ $universities = [
         <section class="px-6 pb-20 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <?php foreach ($universities as $index => $u): ?>
-                <div onclick="openUniversityModal(<?php echo $index; ?>, 'az')" class="glass-card rounded-3xl overflow-hidden hover:border-amber-500/40 transition flex flex-col justify-between cursor-pointer group">
+                <div onclick="openUniversityModal(<?php echo $index; ?>, 'az')" class="glass-card rounded-3xl overflow-hidden hover:border-indigo-500/40 transition flex flex-col justify-between cursor-pointer group reveal reveal-delay-<?php echo ($index % 6) + 1; ?>">
                     <div>
                         <div class="h-48 w-full overflow-hidden bg-slate-900/50">
                             <img src="<?php echo htmlspecialchars($u['images'][0]); ?>" alt="<?php echo htmlspecialchars($u['name']); ?>" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -344,8 +356,9 @@ $universities = [
 
     <!-- ================= ENGLISH (EN) ================= -->
     <div data-lang="en" class="hidden">
-        <section class="hero-glow pt-36 pb-16 px-6 text-left">
-            <div class="max-w-7xl mx-auto">
+        <section class="hero-glow pt-36 pb-16 px-6 text-left relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto relative z-10 reveal">
                 <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Education Guide</span>
                 <h1 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">Universities in Azerbaijan</h1>
                 <p class="text-slate-400 text-sm sm:text-base max-w-3xl">A list of Azerbaijan's leading public and private universities for international students. Click any university card for detailed insights and galleries.</p>
@@ -354,7 +367,7 @@ $universities = [
         <section class="px-6 pb-20 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <?php foreach ($universities as $index => $u): ?>
-                <div onclick="openUniversityModal(<?php echo $index; ?>, 'en')" class="glass-card rounded-3xl overflow-hidden hover:border-amber-500/40 transition flex flex-col justify-between cursor-pointer group">
+                <div onclick="openUniversityModal(<?php echo $index; ?>, 'en')" class="glass-card rounded-3xl overflow-hidden hover:border-indigo-500/40 transition flex flex-col justify-between cursor-pointer group reveal reveal-delay-<?php echo ($index % 6) + 1; ?>">
                     <div>
                         <div class="h-48 w-full overflow-hidden bg-slate-900/50">
                             <img src="<?php echo htmlspecialchars($u['images'][0]); ?>" alt="<?php echo htmlspecialchars($u['name']); ?>" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -381,8 +394,9 @@ $universities = [
 
     <!-- ================= RUSSIAN (RU) ================= -->
     <div data-lang="ru" class="hidden">
-        <section class="hero-glow pt-36 pb-16 px-6 text-left">
-            <div class="max-w-7xl mx-auto">
+        <section class="hero-glow pt-36 pb-16 px-6 text-left relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto relative z-10 reveal">
                 <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Гид по образованию</span>
                 <h1 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">Университеты Азербайджана</h1>
                 <p class="text-slate-400 text-sm sm:text-base max-w-3xl">Список ведущих университетов Азербайджана для иностранных студентов. Нажмите на карточку для подробной информации и галереи.</p>
@@ -391,7 +405,7 @@ $universities = [
         <section class="px-6 pb-20 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <?php foreach ($universities as $index => $u): ?>
-                <div onclick="openUniversityModal(<?php echo $index; ?>, 'ru')" class="glass-card rounded-3xl overflow-hidden hover:border-amber-500/40 transition flex flex-col justify-between cursor-pointer group">
+                <div onclick="openUniversityModal(<?php echo $index; ?>, 'ru')" class="glass-card rounded-3xl overflow-hidden hover:border-indigo-500/40 transition flex flex-col justify-between cursor-pointer group reveal reveal-delay-<?php echo ($index % 6) + 1; ?>">
                     <div>
                         <div class="h-48 w-full overflow-hidden bg-slate-900/50">
                             <img src="<?php echo htmlspecialchars($u['images'][0]); ?>" alt="<?php echo htmlspecialchars($u['name']); ?>" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -418,8 +432,9 @@ $universities = [
 
     <!-- ================= ARABIC (AR) ================= -->
     <div data-lang="ar" class="hidden">
-        <section class="hero-glow pt-36 pb-16 px-6 text-right">
-            <div class="max-w-7xl mx-auto">
+        <section class="hero-glow pt-36 pb-16 px-6 text-right relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto relative z-10 reveal">
                 <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">دليل التعليم</span>
                 <h1 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">الجامعات في أذربيجان</h1>
                 <p class="text-slate-400 text-sm sm:text-base max-w-3xl">قائمة بأفضل الجامعات الحكومية والخاصة في أذربيجان للطلاب الأجانب. انقر على أي بطاقة لعرض المعلومات التفصيلية والمعرض.</p>
@@ -428,7 +443,7 @@ $universities = [
         <section class="px-6 pb-20 max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <?php foreach ($universities as $index => $u): ?>
-                <div onclick="openUniversityModal(<?php echo $index; ?>, 'ar')" class="glass-card rounded-3xl overflow-hidden hover:border-amber-500/40 transition flex flex-col justify-between text-right cursor-pointer group">
+                <div onclick="openUniversityModal(<?php echo $index; ?>, 'ar')" class="glass-card rounded-3xl overflow-hidden hover:border-indigo-500/40 transition flex flex-col justify-between text-right cursor-pointer group reveal reveal-delay-<?php echo ($index % 6) + 1; ?>">
                     <div>
                         <div class="h-48 w-full overflow-hidden bg-slate-900/50">
                             <img src="<?php echo htmlspecialchars($u['images'][0]); ?>" alt="<?php echo htmlspecialchars($u['name']); ?>" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -607,5 +622,22 @@ $universities = [
     </script>
 
     <div id="footer-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('in-view');
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            document.querySelectorAll('[data-lang]').forEach(block => {
+                new MutationObserver(() => {
+                    block.querySelectorAll('.reveal:not(.in-view)').forEach(el => revealObserver.observe(el));
+                }).observe(block, { attributes: true, attributeFilter: ['class'] });
+            });
+        });
+    </script>
 </body>
 </html>

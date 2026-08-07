@@ -66,6 +66,16 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         .glass-nav { background: rgba(6, 20, 18, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .glass-card { background: rgba(12, 35, 31, 0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .hero-bg { background: radial-gradient(circle at 50% 0%, #0f3831 0%, #061412 70%, #020a09 100%); }
+
+        /* Scroll-reveal açılış animasiyası (Ana səhifə ilə eyni sistem) */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1.in-view { transition-delay: .08s; }
+        .reveal-delay-2.in-view { transition-delay: .16s; }
+        .reveal-delay-3.in-view { transition-delay: .24s; }
+        .reveal-delay-4.in-view { transition-delay: .32s; }
+        .reveal-delay-5.in-view { transition-delay: .40s; }
+        @media (prefers-reduced-motion: reduce) { .reveal { transition: none !important; opacity: 1; transform: none; } }
     </style>
     <script>
     window.isUserLoggedIn = <?php echo $isLoggedIn; ?>;
@@ -78,7 +88,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="az">
         <section class="hero-bg pt-36 pb-16 px-6 relative overflow-hidden text-center">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto relative z-10">
+            <div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto relative z-10 reveal">
                 <div class="mb-6">
                     <a href="index" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-emerald-400 transition bg-[#0b2420] px-4 py-2 rounded-full border border-slate-800"> ← Ana Səhifəyə Qayıt </a>
                 </div>
@@ -89,25 +100,25 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
         <section class="py-12 px-6 max-w-7xl mx-auto relative z-10 text-left">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-1">
                     <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> 🛂 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Viza Xidmətləri</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Elektron viza, miqrasiya dəstəyi, sənədlərin rəsmiləşdirilməsi və hüquqi məsləhət xidmətləri. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300 gap-1.5"> Viza üçün Müraciət Et → </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-2">
                     <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> 🎓 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Təhsil (Education)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Bakalavr, Magistr, Doktorantura proqramlarına qəbul, təqaüd yardımı və tələbə yataqxanası. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-amber-400 hover:text-amber-300 gap-1.5"> Təhsil üçün Müraciət → </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-3">
                     <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> 📈 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">İnvestisiya (Invest)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Azərbaycanda biznes qurmaq, daşınmaz əmlak yatırımları və kommersiya layihə dəstəyi. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300 gap-1.5"> İnvestisiya Et → </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-4">
                     <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> ✈️ </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Turizm (Travel)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Bakı və regionlar üzrə elit turlar, otel rezervasiyaları, transferlər və fərdi bələdçilər. </p>
@@ -121,7 +132,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="en" class="hidden">
         <section class="hero-bg pt-36 pb-16 px-6 relative overflow-hidden text-center">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto relative z-10">
+            <div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto relative z-10 reveal">
                 <div class="mb-6">
                     <a href="index" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-emerald-400 transition bg-[#0b2420] px-4 py-2 rounded-full border border-slate-800"> ← Back to Homepage </a>
                 </div>
@@ -132,25 +144,25 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
         <section class="py-12 px-6 max-w-7xl mx-auto relative z-10 text-left">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-1">
                     <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> 🛂 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Visa Services</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> e-Visa processing, migration support, legal documentation, and official consulting. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300 gap-1.5"> Apply for Visa → </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-2">
                     <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> 🎓 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Education</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Full guidance for Bachelor's, Master's, PhD admissions, scholarship support, and housing. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-amber-400 hover:text-amber-300 gap-1.5"> Apply for Study → </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-3">
                     <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> 📈 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Investment (Invest)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Business setup in Azerbaijan, real estate investments, and commercial project support. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300 gap-1.5"> Invest Now → </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-4">
                     <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> ✈️ </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Travel & Tourism</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Bespoke tourism packages, private guides, hotel bookings, and airport transfers. </p>
@@ -164,7 +176,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="ru" class="hidden">
         <section class="hero-bg pt-36 pb-16 px-6 relative overflow-hidden text-center">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto relative z-10">
+            <div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto relative z-10 reveal">
                 <div class="mb-6">
                     <a href="index" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-emerald-400 transition bg-[#0b2420] px-4 py-2 rounded-full border border-slate-800"> ← На главную </a>
                 </div>
@@ -175,25 +188,25 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
         <section class="py-12 px-6 max-w-7xl mx-auto relative z-10 text-left">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-1">
                     <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> 🛂 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Визовые услуги</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Оформление электронных виз, миграционная поддержка и юридическая консультация. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300 gap-1.5"> Оформить визу → </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-2">
                     <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> 🎓 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Образование</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Поступление на бакалавриат, магистратуру, PhD, стипендиальная поддержка и общежитие. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-amber-400 hover:text-amber-300 gap-1.5"> Поступить на учебу → </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-3">
                     <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> 📈 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Инвестиции (Invest)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Открытие бизнеса в Азербайджане, инвестиции в недвижимость и коммерческие проекты. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300 gap-1.5"> Инвестировать → </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group">
+                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group reveal reveal-delay-4">
                     <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform"> ✈️ </div>
                     <h3 class="text-2xl font-bold text-white mb-3">Туризм (Travel)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> Индивидуальные туры по Баку и регионам, бронирование отелей и трансферы. </p>
@@ -207,7 +220,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <div data-lang="ar" class="hidden text-right">
         <section class="hero-bg pt-36 pb-16 px-6 relative overflow-hidden text-center">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto relative z-10">
+            <div class="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto relative z-10 reveal">
                 <div class="mb-6 flex justify-center">
                     <a href="index" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-emerald-400 transition bg-[#0b2420] px-4 py-2 rounded-full border border-slate-800"> ← العودة إلى الرئيسية </a>
                 </div>
@@ -218,25 +232,25 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
         <section class="py-12 px-6 max-w-7xl mx-auto relative z-10">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group text-right">
+                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group text-right reveal reveal-delay-1">
                     <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform ml-auto"> 🛂 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">خدمات التأشيرات</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> معالجة التأشيرات الإلكترونية، دعم الهجرة، وتوثيق المستندات القانونية. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300 gap-1.5"> طلب تأشيرة ← </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group text-right">
+                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group text-right reveal reveal-delay-2">
                     <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform ml-auto"> 🎓 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">التعليم (Education)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> إرشادات كاملة للقبول في برامج البكالوريوس، الماجستير، والدكتوراه، وتوفير السكن. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-amber-400 hover:text-amber-300 gap-1.5"> التقديم للدراسة ← </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group text-right">
+                <div class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-2 group text-right reveal reveal-delay-3">
                     <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform ml-auto"> 📈 </div>
                     <h3 class="text-2xl font-bold text-white mb-3">الاستثمار (Invest)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> تأسيس الشركات في أذربيجان، الاستثمار العقاري، ودعم المشاريع التجارية. </p>
                     <a href="apply" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:text-emerald-300 gap-1.5"> الاستثمار الآن ← </a>
                 </div>
-                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group text-right">
+                <div class="glass-card p-8 rounded-3xl hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-2 group text-right reveal reveal-delay-4">
                     <div class="w-14 h-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform ml-auto"> ✈️ </div>
                     <h3 class="text-2xl font-bold text-white mb-3">السياحة (Travel)</h3>
                     <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6"> باقات سياحية مخصصة، مرشدون سياحيون خاصون، حجز الفنادق، والاستقبال بالمطار. </p>
@@ -247,5 +261,23 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     </div>
 
     <div id="footer-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('in-view');
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            // Dil dəyişdikdə göstərilən blokun animasiyasını da işə sal
+            document.querySelectorAll('[data-lang]').forEach(block => {
+                new MutationObserver(() => {
+                    block.querySelectorAll('.reveal:not(.in-view)').forEach(el => revealObserver.observe(el));
+                }).observe(block, { attributes: true, attributeFilter: ['class'] });
+            });
+        });
+    </script>
 </body>
 </html>

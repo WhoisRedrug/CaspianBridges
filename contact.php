@@ -158,8 +158,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-card { background: rgba(12, 35, 31, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .hero-bg { background: radial-gradient(circle at 50% 0%, #0f3831 0%, #061412 60%, #020617 100%); }
+        .hero-bg { background: radial-gradient(circle at 50% 0%, #0f3a3d 0%, #06171a 60%, #020a09 100%); }
         .glass-nav { background: rgba(6, 20, 18, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+
+        /* Scroll-reveal açılış animasiyası (Ana səhifə ilə eyni sistem) */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) { .reveal { transition: none !important; opacity: 1; transform: none; } }
     </style>
 </head>
 <body class="bg-[#061412] text-slate-100 antialiased selection:bg-emerald-400 selection:text-slate-950 min-h-screen">
@@ -171,8 +176,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     <!-- ================= AZERBAIJANI (AZ) ================= -->
     <div data-lang="az">
         <section class="hero-bg pt-32 pb-20 px-6 min-h-screen flex items-center justify-center relative overflow-hidden">
-            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="w-full max-w-xl glass-card p-8 sm:p-10 rounded-3xl shadow-2xl relative z-10 border border-slate-800 text-center">
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="w-full max-w-xl glass-card p-8 sm:p-10 rounded-3xl shadow-2xl relative z-10 border border-slate-800 text-center reveal">
                 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-3"> 📞 24/7 Dəstək </span>
                 <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3"> Bizimlə Əlaqə <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Caspian Bridges</span> </h1>
                 <p class="text-slate-400 text-xs sm:text-sm mb-8"> Viza, təhsil, investisiya və ya turizm xidmətləri ilə bağlı suallarınız var? Bakı ofisimizlə əlaqə saxlayın və ya bizə yazın. </p>
@@ -195,18 +200,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                     <?php echo csrf_field(); ?>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Ad və Soyad</label>
-                        <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">E-poçt ünvanı</label>
-                        <input type="email" name="email" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <input type="email" name="email" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Mesajınız</label>
-                        <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500"></textarea>
+                        <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400"></textarea>
                     </div>
                     <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
-                    <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> Mesajı Göndər → </button>
+                    <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> Mesajı Göndər → </button>
                 </form>
             </div>
         </section>
@@ -215,8 +220,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     <!-- ================= ENGLISH (EN) ================= -->
     <div data-lang="en" class="hidden">
         <section class="hero-bg pt-32 pb-20 px-6 min-h-screen flex items-center justify-center relative overflow-hidden">
-            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="w-full max-w-xl glass-card p-8 sm:p-10 rounded-3xl shadow-2xl relative z-10 border border-slate-800 text-center">
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="w-full max-w-xl glass-card p-8 sm:p-10 rounded-3xl shadow-2xl relative z-10 border border-slate-800 text-center reveal">
                 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-3"> 📞 24/7 Support </span>
                 <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3"> Get in Touch with <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Caspian Bridges</span> </h1>
                 <p class="text-slate-400 text-xs sm:text-sm mb-8"> Have questions about visa, education, investment, or tourism? Reach out to our Baku office or send us a message. </p>
@@ -238,18 +243,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                     <?php echo csrf_field(); ?>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Full Name</label>
-                        <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Email Address</label>
-                        <input type="email" name="email" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <input type="email" name="email" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Your Message</label>
-                        <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500"></textarea>
+                        <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400"></textarea>
                     </div>
                     <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
-                    <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> Send Message → </button>
+                    <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> Send Message → </button>
                 </form>
             </div>
         </section>
@@ -258,8 +263,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     <!-- ================= RUSSIAN (RU) ================= -->
     <div data-lang="ru" class="hidden">
         <section class="hero-bg pt-32 pb-20 px-6 min-h-screen flex items-center justify-center relative overflow-hidden">
-            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="w-full max-w-xl glass-card p-8 sm:p-10 rounded-3xl shadow-2xl relative z-10 border border-slate-800 text-center">
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="w-full max-w-xl glass-card p-8 sm:p-10 rounded-3xl shadow-2xl relative z-10 border border-slate-800 text-center reveal">
                 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-3"> 📞 Поддержка 24/7 </span>
                 <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3"> Свяжитесь с <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Caspian Bridges</span> </h1>
                 <p class="text-slate-400 text-xs sm:text-sm mb-8"> Есть вопросы по визам, образованию, инвестициям или туризму? Обратитесь в наш офис или отправьте сообщение. </p>
@@ -281,18 +286,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                     <?php echo csrf_field(); ?>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Имя и Фамилия</label>
-                        <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Email адрес</label>
-                        <input type="email" name="email" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <input type="email" name="email" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">Ваше сообщение</label>
-                        <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500"></textarea>
+                        <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400"></textarea>
                     </div>
                     <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
-                    <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> Отправить сообщение → </button>
+                    <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> Отправить сообщение → </button>
                 </form>
             </div>
         </section>
@@ -301,8 +306,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
     <!-- ================= ARABIC (AR) ================= -->
     <div data-lang="ar" class="hidden">
         <section class="hero-bg pt-32 pb-20 px-6 min-h-screen flex items-center justify-center relative overflow-hidden">
-            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="w-full max-w-xl glass-card p-8 sm:p-10 rounded-3xl shadow-2xl relative z-10 border border-slate-800 text-center">
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="w-full max-w-xl glass-card p-8 sm:p-10 rounded-3xl shadow-2xl relative z-10 border border-slate-800 text-center reveal">
                 <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-3"> 📞 دعم على مدار الساعة </span>
                 <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3"> تواصل مع <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Caspian Bridges</span> </h1>
                 <p class="text-slate-400 text-xs sm:text-sm mb-8"> هل لديك استفسارات حول التأشيرات، التعليم، الاستثمار، أو السياحة؟ تواصل معنا عبر النموذج أدناه. </p>
@@ -324,18 +329,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
                     <?php echo csrf_field(); ?>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">الاسم الكامل</label>
-                        <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <input type="text" name="fullname" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">عنوان البريد الإلكتروني</label>
-                        <input type="email" name="email" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <input type="email" name="email" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-slate-300 mb-1">رسالتك</label>
-                        <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500"></textarea>
+                        <textarea name="message" rows="3" required class="w-full bg-[#061412] border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyan-400"></textarea>
                     </div>
                     <div class="g-recaptcha" data-sitekey="6LdGe3ItAAAAAO9Kh2b3fSv7FXaHDh17S1DN_ePn"></div>
-                    <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> إرسال الرسالة ← </button>
+                    <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg cursor-pointer"> إرسال الرسالة ← </button>
                 </form>
             </div>
         </section>
@@ -377,6 +382,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['a
             });
         }
     });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('in-view');
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            document.querySelectorAll('[data-lang]').forEach(block => {
+                new MutationObserver(() => {
+                    block.querySelectorAll('.reveal:not(.in-view)').forEach(el => revealObserver.observe(el));
+                }).observe(block, { attributes: true, attributeFilter: ['class'] });
+            });
+        });
     </script>
 </body>
 </html>

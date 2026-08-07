@@ -65,8 +65,16 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-card { background: rgba(12, 35, 31, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .hero-bg { background: radial-gradient(circle at 50% 0%, #0f3831 0%, #061412 70%, #020617 100%); }
+        .hero-bg { background: radial-gradient(circle at 50% 0%, #3d2a0f 0%, #1a1006 70%, #020a09 100%); }
         .glass-nav { background: rgba(6, 20, 18, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+
+        /* Scroll-reveal açılış animasiyası (Ana səhifə ilə eyni sistem) */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1.in-view { transition-delay: .08s; }
+        .reveal-delay-2.in-view { transition-delay: .16s; }
+        .reveal-delay-3.in-view { transition-delay: .24s; }
+        @media (prefers-reduced-motion: reduce) { .reveal { transition: none !important; opacity: 1; transform: none; } }
     </style>
     <script>
     window.isUserLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
@@ -78,8 +86,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <!-- ================= AZERBAIJANI (AZ) ================= -->
     <div data-lang="az">
         <section class="hero-bg pt-36 pb-20 px-6 relative overflow-hidden text-left">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/12 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
                 <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-6"> 🇦🇿 Caspian Bridges Agentliyi • 7/24 Dəstək Aktivdir </span>
                 <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight mb-6"> Etibar və Təcrübə ilə <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Qlobal Gələcəyi Qururuq</span> </h1>
                 <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"> Caspian Bridges Bakıda yerləşən aparıcı konsaltinq və yerləşdirmə şirkətidir, Azərbaycan üzrə beynəlxalq tələbə qəbulu, yaşayış, sənəd hazırlığı və turizm sahəsində ixtisaslaşmışdır. </p>
@@ -88,7 +96,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
         <section class="py-16 px-6 max-w-7xl mx-auto text-left">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
+                <div class="space-y-6 reveal">
                     <span class="text-emerald-400 font-bold text-xs uppercase tracking-widest">Biz Kimik</span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-white"> Azərbaycana Açılan Qapınız </h2>
                     <p class="text-slate-300 text-sm leading-relaxed"> Beynəlxalq tələbələri və səyahətçiləri Azərbaycandakı inanılmaz imkanlarla birləşdirmək üçün yaradılmış <strong>Caspian Bridges</strong> hər mərhələdə tam dəstək təmin edir. </p>
@@ -110,13 +118,13 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         </div>
                     </div>
                 </div>
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center">
+                <div class="grid sm:grid-cols-2 gap-6 reveal">
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center reveal reveal-delay-1">
                         <div class="text-4xl font-black text-emerald-400 mb-1">99%</div>
                         <h3 class="text-white font-bold text-sm">Uğur Faizi</h3>
                         <p class="text-slate-400 text-xs mt-1">Qəbullarda yüksək göstərici.</p>
                     </div>
-                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center">
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center reveal reveal-delay-2">
                         <div class="text-4xl font-black text-amber-400 mb-1">7/24</div>
                         <h3 class="text-white font-bold text-sm">Aktiv Dəstək</h3>
                         <p class="text-slate-400 text-xs mt-1">Fasiləsiz xidmət.</p>
@@ -129,8 +137,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <!-- ================= ENGLISH (EN) ================= -->
     <div data-lang="en" class="hidden">
         <section class="hero-bg pt-36 pb-20 px-6 relative overflow-hidden text-left">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/12 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
                 <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-6"> 🇦🇿 Caspian Bridges Agency • 7/24 Support Active </span>
                 <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight mb-6"> Connecting Global Futures with <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">Trust & Expertise</span> </h1>
                 <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"> Caspian Bridges is a premier consulting and placement firm in Baku, specializing in international student admissions, housing, document preparation, and tourism in Azerbaijan. </p>
@@ -139,7 +147,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
         <section class="py-16 px-6 max-w-7xl mx-auto text-left">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
+                <div class="space-y-6 reveal">
                     <span class="text-emerald-400 font-bold text-xs uppercase tracking-widest">Who We Are</span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-white"> Your Gateway to Azerbaijan </h2>
                     <p class="text-slate-300 text-sm leading-relaxed"> Founded to bridge international students and travelers with the incredible opportunities in Azerbaijan, <strong>Caspian Bridges</strong> provides end-to-end support. </p>
@@ -161,13 +169,13 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         </div>
                     </div>
                 </div>
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center">
+                <div class="grid sm:grid-cols-2 gap-6 reveal">
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center reveal reveal-delay-1">
                         <div class="text-4xl font-black text-emerald-400 mb-1">99%</div>
                         <h3 class="text-white font-bold text-sm">Success Rate</h3>
                         <p class="text-slate-400 text-xs mt-1">High success in admissions.</p>
                     </div>
-                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center">
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center reveal reveal-delay-2">
                         <div class="text-4xl font-black text-amber-400 mb-1">7/24</div>
                         <h3 class="text-white font-bold text-sm">Active Support</h3>
                         <p class="text-slate-400 text-xs mt-1">Round-the-clock service.</p>
@@ -180,8 +188,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <!-- ================= RUSSIAN (RU) ================= -->
     <div data-lang="ru" class="hidden">
         <section class="hero-bg pt-36 pb-20 px-6 relative overflow-hidden text-left">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/12 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
                 <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-6"> 🇦🇿 Агентство Caspian Bridges • Поддержка 24/7 </span>
                 <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight mb-6"> Соединяя глобальное будущее с <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">доверием и опытом</span> </h1>
                 <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"> Caspian Bridges — ведущая консалтинговая компания в Баку, специализирующаяся на поступлении студентов, размещении и туризме в Азербайджане. </p>
@@ -190,7 +198,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
         <section class="py-16 px-6 max-w-7xl mx-auto text-left">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
+                <div class="space-y-6 reveal">
                     <span class="text-emerald-400 font-bold text-xs uppercase tracking-widest">О нас</span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-white"> Ваш путь в Азербайджан </h2>
                     <p class="text-slate-300 text-sm leading-relaxed"> Компания <strong>Caspian Bridges</strong>, созданная для того, чтобы связать иностранных студентов с возможностями в Азербайджане, оказывает полную поддержку на всех этапах. </p>
@@ -212,13 +220,13 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         </div>
                     </div>
                 </div>
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center">
+                <div class="grid sm:grid-cols-2 gap-6 reveal">
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center reveal reveal-delay-1">
                         <div class="text-4xl font-black text-emerald-400 mb-1">99%</div>
                         <h3 class="text-white font-bold text-sm">Успех поступления</h3>
                         <p class="text-slate-400 text-xs mt-1">Высокий процент зачислений.</p>
                     </div>
-                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center">
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center reveal reveal-delay-2">
                         <div class="text-4xl font-black text-amber-400 mb-1">24/7</div>
                         <h3 class="text-white font-bold text-sm">Активная поддержка</h3>
                         <p class="text-slate-400 text-xs mt-1">Круглосуточный сервис.</p>
@@ -231,8 +239,8 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <!-- ================= ARABIC (AR) ================= -->
     <div data-lang="ar" class="hidden text-right">
         <section class="hero-bg pt-36 pb-20 px-6 relative overflow-hidden">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/12 rounded-full blur-[140px] pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
                 <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold mb-6 ml-auto"> 🇦🇿 وكالة جسور بحر قزوين • دعم 7/24 نشط </span>
                 <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight mb-6"> ربط المستقبل العالمي بـ <span class="bg-gradient-to-r from-emerald-400 via-amber-300 to-amber-500 text-transparent bg-clip-text">الثقة والخبرة</span> </h1>
                 <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"> جسور بحر قزوين هي شركة استشارات وتنسيق رائدة في باكو، متخصصة في قبول الطلاب الدوليين والإسكان وإعداد المستندات والسياحة في أذربيجان. </p>
@@ -241,7 +249,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
         <section class="py-16 px-6 max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center flex-row-reverse">
-                <div class="space-y-6 text-right">
+                <div class="space-y-6 text-right reveal">
                     <span class="text-emerald-400 font-bold text-xs uppercase tracking-widest">من نحن</span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-white"> بوابتك إلى أذربيجان </h2>
                     <p class="text-slate-300 text-sm leading-relaxed"> تأسست <strong>جسور بحر قزوين</strong> لربط الطلاب الدوليين والمسافرين بالفرص المذهلة في أذربيجان، وهي توفر دعماً متكاملاً من البداية للنهاية. </p>
@@ -263,13 +271,13 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                         </div>
                     </div>
                 </div>
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center">
+                <div class="grid sm:grid-cols-2 gap-6 reveal">
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center reveal reveal-delay-1">
                         <div class="text-4xl font-black text-emerald-400 mb-1">99%</div>
                         <h3 class="text-white font-bold text-sm">معدل النجاح</h3>
                         <p class="text-slate-400 text-xs mt-1">نجاح عالٍ في القبول.</p>
                     </div>
-                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center">
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 text-center reveal reveal-delay-2">
                         <div class="text-4xl font-black text-amber-400 mb-1">7/24</div>
                         <h3 class="text-white font-bold text-sm">دعم نشط</h3>
                         <p class="text-slate-400 text-xs mt-1">خدمة على مدار الساعة.</p>
@@ -280,5 +288,22 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     </div>
 
     <div id="footer-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('in-view');
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            document.querySelectorAll('[data-lang]').forEach(block => {
+                new MutationObserver(() => {
+                    block.querySelectorAll('.reveal:not(.in-view)').forEach(el => revealObserver.observe(el));
+                }).observe(block, { attributes: true, attributeFilter: ['class'] });
+            });
+        });
+    </script>
 </body>
 </html>
