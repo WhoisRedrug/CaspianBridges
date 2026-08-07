@@ -51,9 +51,13 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
     <link rel="alternate" hreflang="ru" href="https://caspianbridges.com/?lang=ru">
     <link rel="alternate" hreflang="ar" href="https://caspianbridges.com/?lang=ar">
     <link rel="alternate" hreflang="x-default" href="https://caspianbridges.com/">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <script src="component.js"></script>
+    <script src="component.js" defer></script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-nav { background: rgba(6, 20, 18, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
@@ -146,13 +150,13 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <!-- Arxa plan: tanınmış yerlərin animasiyalı slayd-şousu (çərçivəsiz, tam en) -->
             <div class="monument-slider monument-slider--bg absolute inset-0 z-0" id="az-slider">
                 <div class="monument-slide active">
-                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" alt="Alov Qüllələri Bakı">
+                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop 1600w" sizes="100vw" fetchpriority="high" decoding="async" alt="Alov Qüllələri Bakı">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" alt="Qız Qalası Bakı">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Qız Qalası Bakı">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" alt="Heydər Əliyev Mərkəzi Bakı">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Heydər Əliyev Mərkəzi Bakı">
                 </div>
             </div>
             <!-- Mətnin oxunaqlı olması üçün tündləşdirici overlay -->
@@ -189,9 +193,9 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 <!-- Slayder İdarəetmə Nöqtələri (ön planda, arxa fon şəkli üzərində) -->
                 <div class="absolute bottom-0 inset-x-0 flex items-center justify-end gap-4 pb-2 reveal">
                     <div class="flex items-center gap-2" id="az-dots">
-                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
-                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300" type="button" aria-label="Slayd 1"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300" type="button" aria-label="Slayd 2"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300" type="button" aria-label="Slayd 3"></button>
                     </div>
                     <a href="login.php?lang=az" class="text-xs font-bold text-amber-400 hover:underline"> Bakını kəşf et → </a>
                 </div>
@@ -210,7 +214,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
                 <a href="universities.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block reveal reveal-delay-1">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/baku.jpg" alt="Tehsil" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="images/baku.jpg" alt="Tehsil" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'" loading="lazy" decoding="async">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Təhsil</span>
                     </div>
                     <div class="p-5">
@@ -221,7 +225,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 </a>
                 <a href="business.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-2">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" decoding="async">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Biznes</span>
                     </div>
                     <div class="p-5">
@@ -232,7 +236,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 </a>
                 <a href="travel.php?lang=az" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-3">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'" loading="lazy" decoding="async">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Səyahət</span>
                     </div>
                     <div class="p-5">
@@ -250,13 +254,13 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="monument-slider monument-slider--bg absolute inset-0 z-0" id="en-slider">
                 <div class="monument-slide active">
-                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" alt="Flame Towers Baku">
+                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop 1600w" sizes="100vw" fetchpriority="high" decoding="async" alt="Flame Towers Baku">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" alt="Maiden Tower Baku">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Maiden Tower Baku">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" alt="Heydar Aliyev Center Baku">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Heydar Aliyev Center Baku">
                 </div>
             </div>
             <div class="hero-scrim absolute inset-0 z-[1] pointer-events-none"></div>
@@ -289,9 +293,9 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
                 <div class="absolute bottom-0 inset-x-0 flex items-center justify-end gap-4 pb-2 reveal">
                     <div class="flex items-center gap-2" id="en-dots">
-                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
-                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300" type="button" aria-label="Slide 1"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300" type="button" aria-label="Slide 2"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300" type="button" aria-label="Slide 3"></button>
                     </div>
                     <a href="login.php?lang=en" class="text-xs font-bold text-amber-400 hover:underline"> Discover Baku → </a>
                 </div>
@@ -309,7 +313,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
                 <a href="universities.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block reveal reveal-delay-1">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'" loading="lazy" decoding="async">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Education</span>
                     </div>
                     <div class="p-5">
@@ -320,7 +324,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 </a>
                 <a href="business.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-2">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" decoding="async">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Business</span>
                     </div>
                     <div class="p-5">
@@ -331,7 +335,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 </a>
                 <a href="travel.php?lang=en" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-3">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'" loading="lazy" decoding="async">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Travel</span>
                     </div>
                     <div class="p-5">
@@ -349,13 +353,13 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="monument-slider monument-slider--bg absolute inset-0 z-0" id="ru-slider">
                 <div class="monument-slide active">
-                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" alt="Огненные башни Баку">
+                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop 1600w" sizes="100vw" fetchpriority="high" decoding="async" alt="Огненные башни Баку">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" alt="Девичья башня Баку">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Девичья башня Баку">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" alt="Центр Гейдара Алиева Баку">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Центр Гейдара Алиева Баку">
                 </div>
             </div>
             <div class="hero-scrim absolute inset-0 z-[1] pointer-events-none"></div>
@@ -388,9 +392,9 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
                 <div class="absolute bottom-0 inset-x-0 flex items-center justify-end gap-4 pb-2 reveal">
                     <div class="flex items-center gap-2" id="ru-dots">
-                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
-                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300" type="button" aria-label="Слайд 1"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300" type="button" aria-label="Слайд 2"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300" type="button" aria-label="Слайд 3"></button>
                     </div>
                     <a href="login.php?lang=ru" class="text-xs font-bold text-amber-400 hover:underline"> Открыть Баку → </a>
                 </div>
@@ -408,7 +412,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
                 <a href="universities.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block reveal reveal-delay-1">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'" loading="lazy" decoding="async">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">Учеба</span>
                     </div>
                     <div class="p-5">
@@ -419,7 +423,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 </a>
                 <a href="business.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-2">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" decoding="async">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Бизнес</span>
                     </div>
                     <div class="p-5">
@@ -430,7 +434,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 </a>
                 <a href="travel.php?lang=ru" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-3">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'" loading="lazy" decoding="async">
                         <span class="absolute top-3 left-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">Путешествия</span>
                     </div>
                     <div class="p-5">
@@ -448,13 +452,13 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
         <section class="hero-glow pt-36 pb-24 px-6 min-h-screen flex items-center relative overflow-hidden">
             <div class="monument-slider monument-slider--bg absolute inset-0 z-0" id="ar-slider">
                 <div class="monument-slide active">
-                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" alt="أبراج اللهب باكو">
+                    <img src="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=75&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1596306499300-0b7b1689b9f6?q=80&w=1600&auto=format&fit=crop 1600w" sizes="100vw" fetchpriority="high" decoding="async" alt="أبراج اللهب باكو">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" alt="قلعة العذراء باكو">
+                    <img src="https://images.unsplash.com/photo-1746382320310-91c257f9566a?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="قلعة العذراء باكو">
                 </div>
                 <div class="monument-slide">
-                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" alt="مركز حيدر علييف باكو">
+                    <img src="https://images.unsplash.com/photo-1595980542930-9eea66620834?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="مركز حيدر علييف باكو">
                 </div>
             </div>
             <div class="hero-scrim absolute inset-0 z-[1] pointer-events-none"></div>
@@ -487,9 +491,9 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
 
                 <div class="absolute bottom-0 inset-x-0 flex items-center justify-start flex-row-reverse gap-4 pb-2 reveal">
                     <div class="flex items-center gap-2" id="ar-dots">
-                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300"></button>
-                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
-                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300"></button>
+                        <button class="w-8 h-2 rounded-full bg-amber-400 transition-all duration-300" type="button" aria-label="الشريحة 1"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300" type="button" aria-label="الشريحة 2"></button>
+                        <button class="w-3 h-2 rounded-full bg-slate-700 transition-all duration-300" type="button" aria-label="الشريحة 3"></button>
                     </div>
                     <a href="login.php?lang=ar" class="text-xs font-bold text-amber-400 hover:underline"> اكتشف باكو ← </a>
                 </div>
@@ -507,7 +511,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
                 <a href="universities.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-amber-500/50 transition block reveal reveal-delay-1">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="images/baku.jpg" alt="Education" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?q=80&w=1000&auto=format&fit=crop'" loading="lazy" decoding="async">
                         <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-amber-400">التعليم</span>
                     </div>
                     <div class="p-5 text-right">
@@ -518,7 +522,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 </a>
                 <a href="business.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-2">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/investments.jpg" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop" alt="Business" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy" decoding="async">
                         <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">الأعمال</span>
                     </div>
                     <div class="p-5 text-right">
@@ -529,7 +533,7 @@ $html_dir = $lang === 'ar' ? 'rtl' : 'ltr';
                 </a>
                 <a href="travel.php?lang=ar" class="glass-card rounded-3xl overflow-hidden group hover:border-emerald-500/50 transition block reveal reveal-delay-3">
                     <div class="h-48 overflow-hidden relative">
-                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'">
+                        <img src="images/shahdag.jpg" alt="Travel" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1548685913-fe6678babe8d?q=80&w=1000&auto=format&fit=crop'" loading="lazy" decoding="async">
                         <span class="absolute top-3 right-3 bg-[#061412]/90 px-3 py-1 rounded-full text-[11px] font-bold text-emerald-400">السفر</span>
                     </div>
                     <div class="p-5 text-right">

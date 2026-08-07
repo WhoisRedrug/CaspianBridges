@@ -10,8 +10,10 @@ RewriteEngine On
     </IfModule>
 </FilesMatch>
 
-# HTTPS redirection 
+# HTTPS redirection (proxy/CDN arxasında olduqda X-Forwarded-Proto-nu da yoxlayır,
+# əks halda bəzi hostinglərdə/Cloudflare kimi proxy-lərdə HTTPS() dəyəri "off" görünə bilər)
 RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # For hiding .php 
@@ -22,3 +24,51 @@ RewriteRule ^([^\.]+)$ $1.php [NC,L]
 # redirection to clean URL(SEO üçün)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.php\ HTTP/
 RewriteRule ^([^\.]+)\.php$ /$1 [R=301,L]
+
+# ===================== TƏHLÜKƏSİZLİK BAŞLIQLARI =====================
+# Lighthouse "Ən Yaxşı Təcrübələr" auditindəki CSP/HSTS/COOP/Clickjacking
+# xəbərdarlıqlarını aradan qaldırmaq üçün. Sayt hazırda inline <script>/<style>
+# və onclick/onerror atributlarından istifadə etdiyi üçün CSP-də 'unsafe-inline'
+# saxlanılıb - əks halda mövcud kodun bir hissəsi işləməz. Gələcəkdə inline
+# skriptlər nonce/hash əsaslı refaktor edilsə, 'unsafe-inline' çıxarılıb daha
+# sərt CSP tətbiq etmək mümkün olar.
+<IfModule mod_headers.c>
+    # Clickjacking qorunması
+    Header always set X-Frame-Options "SAMEORIGIN"
+    # MIME-type sniffing qorunması
+    Header always set X-Content-Type-Options "nosniff"
+    # Referrer sızmasının azaldılması
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # Brauzer icazələrinin məhdudlaşdırılması (kamera/mikrofon/geolokasiya lazım deyil)
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    # Cross-Origin-Opener-Policy - pəncərə izolasiyası
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    # HSTS - yalnız HTTPS aktiv olduqda göndərilir (aşağı max-age ilə tədricən artırıla bilər)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+    # Content-Security-Policy - mövcud inline JS/CSS və istifadə olunan xarici mənbələrə uyğunlaşdırılıb
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.google.com https://www.gstatic.com; frame-src https://www.google.com; connect-src 'self' https://www.google.com; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+</IfModule>
+
+# ===================== BRAUZER KEŞLƏMƏSİ =====================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|webp|svg|ico|css|js|woff2)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
+# ===================== SIXILMA (GZIP/DEFLATE) =====================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>

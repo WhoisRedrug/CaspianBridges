@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <nav class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300 bg-[#061412]/85 backdrop-blur-md border-b border-slate-800">
                 <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                     <a href="index" class="flex items-center gap-3 group">
-                        <img src="images/logo.png.png" alt="Caspian Bridges Logo" class="w-10 h-10 object-contain rounded-xl group-hover:scale-105 transition shadow-lg">
+                        <img src="images/logo.png.png" alt="Caspian Bridges Logo" class="w-10 h-10 object-contain rounded-xl group-hover:scale-105 transition shadow-lg" width="40" height="40" decoding="async" fetchpriority="high">
                         <div>
                             <span class="text-lg font-black tracking-wider text-white block leading-none">CASPIAN BRIDGES</span>
                             <span class="text-[10px] uppercase tracking-widest text-amber-400 font-semibold block mt-1">Baku • Global Gateway</span>
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
                     <div class="space-y-4">
                         <div class="flex items-center gap-3">
-                            <img src="images/logo.png.png" alt="Logo" class="w-8 h-8 object-contain rounded-lg">
+                            <img src="images/logo.png.png" alt="Logo" class="w-8 h-8 object-contain rounded-lg" width="32" height="32" loading="lazy" decoding="async">
                             <span class="text-white font-black tracking-wider text-base">CASPIAN BRIDGES</span>
                         </div>
                         <p class="text-xs leading-relaxed text-slate-400" data-az="Bakı, Azərbaycan üzrə təhsil qəbulu, hüquqi yaşayış və elit turizm həllərini birləşdiririk." data-en="Connecting opportunities, education admissions, legal residency, and elite tourism solutions in Baku, Azerbaijan." data-ru="Объединяем возможности, поступление в вузы, легальное проживание и элитный туризм в Баку, Азербайджан." data-ar="ربط الفرص، القبول التعليمي، الإقامة القانونية، وحلول السياحة الفاخرة في باكو، أذربيجان.">Connecting opportunities, education admissions, legal residency, and elite tourism solutions in Baku, Azerbaijan.</p>
