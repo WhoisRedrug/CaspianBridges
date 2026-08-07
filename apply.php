@@ -224,14 +224,31 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
     document.getElementById('application-form').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const formData = new FormData(this);
-        
+        // Aktiv dili tapırıq
         let currentLang = 'en';
         document.querySelectorAll('[data-lang]').forEach(el => {
             if (!el.classList.contains('hidden')) {
                 currentLang = el.getAttribute('data-lang');
             }
         });
+
+        // Yalnız aktiv olan dildəki inputların required yoxlamasını aktiv edirik, gizli olanları söndürürük
+        document.querySelectorAll('[data-lang]').forEach(el => {
+            const inputs = el.querySelectorAll('input, select, textarea');
+            if (el.getAttribute('data-lang') === currentLang) {
+                inputs.forEach(input => {
+                    if (input.name === 'firstname' || input.name === 'lastname' || input.name === 'email' || input.name === 'phone') {
+                        input.setAttribute('required', 'required');
+                    }
+                });
+            } else {
+                inputs.forEach(input => {
+                    input.removeAttribute('required');
+                });
+            }
+        });
+
+        const formData = new FormData(this);
         formData.append('lang', currentLang);
 
         fetch('process.php', {
