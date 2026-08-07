@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Bütün formalarda CSRF tokeni yoxlanılır. Yanlış/köhnə token = sorğu rədd edilir.
     if (!csrf_verify($_POST['csrf_token'] ?? '')) {
         if ($action === 'apply') {
-            echo "error";
+            echo "error_csrf";
             exit();
         }
         header("Location: login.php?error=csrf");
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // reCAPTCHA yoxlaması - bot/spam qorunması
     if (!recaptcha_verify($_POST['g-recaptcha-response'] ?? '')) {
         if ($action === 'apply') {
-            echo "error";
+            echo "error_recaptcha";
             exit();
         }
         header("Location: login.php?error=recaptcha");
@@ -56,7 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "success";
             exit();
         } else {
-            echo "error";
+            // DEBUG: müvəqqəti olaraq DB xətasının mətnini də qaytarırıq ki, səbəbi tapaq.
+            // Problem tapılandan sonra bu sətri "echo 'error_db';" ilə əvəz edib mysqli xətasını
+            // log-a yazmaq daha təhlükəsizdir (istifadəçiyə server detallarını göstərməmək üçün).
+            echo "error_db: " . $conn->error;
             exit();
         }
     }

@@ -232,11 +232,16 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
             }
         });
 
-        // Yalnız aktiv olan dildəki inputların required yoxlamasını aktiv edirik, gizli olanları söndürürük
+        // Yalnız aktiv olan dildəki inputların required yoxlamasını aktiv edirik,
+        // gizli olanları isə TAM SÖNDÜRÜRÜK (disabled) ki, FormData-ya ümumiyyətlə daxil olmasınlar.
+        // Qeyd: bütün dil blokları eyni "name" atributlarını paylaşır (firstname, email və s.),
+        // ona görə disabled olmayan inputlar formaya düşəndə boş dəyərlər AZ-da doldurulmuş
+        // dəyərləri əvəz edirdi. Bu düzəliş məhz həmin problemi aradan qaldırır.
         document.querySelectorAll('[data-lang]').forEach(el => {
             const inputs = el.querySelectorAll('input, select, textarea');
             if (el.getAttribute('data-lang') === currentLang) {
                 inputs.forEach(input => {
+                    input.disabled = false;
                     if (input.name === 'firstname' || input.name === 'lastname' || input.name === 'email' || input.name === 'phone') {
                         input.setAttribute('required', 'required');
                     }
@@ -244,6 +249,7 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
             } else {
                 inputs.forEach(input => {
                     input.removeAttribute('required');
+                    input.disabled = true;
                 });
             }
         });
