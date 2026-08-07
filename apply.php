@@ -257,7 +257,10 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
         const formData = new FormData(this);
         formData.append('lang', currentLang);
 
-        fetch('process.php', {
+        // ÖNƏMLİ: "process.php" yox, "process" (uzantısız) çağırılır — çünki .htaccess
+        // .php sorğularını 301 ilə uzantısız URL-ə yönləndirir, bu isə POST metodunu
+        // brauzerdə GET-ə çevirib bütün forma məlumatlarını (o cümlədən CSRF/reCAPTCHA) itirirdi.
+        fetch('process', {
             method: 'POST',
             body: formData
         })
