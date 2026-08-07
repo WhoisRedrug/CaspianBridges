@@ -320,6 +320,8 @@
                     too_many_attempts: 'Çox sayda uğursuz cəhd edildi. Zəhmət olmasa 15 dəqiqə sonra yenidən cəhd edin.',
                     csrf: 'Sessiya vaxtı bitib, zəhmət olmasa yenidən cəhd edin.',
                     recaptcha: 'Zəhmət olmasa "Mən robot deyiləm" qutusunu işarələyin.',
+                    fake_email: 'Zəhmət olmasa real e-poçt ünvanınızı daxil edin.',
+                    invalid_phone: 'Telefon nömrəsi düzgün formatda deyil. Ölkə kodu ilə daxil edin, məs: +994 50 123 45 67 və ya +1 555 123 4567',
                     registered: 'Hesab uğurla yaradıldı! İndi daxil ola bilərsiniz.',
                     password_reset_success: 'Şifrəniz uğurla yeniləndi! Yeni şifrənizlə daxil ola bilərsiniz.'
                 },
@@ -331,6 +333,8 @@
                     too_many_attempts: 'Too many failed attempts. Please try again after 15 minutes.',
                     csrf: 'Your session expired, please try again.',
                     recaptcha: 'Please check the "I\'m not a robot" box.',
+                    fake_email: 'Please enter a real email address.',
+                    invalid_phone: 'Phone number format is invalid. Include your country code, e.g. +1 555 123 4567 or +994 50 123 45 67',
                     registered: 'Account created successfully! You can now log in.',
                     password_reset_success: 'Password has been successfully updated! You can now log in.'
                 },
@@ -342,6 +346,8 @@
                     too_many_attempts: 'Слишком много неудачных попыток. Пожалуйста, попробуйте через 15 минут.',
                     csrf: 'Сессия истекла, пожалуйста, попробуйте снова.',
                     recaptcha: 'Пожалуйста, отметьте галочку "Я не робот".',
+                    fake_email: 'Пожалуйста, введите настоящий email адрес.',
+                    invalid_phone: 'Неверный формат номера телефона. Укажите код страны, напр.: +7 999 123 45 67 или +994 50 123 45 67',
                     registered: 'Аккаунт успешно создан! Теперь вы можете войти.',
                     password_reset_success: 'Пароль успешно обновлен! Теперь вы можете войти.'
                 },
@@ -353,6 +359,8 @@
                     too_many_attempts: 'عدد كبير جداً من المحاولات الفاشلة. يرجى المحاولة مرة أخرى بعد 15 دقيقة.',
                     csrf: 'انتهت صلاحية الجلسة، يرجى المحاولة مرة أخرى.',
                     recaptcha: 'يرجى تحديد خانة "أنا لست روبوتاً".',
+                    fake_email: 'يرجى إدخال بريد إلكتروني حقيقي.',
+                    invalid_phone: 'صيغة رقم الهاتف غير صحيحة. يرجى تضمين رمز الدولة، مثال: +966 50 123 4567 أو +994 50 123 45 67',
                     registered: 'تم إنشاء الحساب بنجاح! يمكنك تسجيل الدخول الآن.',
                     password_reset_success: 'تم تحديث كلمة المرور بنجاح! يمكنك تسجيل الدخول الآن.'
                 }
@@ -378,6 +386,71 @@
 
             const urlParams = new URLSearchParams(window.location.search);
             displayMessage(urlParams.get('error'), urlParams.get('success'), urlParams.get('status'), savedLang);
+        });
+
+        // ===== Qeydiyyat formu üçün dərhal (client-side) yoxlama =====
+        // QEYD: Bu yalnız istifadəçi təcrübəsi üçündür. Əsl qorunma serverdə (process.php + validators.php) baş verir,
+        // çünki client-side yoxlama həmişə keçilə (bypass) bilər.
+        function hasObviouslyFakePhonePattern(digits) {
+            // Eyni rəqəmin 4+ dəfə ardıcıl təkrarı
+            if (/(\d)\1{3,}/.test(digits)) return true;
+            // Ardıcıl artan/azalan seriya (5+ uzunluq)
+            const ascending = '01234567890123456789';
+            const descending = '98765432109876543210';
+            for (let len = Math.min(digits.length, 10); len >= 5; len--) {
+                for (let i = 0; i <= digits.length - len; i++) {
+                    const chunk = digits.slice(i, i + len);
+                    if (ascending.includes(chunk) || descending.includes(chunk)) return true;
+                }
+            }
+            return false;
+        }
+
+        function isValidIntlPhoneClient(phone) {
+            const digits = (phone || '').replace(/\D/g, '');
+            // E.164: ölkə kodu daxil 7-15 rəqəm, ilk rəqəm 0 ola bilməz
+            if (digits.length < 7 || digits.length > 15) return false;
+            if (digits[0] === '0') return false;
+            if (hasObviouslyFakePhonePattern(digits)) return false;
+            return true;
+        }
+
+        const fakeEmailKeywordsClient = ['test', 'admin', 'asdf', 'fake', 'spam', 'noreply', 'sample', 'dummy', 'trial', 'example', 'qwerty', 'demo', 'temp', 'user'];
+        function isObviouslyFakeEmailClient(email) {
+            const at = (email || '').indexOf('@');
+            if (at < 3) return true;
+            const local = email.slice(0, at).toLowerCase();
+            if (fakeEmailKeywordsClient.includes(local)) return true;
+            for (const kw of fakeEmailKeywordsClient) {
+                if (new RegExp('^' + kw + '\\d{0,4}$').test(local)) return true;
+            }
+            if (/^(.)\1{3,}$/.test(local)) return true;
+            return false;
+        }
+
+        function validateRegisterForm(e, lang) {
+            const form = e.target;
+            const phone = form.querySelector('[name="phone"]').value;
+            const email = form.querySelector('[name="email"]').value;
+
+            if (!isValidIntlPhoneClient(phone)) {
+                e.preventDefault();
+                displayMessage('invalid_phone', null, null, lang);
+                return false;
+            }
+            if (isObviouslyFakeEmailClient(email)) {
+                e.preventDefault();
+                displayMessage('fake_email', null, null, lang);
+                return false;
+            }
+            return true;
+        }
+
+        ['az', 'en', 'ru', 'ar'].forEach(lang => {
+            const form = document.getElementById(`form-register-${lang}`);
+            if (form) {
+                form.addEventListener('submit', (e) => validateRegisterForm(e, lang));
+            }
         });
     </script>
 </body>

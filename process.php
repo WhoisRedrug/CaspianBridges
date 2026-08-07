@@ -10,6 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
 include 'db.php';
 require_once 'csrf.php';
 require_once 'recaptcha.php';
+require_once 'validators.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = isset($_POST['action']) ? $_POST['action'] : 'login';
@@ -63,27 +64,59 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Registration logic   
     elseif ($action === 'register') {
-        $name     = $conn->real_escape_string($_POST['name']);
-        $phone    = $conn->real_escape_string($_POST['phone']);
-        $email    = trim($conn->real_escape_string($_POST['email']));
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $name      = trim($_POST['name'] ?? '');
+        $phone_raw = trim($_POST['phone'] ?? '');
+        $email     = strtolower(trim($_POST['email'] ?? ''));
+        $password_raw = $_POST['password'] ?? '';
 
-        // 1. Check if the email already exists in the database
-        $check_sql = "SELECT id FROM users WHERE email = '$email' LIMIT 1";
-        $check_result = $conn->query($check_sql);
-
-        if ($check_result && $check_result->num_rows > 0) {
-            header("Location: login.php?error=email_exists");
+        if (strlen($name) < 2) {
+            header("Location: login.php?error=db_error");
             exit();
         }
 
-        // 2. for new User
-        $insert_sql = "INSERT INTO users (fullname, phone, email, password) VALUES ('$name', '$phone', '$email', '$password')";
-        
-        if ($conn->query($insert_sql) === TRUE) {
+        // 1. Saxta/uydurma e-poçt yoxlaması ("test@gmail.com", "admin@...", disposable domenlər və s.)
+        if (is_fake_email($email)) {
+            header("Location: login.php?error=fake_email");
+            exit();
+        }
+
+        // 2. Beynəlxalq telefon nömrəsi formatı yoxlaması (E.164: + və 7-15 rəqəm,
+        //    təkrarlanan/ardıcıl rəqəmli saxta naxışlar bloklanır)
+        if (!is_valid_intl_phone($phone_raw)) {
+            header("Location: login.php?error=invalid_phone");
+            exit();
+        }
+        $normalized_phone = normalize_intl_phone($phone_raw);
+
+        if (strlen($password_raw) < 8) {
+            header("Location: login.php?error=db_error");
+            exit();
+        }
+        $password = password_hash($password_raw, PASSWORD_DEFAULT);
+
+        // 3. E-poçt və ya telefon artıq mövcuddursa (prepared statement)
+        $check_stmt = $conn->prepare("SELECT id FROM users WHERE email = ? OR phone = ? LIMIT 1");
+        $check_stmt->bind_param("ss", $email, $normalized_phone);
+        $check_stmt->execute();
+        $check_result = $check_stmt->get_result();
+
+        if ($check_result && $check_result->num_rows > 0) {
+            $check_stmt->close();
+            header("Location: login.php?error=email_exists");
+            exit();
+        }
+        $check_stmt->close();
+
+        // 4. Yeni istifadəçi (prepared statement)
+        $insert_stmt = $conn->prepare("INSERT INTO users (fullname, phone, email, password) VALUES (?, ?, ?, ?)");
+        $insert_stmt->bind_param("ssss", $name, $normalized_phone, $email, $password);
+
+        if ($insert_stmt->execute()) {
+            $insert_stmt->close();
             header("Location: login.php?success=registered");
             exit();
         } else {
+            $insert_stmt->close();
             header("Location: login.php?error=db_error");
             exit();
         }
