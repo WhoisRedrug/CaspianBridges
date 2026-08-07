@@ -269,19 +269,55 @@ $isLoggedIn = isset($_SESSION['user_id']) ? 'true' : 'false';
             const formContainer = document.getElementById('application-form');
             if (data.trim() === 'success') {
                 const successTexts = {
-                    'az': { title: 'Müraciətiniz uğurla göndərildi!', desc: 'Müraciətinizin statusunu profil səhifənizdən izləyə bilərsiniz.', btn: 'Profilə Keç →' },
-                    'en': { title: 'Application submitted successfully!', desc: 'You can track the status of your application from your profile page.', btn: 'Go to Profile →' },
-                    'ru': { title: 'Заявка успешно отправлена!', desc: 'Вы можете отслеживать статус вашей заявки в личном кабинете.', btn: 'В профиль →' },
-                    'ar': { title: 'تم إرسال الطلب بنجاح!', desc: 'يمكنك تتبع حالة طلبك من صفحة ملفك الشخصي.', btn: '← اذهب إلى الملف الشخصي' }
+                    'az': {
+                        badge: 'Qeydə Alındı', status: '⏳ Gözləmədədir',
+                        title: 'Müraciətiniz Uğurla Göndərildi!',
+                        desc: 'Müraciətiniz artıq sistemimizdə qeydə alınıb. Komandamız qısa müddətdə onu nəzərdən keçirəcək — statusunu istənilən vaxt profil səhifənizdən izləyə bilərsiniz.',
+                        note: 'Hər xidmət üçün yalnız bir aktiv müraciət kifayətdir — təkrar göndərməyə ehtiyac yoxdur.',
+                        btn: 'Profilə Keç →', home: 'Ana Səhifə'
+                    },
+                    'en': {
+                        badge: 'On File', status: '⏳ Pending',
+                        title: 'Application Submitted Successfully!',
+                        desc: "Your application is now on file with us. Our team will review it shortly — you can track its status anytime from your profile page.",
+                        note: "One active application per service is enough — no need to submit again.",
+                        btn: 'Go to Profile →', home: 'Home'
+                    },
+                    'ru': {
+                        badge: 'Зарегистрировано', status: '⏳ В ожидании',
+                        title: 'Заявка Успешно Отправлена!',
+                        desc: 'Ваша заявка уже зарегистрирована в нашей системе. Наша команда рассмотрит её в ближайшее время — статус можно отслеживать в личном кабинете.',
+                        note: 'Достаточно одной активной заявки на услугу — повторно отправлять не нужно.',
+                        btn: 'В профиль →', home: 'Главная'
+                    },
+                    'ar': {
+                        badge: 'تم التسجيل', status: '⏳ قيد الانتظار',
+                        title: 'تم إرسال طلبك بنجاح!',
+                        desc: 'طلبك الآن مسجّل لدينا. سيقوم فريقنا بمراجعته قريبًا — يمكنك متابعة حالته في أي وقت من صفحة ملفك الشخصي.',
+                        note: 'يكفي طلب واحد نشط لكل خدمة — لا حاجة لإعادة الإرسال.',
+                        btn: '← اذهب إلى الملف الشخصي', home: 'الرئيسية'
+                    }
                 };
                 const t = successTexts[currentLang] || successTexts['en'];
+                const rtl = currentLang === 'ar';
 
                 formContainer.innerHTML = `
-                    <div class="text-center py-10 space-y-4">
-                        <div class="w-16 h-16 bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">✓</div>
-                        <h3 class="text-2xl font-bold text-white">${t.title}</h3>
-                        <p class="text-slate-400 text-sm">${t.desc}</p>
-                        <a href="profile" class="inline-block bg-emerald-500 text-slate-950 font-bold px-6 py-3 rounded-xl text-sm transition hover:bg-emerald-400">${t.btn}</a>
+                    <div class="text-center py-6 space-y-5 ${rtl ? 'text-right' : ''}">
+                        <div class="relative w-20 h-20 mx-auto">
+                            <div class="absolute inset-0 rounded-full bg-emerald-500/20 blur-xl"></div>
+                            <div class="relative w-20 h-20 bg-emerald-500/15 border-2 border-emerald-500/40 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl font-bold">✓</div>
+                        </div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold">
+                            ${t.badge}
+                        </div>
+                        <h3 class="text-2xl font-black text-white">${t.title}</h3>
+                        <p class="text-slate-400 text-sm max-w-md mx-auto leading-relaxed">${t.desc}</p>
+                        <div class="inline-block px-3 py-1.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[11px] font-bold">${t.status}</div>
+                        <p class="text-slate-500 text-xs max-w-sm mx-auto">${t.note}</p>
+                        <div class="flex items-center justify-center gap-4 pt-2">
+                            <a href="profile" class="inline-block bg-gradient-to-r from-emerald-500 to-emerald-400 text-slate-950 font-black px-6 py-3 rounded-xl text-sm transition hover:from-emerald-400 hover:to-emerald-300 shadow-lg shadow-emerald-500/20">${t.btn}</a>
+                            <a href="index" class="inline-block bg-slate-800/80 hover:bg-slate-700 text-white font-semibold px-5 py-3 rounded-xl text-sm transition">${t.home}</a>
+                        </div>
                     </div>
                 `;
             } else if (data.trim() === 'not_logged_in') {
