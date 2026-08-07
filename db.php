@@ -1,4 +1,11 @@
 <?php
+// Bu fayl yalnız daxili require_once/include üçündür.
+// Brauzerdən birbaşa açılmağa çalışılarsa, əsas səhifəyə yönləndirilir.
+if (realpath($_SERVER['SCRIPT_FILENAME'] ?? '') === __FILE__) {
+    header('Location: /');
+    exit;
+}
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);

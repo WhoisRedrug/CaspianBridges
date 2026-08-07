@@ -1,4 +1,11 @@
 <?php
+// Bu fayl yalnız daxili require_once/include üçündür (process.php və s. tərəfindən).
+// Brauzerdən birbaşa açılmağa çalışılarsa, əsas səhifəyə yönləndirilir.
+if (realpath($_SERVER['SCRIPT_FILENAME'] ?? '') === __FILE__) {
+    header('Location: /');
+    exit;
+}
+
 // Qeydiyyat zamanı bot/saxta məlumatların qarşısını almaq üçün köməkçi funksiyalar.
 // İstifadə: require_once 'validators.php';
 //           is_fake_email($email)          -> true/false

@@ -1,4 +1,11 @@
 <?php
+// Bu fayl yalnız daxili require_once/include üçündür.
+// Brauzerdən birbaşa açılmağa çalışılarsa, əsas səhifəyə yönləndirilir.
+if (realpath($_SERVER['SCRIPT_FILENAME'] ?? '') === __FILE__) {
+    header('Location: /');
+    exit;
+}
+
 // Google reCAPTCHA v2 server-tərəfi yoxlaması.
 // İstifadə: recaptcha_verify($_POST['g-recaptcha-response'] ?? '')
 // Qaytarır: true (insan) / false (bot və ya token yoxdur/yanlışdır)

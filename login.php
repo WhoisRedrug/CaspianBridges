@@ -27,7 +27,7 @@
     
     <div class="w-full max-w-md z-10 my-8">
         <!-- Language Selector Bar -->
-        <div class="flex justify-between items-center mb-6 px-2">
+        <div class="flex justify-between items-center mb-4 px-2">
             <a href="index" class="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-amber-400 transition bg-[#0b2420] px-4 py-2 rounded-full border border-slate-800"> ← Back to Home </a>
             <div class="flex gap-1 bg-[#0b2420] p-1 rounded-full border border-slate-800 text-xs font-bold">
                 <button onclick="setLanguage('az')" class="px-2.5 py-1 rounded-full transition text-slate-400 hover:text-white lang-btn" data-btn-lang="az">AZ</button>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="glass-card p-8 rounded-3xl shadow-2xl relative border border-amber-500/20 max-h-[calc(100vh-3rem)] overflow-y-auto">
-            <div class="text-center mb-6">
+            <div class="text-center mb-4">
                 <a href="index" class="inline-block mb-2">
                     <img src="images/logo.png.png" alt="Caspian Bridges Logo" class="w-14 h-14 object-contain mx-auto rounded-2xl shadow-md">
                 </a>
@@ -51,13 +51,13 @@
 
             <!-- ================= AZERBAIJANI (AZ) ================= -->
             <div data-lang="az">
-                <div class="grid grid-cols-2 p-1 bg-[#061412] rounded-2xl border border-slate-800 mb-6">
+                <div class="grid grid-cols-2 p-1 bg-[#061412] rounded-2xl border border-slate-800 mb-4">
                     <button onclick="switchTab('az', 'login')" class="tab-login-az py-2 text-xs font-extrabold rounded-xl transition bg-amber-500 text-slate-950 shadow-md"> Daxil ol </button>
                     <button onclick="switchTab('az', 'register')" class="tab-reg-az py-2 text-xs font-bold rounded-xl transition text-slate-400 hover:text-white"> Qeydiyyat </button>
                 </div>
 
                 <!-- LOGIN FORM -->
-                <form id="form-login-az" action="process" method="POST" class="space-y-4">
+                <form id="form-login-az" action="process" method="POST" class="space-y-3">
                     <input type="hidden" name="action" value="login">
                     <?php echo csrf_field(); ?>
                     <div>
@@ -76,7 +76,7 @@
                 </form>
 
                 <!-- REGISTER FORM -->
-                <form id="form-register-az" action="process" method="POST" class="space-y-4 hidden">
+                <form id="form-register-az" action="process" method="POST" class="space-y-3 hidden">
                     <input type="hidden" name="action" value="register">
                     <?php echo csrf_field(); ?>
                     <div>
@@ -102,12 +102,12 @@
 
             <!-- ================= ENGLISH (EN) ================= -->
             <div data-lang="en" class="hidden">
-                <div class="grid grid-cols-2 p-1 bg-[#061412] rounded-2xl border border-slate-800 mb-6">
+                <div class="grid grid-cols-2 p-1 bg-[#061412] rounded-2xl border border-slate-800 mb-4">
                     <button onclick="switchTab('en', 'login')" class="tab-login-en py-2 text-xs font-extrabold rounded-xl transition bg-amber-500 text-slate-950 shadow-md"> Log In </button>
                     <button onclick="switchTab('en', 'register')" class="tab-reg-en py-2 text-xs font-bold rounded-xl transition text-slate-400 hover:text-white"> Register </button>
                 </div>
 
-                <form id="form-login-en" action="process" method="POST" class="space-y-4">
+                <form id="form-login-en" action="process" method="POST" class="space-y-3">
                     <input type="hidden" name="action" value="login">
                     <?php echo csrf_field(); ?>
                     <div>
@@ -125,7 +125,7 @@
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> Sign In → </button>
                 </form>
 
-                <form id="form-register-en" action="process" method="POST" class="space-y-4 hidden">
+                <form id="form-register-en" action="process" method="POST" class="space-y-3 hidden">
                     <input type="hidden" name="action" value="register">
                     <?php echo csrf_field(); ?>
                     <div>
@@ -151,12 +151,12 @@
 
             <!-- ================= RUSSIAN (RU) ================= -->
             <div data-lang="ru" class="hidden">
-                <div class="grid grid-cols-2 p-1 bg-[#061412] rounded-2xl border border-slate-800 mb-6">
+                <div class="grid grid-cols-2 p-1 bg-[#061412] rounded-2xl border border-slate-800 mb-4">
                     <button onclick="switchTab('ru', 'login')" class="tab-login-ru py-2 text-xs font-extrabold rounded-xl transition bg-amber-500 text-slate-950 shadow-md"> Войти </button>
                     <button onclick="switchTab('ru', 'register')" class="tab-reg-ru py-2 text-xs font-bold rounded-xl transition text-slate-400 hover:text-white"> Регистрация </button>
                 </div>
 
-                <form id="form-login-ru" action="process" method="POST" class="space-y-4">
+                <form id="form-login-ru" action="process" method="POST" class="space-y-3">
                     <input type="hidden" name="action" value="login">
                     <?php echo csrf_field(); ?>
                     <div>
@@ -174,7 +174,7 @@
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> Войти → </button>
                 </form>
 
-                <form id="form-register-ru" action="process" method="POST" class="space-y-4 hidden">
+                <form id="form-register-ru" action="process" method="POST" class="space-y-3 hidden">
                     <input type="hidden" name="action" value="register">
                     <?php echo csrf_field(); ?>
                     <div>
@@ -200,12 +200,12 @@
 
             <!-- ================= ARABIC (AR) ================= -->
             <div data-lang="ar" class="hidden">
-                <div class="grid grid-cols-2 p-1 bg-[#061412] rounded-2xl border border-slate-800 mb-6">
+                <div class="grid grid-cols-2 p-1 bg-[#061412] rounded-2xl border border-slate-800 mb-4">
                     <button onclick="switchTab('ar', 'login')" class="tab-login-ar py-2 text-xs font-extrabold rounded-xl transition bg-amber-500 text-slate-950 shadow-md"> تسجيل الدخول </button>
                     <button onclick="switchTab('ar', 'register')" class="tab-reg-ar py-2 text-xs font-bold rounded-xl transition text-slate-400 hover:text-white"> إنشاء حساب </button>
                 </div>
 
-                <form id="form-login-ar" action="process" method="POST" class="space-y-4 text-right">
+                <form id="form-login-ar" action="process" method="POST" class="space-y-3 text-right">
                     <input type="hidden" name="action" value="login">
                     <?php echo csrf_field(); ?>
                     <div>
@@ -223,7 +223,7 @@
                     <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 text-slate-950 font-black py-3.5 rounded-xl text-sm transition shadow-lg shadow-amber-500/20 mt-2"> تسجيل الدخول → </button>
                 </form>
 
-                <form id="form-register-ar" action="process" method="POST" class="space-y-4 hidden text-right">
+                <form id="form-register-ar" action="process" method="POST" class="space-y-3 hidden text-right">
                     <input type="hidden" name="action" value="register">
                     <?php echo csrf_field(); ?>
                     <div>

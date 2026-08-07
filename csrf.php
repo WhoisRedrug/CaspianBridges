@@ -1,4 +1,11 @@
 <?php
+// Bu fayl yalnız daxili require_once/include üçündür.
+// Brauzerdən birbaşa açılmağa çalışılarsa, əsas səhifəyə yönləndirilir.
+if (realpath($_SERVER['SCRIPT_FILENAME'] ?? '') === __FILE__) {
+    header('Location: /');
+    exit;
+}
+
 // CSRF qoruması üçün ortaq köməkçi fayl.
 // Hər forma göstərən səhifədə (login, apply, contact, recovery, reset_password)
 // require_once 'csrf.php'; edib csrf_token() ilə token yaradın və formaya
